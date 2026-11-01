@@ -1,0 +1,167 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,xcolor,longtable}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={The Nobel Brain Drain},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries The Nobel Brain Drain\par}
+\vspace{0.4em}
+{\large Where Nobel laureates were born and where they were working when they won,\\1901 to {{source.y1}}\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: \href{https://doi.org/{{meta.doi}}}{https://doi.org/{{meta.doi}}}\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{quote}
+\small
+\begin{center}\textbf{Abstract}\end{center}
+I compare the birthplaces of Nobel laureates with their affiliations at the time of the award, using the official Nobel Prize API for people, prizes and affiliations and Wikidata for coordinates. Of {{abroad.n|int}} prizes in physics, chemistry, physiology or medicine and economic sciences from 1901 to {{source.y1}} with both a present-day birth country and an affiliation, {{abroad.abroad|int}} ({{abroad.pct|pc}}) went to people working outside their birth country, a share that has stayed between {{abroad.min_dec.pct|pc}} and {{abroad.max_dec.pct|pc}} in every decade. The United States is the only large net gainer: {{us.n|int}} prizes were won by people working there and {{us.born|int}} by people born there, a net gain of {{us.net|int}}; {{us.pct|pc}} of its prizes went to people born abroad, and it received {{us.share_imports|pc}} of all prizes won outside the laureate's birth country. Germany took {{germany.work_share_to1932|pc}} of prizes up to 1932 and {{germany.work_share_since1933|pc}} since 1933; {{germany.early_abroad_pct|pc}} of German-born laureates up to 1932 were working abroad, against {{germany.late_abroad_pct|pc}} since. Japan rose from {{japan.before2000|int}} science laureates in the twentieth century to {{japan.since2000|int}} since 2000, most of them working in Japan. Nine of the ten institutions with most prizes are American. Women won {{women.before1960_pct|f1}}\% of prizes to people before 1960 and {{women.d2020.pct|pc}} in the 2020s so far. Affiliation at the award is not always where the winning work was done, and birth country is not nationality; I report both caveats with the results.
+
+\textbf{Keywords:} Nobel Prize; scientific migration; brain drain; science history; Wikidata; open data; flow maps
+\end{quote}
+
+\section{Introduction}
+Nobel prizes are a famously narrow measure of science, but a well recorded one, and they have long been used to study where scientific excellence is produced and where it moves \citep{zuckerman,schlagberger}. The prizes are claimed by places twice over: by the country where a laureate was born and by the institution where they worked. The gap between the two is a small, visible piece of the history of scientific migration: the European emigration of the 1930s \citep{medawar}, the post-war pull of American universities, and more recent flows from Asia.
+
+The Nobel Prize Outreach organisation publishes an open API that records, for every prize, the laureate's birthplace and their affiliations at the time of the award \citep{nobelapi}. Wikidata adds coordinates for birthplaces and employers \citep{wikidata}. Together they allow a simple, fully reproducible map of every laureate's journey from birthplace to prize, and a country-by-country account of gains and losses. This paper sets out the data and method, then reports the net balance of countries, the role of the United States, Germany before and after 1933, the rise of Japan, the leading institutions, the share of women and the share born abroad over time. It accompanies an interactive map (\url{{{meta.page}}}).
+
+\section{Data}
+\textbf{Nobel Prize API.} The API (version 2.1), retrieved in {{meta.retrieved}}, lists {{source.n_api|int}} laureates, {{source.n_org|int}} of them organisations. For each person it gives a known name, sex, date and place of birth (city and country as named at the time, and as named now, with coordinates for the present-day city where available), and for each prize the year, category, share, motivation and either the affiliations at the time of the award (name, city, country) or, mostly for Peace and Literature, the country of residence. I treat the API as authoritative for names, prizes, years and affiliations. The downloaded file contains no licence statement; I credit Nobel Prize Outreach and note that the terms of use on nobelprize.org should be checked before reusing the derived laureate list.
+
+\textbf{Wikidata.} A query through QLever \citep{qlever} returned {{source.n_wd_rows|int}} rows for {{source.n_wd_people|int}} laureates of the physics, chemistry and medicine prizes, with prize, year, place of birth and its coordinates, and employers (P108) with their coordinates or headquarters coordinates. The affiliation property (P1416) came back empty, so employers are used to place affiliations. Wikidata is CC0.
+
+\textbf{Other sources.} Natural Earth \citep{naturalearth} countries and populated places; and Wikipedia's ``List of Nobel laureates by university affiliation'' (revision {{institutions.wiki_revid}}, CC BY-SA 4.0), used only to cross-check institution counts.
+
+{{TABLE_PIPELINE}}
+
+\section{Methods}
+\subsection{Records and scope}
+The unit is a prize awarded to a person: {{source.n_recs|int}} records for {{source.n_people|int}} people, since {{source.n_multi_prize|int}} people won twice. Organisations are excluded. The flow analysis covers the four prizes for which the API gives affiliations: {{source.n_sci|int}} records, of which {{source.n_sci_noaff|int}} have no affiliation (Marie Curie in 1903, Hayek and Myrdal in 1974 and four others) and {{source.n_sci_nobirth|int}} no birthplace, leaving {{abroad.n|int}} ({{source.sci_flow_pct|pc}}). Peace and Literature laureates are analysed separately by country of residence. Award decades run from the 1900s (1901 to 1909) to the 2020s (2020 to {{source.y1}}).
+
+\subsection{Matching}
+Wikidata people were matched to API records by Wikidata identifier, requiring the same prize and year. All {{source.n_sci3|int}} physics, chemistry and medicine records matched: {{source.n_match_id|int}} by identifier, two by normalised name, prize and year where Wikidata holds a duplicate item. Matching by name alone would have found only {{source.n_match_name|int}}, because the API's known names often differ from Wikidata labels (``Sir Alexander Fleming''). Two Wikidata rows matched nothing: an item without an English label and the fictional laureate Sheldon Cooper.
+
+\subsection{Places and countries}
+Birth and work countries are the API's present-day countries. Birthplaces are placed at Wikidata's coordinates when they lie within 100 km of the API's city point or inside the API's birth country ({{source.n_b_wd|int}} records); otherwise at the API's city point ({{source.n_b_api|int}}), a Natural Earth town of the same name ({{source.n_b_ne|int}}) or the country's label point ({{source.n_b_country|int}}). Where both points exist their median distance is {{source.bw_km_median|f1}} km; the largest disagreements are namesake towns in the API (Cluny in France for John Macleod, born in Cluny, Scotland). {{source.agree_b_pct|pc}} of placed birthplaces fall inside the API's present-day country on Natural Earth outlines.
+
+The primary affiliation is the first the API lists that has a place; the Howard Hughes Medical Institute and the LIGO/VIRGO Collaboration are listed without a city, so the university listed beside them is used. {{source.n_multi_aff|int}} records list several affiliations and {{source.n_multi_cty|int}} list affiliations in more than one country. The affiliation is placed at a Wikidata employer of the same person whose name matches it (similarity, containment or shared distinctive words) and whose point lies within 60 km of the API's city ({{source.n_w_emp|int}} of {{abroad.n|int}}); otherwise at the API's city point ({{source.n_w_api|int}}) or a hand-set point ({{source.n_w_manual|int}}). Table~\ref{tab:methods} summarises the methods; every row of the released data carries them.
+
+{{TABLE_METHODS}}
+
+\subsection{Measures}
+A record is \emph{born abroad} when the birth country differs from the country of the primary affiliation. A country's \emph{net gain} is the number of records affiliated there minus the number born there. For the section on Germany, a laureate is German-born when the API names the birth country at the time of birth as Germany or a German state (Prussia, Bavaria, Mecklenburg and others), whatever the present-day country. Institutions are counted for every listed affiliation, as on the Wikipedia list, with campuses of the University of California kept apart and the Rockefeller Institute counted as Rockefeller University.
+
+\section{Results}
+\subsection{The map}
+Figure~\ref{fig:map} draws every born-abroad record as a curve from birthplace to workplace. The dominant feature is the movement from Europe to the north-eastern United States and California; Figure~\ref{fig:europe} shows the denser web inside Europe. Overall {{abroad.pct|pc}} of records are born abroad. The four subjects are similar: chemistry {{abroad.by_prize.1.pct|pc}}, physics {{abroad.by_prize.0.pct|pc}}, economics {{abroad.by_prize.3.pct|pc}} and medicine {{abroad.by_prize.2.pct|pc}}. Table~\ref{tab:flows} lists the largest country pairs.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_flowmap.png}
+\caption{Born-abroad Nobel laureates in physics, chemistry, medicine and economics, from birthplace to affiliation at the award, coloured by where they won. Grey dots: laureates who won in their birth country. Equal Earth projection.}\label{fig:map}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_europe.png}
+\caption{The same flows around Europe.}\label{fig:europe}\end{figure}
+
+{{TABLE_FLOWS}}
+
+\subsection{Net gain and loss}
+Only {{countries.n_gain|int}} countries have a positive balance (Figure~\ref{fig:net}, Table~\ref{tab:countries}): the United States (+{{us.net|int}}), Switzerland (+{{countries.che.net|int}}), the United Kingdom (+{{countries.gbr.net|int}}), Denmark and Sweden (+1 each). The largest losses are Poland ({{countries.pol.net|int}}), Canada ({{countries.can.net|int}}), and Austria, Hungary, the Netherlands and Russia ({{countries.aut.net|int}} each). Poland's figure is largely a border effect: {{countries.pol_de_then|int}} of its {{countries.pol.born|int}} laureates were born in what was then Germany, and {{countries.pol_de_then_to_de|int}} won in Germany. Germany on present-day borders balances exactly ({{countries.deu.born|int}} born, {{countries.deu.worked|int}} won there). The United Kingdom both sends and receives: {{countries.gbr.left|int}} British-born laureates won abroad, {{countries.gbr.top_dest.0.1|int}} of them in the United States, and {{countries.gbr.arrived|int}} laureates born elsewhere won in Britain.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.86\textwidth]{f_net.png}
+\caption{Net gain or loss by country: records affiliated in a country minus records born there. The United States bar is truncated.}\label{fig:net}\end{figure}
+
+{{TABLE_COUNTRIES}}
+
+\subsection{The United States}
+Germany was the leading country of affiliation in each decade from the 1900s to the 1930s; the United States has led every decade since the 1940s (Figure~\ref{fig:us}). Its share was {{us.pre1940_share|f1}}\% of prizes before 1940 and {{us.since1950_share|f1}}\% since 1950. Of the {{us.n|int}} prizes won in the United States, {{us.abroad|int}} ({{us.pct|pc}}) went to people born in {{us.n_orig|int}} other countries, led by the United Kingdom ({{us.orig.0.1|int}}), Canada ({{us.orig.1.1|int}}), Germany ({{us.orig.2.1|int}}), France ({{us.orig.3.1|int}}) and Japan ({{us.orig.4.1|int}}). The foreign-born share of American prizes peaked in the 1940s ({{abroad.by_dec.4.us_pct|f1}}\%), fell to {{abroad.by_dec.10.us_pct|f1}}\% in the 2000s and rose to {{us.d2010.us_pct|f1}}\% in the 2010s and {{us.d2020.us_pct|f1}}\% in the 2020s so far.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_us.png}
+\caption{Left: share of each decade's prizes won by people working in the United States. Right: share born in another country, for all prizes and for prizes won in the United States.}\label{fig:us}\end{figure}
+
+\subsection{Germany before and after 1933}
+Up to 1932, {{germany.work_to1932|int}} of {{germany.n_to1932|int}} prizes ({{germany.work_share_to1932|f1}}\%) went to people working in Germany; since 1933, {{germany.work_share_since1933|f1}}\% (Figure~\ref{fig:germany}). Among the {{germany.n_then|int}} laureates born in the German lands of the day, {{germany.early_abroad_pct|f1}}\% of those who won up to 1932 ({{germany.early_n|int}}) were working abroad, against {{germany.late_abroad_pct|f1}}\% of those who won from 1933 ({{germany.late_n|int}}). By birth cohort, the share working abroad rises from {{germany.cohorts.0.pct|f1}}\% for those born before 1880 to {{germany.cohorts.1.pct|f1}}\% for those born 1880 to 1909 and {{germany.cohorts.2.pct|f1}}\% for those born 1910 to 1929. {{germany.exiles_n|int}} German-born laureates born 1880 to 1929 won abroad (Table~\ref{tab:germany}), {{germany.exiles_us|int}} in the United States and {{germany.exiles_gbr|int}} in Britain. They include well-known refugees from Nazi Germany, but the data do not record when or why anyone moved, and the list also includes people who emigrated as children or after the war.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_germany.png}
+\caption{Left: share of each decade's prizes won by people working in Germany. Right: laureates born in the German lands of the day, by where they won.}\label{fig:germany}\end{figure}
+
+{{TABLE_GERMANY}}
+
+\subsection{Japan}
+Japan's first laureate was Hideki Yukawa in {{japan.first}}. Japan had {{japan.before2000|int}} science laureates before 2000 and {{japan.since2000|int}} since (Figure~\ref{fig:japan}); since 2000 it is the third most common birth country, with {{japan.since2000_share|f1}}\% of prizes, against {{japan.pre2000_share|f1}}\% before. {{japan.n_abroad|int}} of {{japan.n|int}} Japanese-born laureates won in the United States; the rest won in Japan, at universities and at companies. Yukawa illustrates the limits of affiliation at the award: his meson theory was developed in Japan, but the API lists Columbia University first in 1949.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_japan.png}
+\caption{Japanese-born laureates by award decade and where they were working.}\label{fig:japan}\end{figure}
+
+\subsection{Institutions}
+Counting every listed affiliation, the leading institutions are Harvard University ({{institutions.top.0.n|int}}), MIT ({{institutions.top.1.n|int}}), Stanford ({{institutions.top.2.n|int}}) and the University of California, Berkeley ({{institutions.top.3.n|int}}); {{institutions.top10_us|int}} of the top ten are American (Figure~\ref{fig:uni}). Max Planck and Kaiser Wilhelm institutes together appear in {{institutions.mpg|int}} records. The counts agree exactly with Wikipedia's list for {{institutions.wiki_same|int}} of its top {{institutions.wiki_n|int}} institutions (Table~\ref{tab:wiki}); the rest differ by recent prizes or naming choices.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.86\textwidth]{f_universities.png}
+\caption{Prizes by institution at the time of the award (every listed affiliation counts).}\label{fig:uni}\end{figure}
+
+{{TABLE_WIKI}}
+
+\subsection{Women}
+Women received {{women.n|int}} of {{source.n_recs|int}} prizes to people ({{women.pct|f1}}\%): {{women.before1960|int}} of {{women.before1960_n|int}} before 1960 and {{women.since2000|int}} of {{women.since2000_n|int}} since 2000 (Figure~\ref{fig:women}). In the four sciences the share rose from {{women.sci_before2000_pct|f1}}\% before 2000 to {{women.sci_since2000_pct|f1}}\% since. Physics has {{women.by_cat.0.w|int}} women among {{women.by_cat.0.n|int}} laureates, chemistry {{women.by_cat.1.w|int}} of {{women.by_cat.1.n|int}}, medicine {{women.by_cat.2.w|int}} of {{women.by_cat.2.n|int}}, economics {{women.by_cat.3.w|int}} of {{women.by_cat.3.n|int}}, literature {{women.by_cat.4.w|int}} of {{women.by_cat.4.n|int}} and peace {{women.by_cat.5.w|int}} of {{women.by_cat.5.n|int}}. Women in the flow analysis were born abroad about as often as men ({{women.flow_w_abroad_pct|f1}}\% of {{women.flow_w_n|int}} against {{women.flow_m_abroad_pct|f1}}\%).
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_women.png}
+\caption{Women's share of prizes to people by decade: all six prizes and the four with affiliations.}\label{fig:women}\end{figure}
+
+\subsection{Born abroad over time}
+The share born abroad (Table~\ref{tab:decades}) was {{abroad.d1900.pct|f1}}\% in the 1900s, lowest in the {{abroad.min_dec.dec}}s ({{abroad.min_dec.pct|f1}}\%), highest in the {{abroad.max_dec.dec}}s ({{abroad.max_dec.pct|f1}}\%) and {{abroad.d2020.pct|f1}}\% in the 2020s so far. The stability of the share hides a change of direction: early moves were mostly between European countries, later ones mostly to the United States.
+
+{{TABLE_DECADES}}
+
+\subsection{Peace and Literature}
+The API gives a country of residence at the award for {{peace_lit.placed|int}} of {{peace_lit.n|int}} Peace and Literature laureates. {{peace_lit.pct|f1}}\% of them lived outside their birth country: {{peace_lit.lit|f1}}\% of writers and {{peace_lit.pea|f1}}\% of peace laureates.
+
+\section{Discussion}
+The results restate familiar history in a single, open dataset. Before the 1930s the Nobel map was European and largely German, and movement was mostly between European countries. After 1933 the centre moved to the United States, which since 1950 has hosted most prizes and drawn a third of its laureates from abroad. The German loss appears in the prize record only years later, because prizes typically reward work done long before. Japan stands out as a large late riser that has kept most of its laureates.
+
+The net balance is sensitive to definitions. On present-day borders Germany balances and Poland loses heavily, but most of Poland's loss is Germans born in Silesia and Pomerania. On the API's first affiliation, a laureate holding posts in two countries counts once, though only {{source.n_multi_cty|int}} records are affected.
+
+\section{Limitations}
+First, affiliation at the award is not the place of the prize-winning work, which may be decades earlier. Second, birth country is not nationality or the country of education; many laureates born abroad moved as children. Third, present-day borders reassign historical births. Fourth, the Nobel prizes are a small and selective sample whose committees have their own geographic and gender biases, so the results describe the prize record, not science as a whole. Fifth, placement points are approximate where they fall back to city or country centres, although this affects maps, not country counts. Finally, the API's licence could not be confirmed from the downloaded file.
+
+\section{Conclusion}
+Two open sources are enough to map where every Nobel laureate was born and where they won, and to show that the prize record has one great importer, the United States, and many exporters. The data, code and interactive map are released for reuse and checking.
+
+\section*{Data and code availability}
+The interactive map is at \url{{{meta.page}}}. Data and code are at \url{{{meta.repo}}} and archived with this paper at \url{https://doi.org/{{meta.doi}}}. Derived data, text and figures are released under CC BY 4.0 and code under the MIT licence; Wikidata is CC0, and reuse of the laureate list should follow the Nobel Prize API terms.
+
+\section*{AI statement}
+I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.
+
+\begin{thebibliography}{9}
+\bibitem[Bast and Buchhold(2017)]{qlever} Bast, H. and Buchhold, B. (2017) QLever: a query engine for efficient SPARQL+text search. \emph{Proceedings of the 2017 ACM Conference on Information and Knowledge Management}, 647 to 656.
+\bibitem[Medawar and Pyke(2001)]{medawar} Medawar, J. and Pyke, D. (2001) \emph{Hitler's Gift: Scientists who Fled Nazi Germany}. London: Richard Cohen Books.
+\bibitem[Natural Earth(2026)]{naturalearth} Natural Earth (2026) Admin 0 countries and populated places. Public domain. \url{https://www.naturalearthdata.com/}
+\bibitem[Nobel Prize Outreach(2026)]{nobelapi} Nobel Prize Outreach (2026) Nobel Prize API, version 2.1. \url{https://api.nobelprize.org/}
+\bibitem[Schlagberger et al.(2016)]{schlagberger} Schlagberger, E. M., Bornmann, L. and Bauer, J. (2016) At what institutions did Nobel laureates do their prize-winning work? An analysis of biographical information on Nobel laureates from 1994 to 2014. \emph{Scientometrics}, 109, 723 to 767.
+\bibitem[Vrandečić and Krötzsch(2014)]{wikidata} Vrandečić, D. and Krötzsch, M. (2014) Wikidata: a free collaborative knowledgebase. \emph{Communications of the ACM}, 57(10), 78 to 85.
+\bibitem[Zuckerman(1977)]{zuckerman} Zuckerman, H. (1977) \emph{Scientific Elite: Nobel Laureates in the United States}. New York: Free Press.
+\end{thebibliography}
+\end{document}

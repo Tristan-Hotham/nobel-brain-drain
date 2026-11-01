@@ -1,0 +1,6618 @@
+{
+ "meta": {
+  "page": "https://maps.tristanhotham.com/nobel-brain-drain/",
+  "repo": "https://github.com/Tristan-Hotham/nobel-brain-drain",
+  "doi": "10.5281/zenodo.23857487",
+  "blog": "https://blog.tristanhotham.com/2026/10/31/nobel-brain-drain/",
+  "retrieved": "2026",
+  "slug": "nobel-brain-drain"
+ },
+ "source": {
+  "n_api": 1028,
+  "n_org": 28,
+  "n_org_prizes": 31,
+  "n_recs": 1005,
+  "n_people": 1000,
+  "n_wd_rows": 2075,
+  "n_wd_people": 666,
+  "n_sci3": 668,
+  "n_match_id": 666,
+  "n_match_name": 492,
+  "n_match_both": 490,
+  "n_match_any": 668,
+  "n_wd_unmatched": 2,
+  "wd_unmatched": [
+   "",
+   "Sheldon Cooper"
+  ],
+  "n_flow": 760,
+  "n_sci": 769,
+  "n_pl": 236,
+  "n_sci_noaff": 7,
+  "sci_noaff": [
+   "Friedrich von Hayek (Economic Sciences, 1974)",
+   "Gunnar Myrdal (Economic Sciences, 1974)",
+   "J. Robin Warren (Physiology or Medicine, 2005)",
+   "Kary B. Mullis (Chemistry, 1993)",
+   "Marie Curie (Physics, 1903)",
+   "Martinus J.G. Veltman (Physics, 1999)",
+   "William Knowles (Chemistry, 2001)"
+  ],
+  "n_sci_nobirth": 2,
+  "sci_nobirth": [
+   "James A. Robinson",
+   "John M. Martinis"
+  ],
+  "n_people_flow": 757,
+  "y0": 1901,
+  "y1": 2026,
+  "n_women": 70,
+  "n_multi_prize": 5,
+  "how_b": {
+   "api_city": 332,
+   "wikidata": 664,
+   "null": 2,
+   "country": 6,
+   "api_city_wikidata_elsewhere": 2,
+   "ne_city": 1
+  },
+  "how_w": {
+   "api_city": 289,
+   "wikidata_employer": 475,
+   "null": 15,
+   "residence_country": 219,
+   "manual": 2,
+   "residence_city": 5
+  },
+  "agree_b": {
+   "same": 989,
+   "different": 7
+  },
+  "agree_w": {
+   "same": 766
+  },
+  "bw_km_median": 0.5,
+  "bw_n": 647,
+  "n_b_wd": 664,
+  "n_b_api": 334,
+  "n_b_country": 6,
+  "n_b_ne": 1,
+  "n_b_none": 2,
+  "n_w_emp": 474,
+  "n_w_api": 284,
+  "n_w_manual": 2,
+  "n_w_ne": 0,
+  "n_w_country": 0,
+  "w_emp_pct": 62.37,
+  "n_multi_aff": 83,
+  "n_multi_cty": 19,
+  "agree_b_pct": 99.3,
+  "sci_flow_pct": 98.83
+ },
+ "abroad": {
+  "n": 760,
+  "abroad": 237,
+  "pct": 31.18,
+  "by_dec": [
+   {
+    "dec": 1900,
+    "n": 32,
+    "abroad": 12,
+    "pct": 37.5,
+    "us_n": 1,
+    "us_abroad": 1,
+    "us_pct": 100.0,
+    "us_share": 3.12
+   },
+   {
+    "dec": 1910,
+    "n": 24,
+    "abroad": 7,
+    "pct": 29.17,
+    "us_n": 2,
+    "us_abroad": 1,
+    "us_pct": 50.0,
+    "us_share": 8.33
+   },
+   {
+    "dec": 1920,
+    "n": 33,
+    "abroad": 8,
+    "pct": 24.24,
+    "us_n": 2,
+    "us_abroad": 0,
+    "us_pct": 0.0,
+    "us_share": 6.06
+   },
+   {
+    "dec": 1930,
+    "n": 38,
+    "abroad": 9,
+    "pct": 23.68,
+    "us_n": 10,
+    "us_abroad": 1,
+    "us_pct": 10.0,
+    "us_share": 26.32
+   },
+   {
+    "dec": 1940,
+    "n": 30,
+    "abroad": 10,
+    "pct": 33.33,
+    "us_n": 15,
+    "us_abroad": 7,
+    "us_pct": 46.67,
+    "us_share": 50.0
+   },
+   {
+    "dec": 1950,
+    "n": 54,
+    "abroad": 17,
+    "pct": 31.48,
+    "us_n": 30,
+    "us_abroad": 12,
+    "us_pct": 40.0,
+    "us_share": 55.56
+   },
+   {
+    "dec": 1960,
+    "n": 59,
+    "abroad": 17,
+    "pct": 28.81,
+    "us_n": 28,
+    "us_abroad": 10,
+    "us_pct": 35.71,
+    "us_share": 47.46
+   },
+   {
+    "dec": 1970,
+    "n": 78,
+    "abroad": 25,
+    "pct": 32.05,
+    "us_n": 44,
+    "us_abroad": 13,
+    "us_pct": 29.55,
+    "us_share": 56.41
+   },
+   {
+    "dec": 1980,
+    "n": 76,
+    "abroad": 26,
+    "pct": 34.21,
+    "us_n": 46,
+    "us_abroad": 15,
+    "us_pct": 32.61,
+    "us_share": 60.53
+   },
+   {
+    "dec": 1990,
+    "n": 75,
+    "abroad": 24,
+    "pct": 32.0,
+    "us_n": 57,
+    "us_abroad": 18,
+    "us_pct": 31.58,
+    "us_share": 76.0
+   },
+   {
+    "dec": 2000,
+    "n": 97,
+    "abroad": 26,
+    "pct": 26.8,
+    "us_n": 67,
+    "us_abroad": 19,
+    "us_pct": 28.36,
+    "us_share": 69.07
+   },
+   {
+    "dec": 2010,
+    "n": 97,
+    "abroad": 32,
+    "pct": 32.99,
+    "us_n": 58,
+    "us_abroad": 22,
+    "us_pct": 37.93,
+    "us_share": 59.79
+   },
+   {
+    "dec": 2020,
+    "n": 67,
+    "abroad": 24,
+    "pct": 35.82,
+    "us_n": 42,
+    "us_abroad": 16,
+    "us_pct": 38.1,
+    "us_share": 62.69
+   }
+  ],
+  "by_prize": [
+   {
+    "cat": "Physics",
+    "short": "Physics",
+    "n": 228,
+    "abroad": 74,
+    "pct": 32.46
+   },
+   {
+    "cat": "Chemistry",
+    "short": "Chemistry",
+    "n": 200,
+    "abroad": 67,
+    "pct": 33.5
+   },
+   {
+    "cat": "Physiology or Medicine",
+    "short": "Medicine",
+    "n": 234,
+    "abroad": 66,
+    "pct": 28.21
+   },
+   {
+    "cat": "Economic Sciences",
+    "short": "Economics",
+    "n": 98,
+    "abroad": 30,
+    "pct": 30.61
+   }
+  ],
+  "pre1940_pct": 28.35,
+  "since2000_pct": 31.42,
+  "d1900": {
+   "dec": 1900,
+   "n": 32,
+   "abroad": 12,
+   "pct": 37.5,
+   "us_n": 1,
+   "us_abroad": 1,
+   "us_pct": 100.0,
+   "us_share": 3.12
+  },
+  "d2020": {
+   "dec": 2020,
+   "n": 67,
+   "abroad": 24,
+   "pct": 35.82,
+   "us_n": 42,
+   "us_abroad": 16,
+   "us_pct": 38.1,
+   "us_share": 62.69
+  },
+  "d2000": {
+   "dec": 2000,
+   "n": 97,
+   "abroad": 26,
+   "pct": 26.8,
+   "us_n": 67,
+   "us_abroad": 19,
+   "us_pct": 28.36,
+   "us_share": 69.07
+  },
+  "d2010": {
+   "dec": 2010,
+   "n": 97,
+   "abroad": 32,
+   "pct": 32.99,
+   "us_n": 58,
+   "us_abroad": 22,
+   "us_pct": 37.93,
+   "us_share": 59.79
+  },
+  "max_dec": {
+   "dec": 1900,
+   "n": 32,
+   "abroad": 12,
+   "pct": 37.5,
+   "us_n": 1,
+   "us_abroad": 1,
+   "us_pct": 100.0,
+   "us_share": 3.12
+  },
+  "min_dec": {
+   "dec": 1930,
+   "n": 38,
+   "abroad": 9,
+   "pct": 23.68,
+   "us_n": 10,
+   "us_abroad": 1,
+   "us_pct": 10.0,
+   "us_share": 26.32
+  }
+ },
+ "countries": {
+  "n_born": 56,
+  "n_worked": 27,
+  "gain": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "cont": "North America",
+    "born": 271,
+    "worked": 402,
+    "stayed": 267,
+    "left": 4,
+    "arrived": 135,
+    "net": 131,
+    "left_pct": 1.48,
+    "arrived_pct": 33.58,
+    "top_dest": [
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Denmark",
+      1,
+      "DNK"
+     ],
+     [
+      "Australia",
+      1,
+      "AUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United Kingdom",
+      20,
+      "GBR"
+     ],
+     [
+      "Canada",
+      15,
+      "CAN"
+     ],
+     [
+      "Germany",
+      12,
+      "DEU"
+     ],
+     [
+      "France",
+      8,
+      "FRA"
+     ],
+     [
+      "Japan",
+      7,
+      "JPN"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 9,
+     "1940": 8,
+     "1950": 18,
+     "1960": 18,
+     "1970": 32,
+     "1980": 31,
+     "1990": 39,
+     "2000": 48,
+     "2010": 38,
+     "2020": 27
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 2,
+     "1930": 10,
+     "1940": 15,
+     "1950": 30,
+     "1960": 28,
+     "1970": 44,
+     "1980": 46,
+     "1990": 57,
+     "2000": 67,
+     "2010": 58,
+     "2020": 42
+    }
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "cont": "Europe",
+    "born": 15,
+    "worked": 24,
+    "stayed": 12,
+    "left": 3,
+    "arrived": 12,
+    "net": 9,
+    "left_pct": 20.0,
+    "arrived_pct": 50.0,
+    "top_dest": [
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Italy",
+      1,
+      "ITA"
+     ],
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Germany",
+      4,
+      "DEU"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Italy",
+      1,
+      "ITA"
+     ],
+     [
+      "Croatia",
+      1,
+      "HRV"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1920": 1,
+     "1940": 2,
+     "1950": 2,
+     "1970": 1,
+     "1980": 2,
+     "1990": 2,
+     "2000": 1,
+     "2010": 3
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 1,
+     "1930": 2,
+     "1940": 2,
+     "1950": 1,
+     "1970": 2,
+     "1980": 9,
+     "1990": 2,
+     "2000": 1,
+     "2010": 3
+    }
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "cont": "Europe",
+    "born": 93,
+    "worked": 95,
+    "stayed": 67,
+    "left": 26,
+    "arrived": 28,
+    "net": 2,
+    "left_pct": 27.96,
+    "arrived_pct": 29.47,
+    "top_dest": [
+     [
+      "United States",
+      20,
+      "USA"
+     ],
+     [
+      "Canada",
+      4,
+      "CAN"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ],
+     [
+      "Australia",
+      1,
+      "AUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "India",
+      3,
+      "IND"
+     ],
+     [
+      "Germany",
+      3,
+      "DEU"
+     ],
+     [
+      "Australia",
+      3,
+      "AUS"
+     ],
+     [
+      "Russia",
+      2,
+      "RUS"
+     ],
+     [
+      "New Zealand",
+      2,
+      "NZL"
+     ]
+    ],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 8,
+     "1930": 7,
+     "1940": 4,
+     "1950": 8,
+     "1960": 7,
+     "1970": 12,
+     "1980": 5,
+     "1990": 7,
+     "2000": 9,
+     "2010": 13,
+     "2020": 8
+    },
+    "dec_w": {
+     "1900": 6,
+     "1910": 3,
+     "1920": 7,
+     "1930": 7,
+     "1940": 6,
+     "1950": 9,
+     "1960": 11,
+     "1970": 15,
+     "1980": 6,
+     "1990": 4,
+     "2000": 7,
+     "2010": 11,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "cont": "Europe",
+    "born": 8,
+    "worked": 9,
+    "stayed": 8,
+    "left": 0,
+    "arrived": 1,
+    "net": 1,
+    "left_pct": 0.0,
+    "arrived_pct": 11.11,
+    "top_dest": [],
+    "top_orig": [
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1920": 3,
+     "1940": 1,
+     "1970": 1,
+     "1990": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1920": 3,
+     "1940": 1,
+     "1970": 2,
+     "1990": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "cont": "Europe",
+    "born": 17,
+    "worked": 18,
+    "stayed": 14,
+    "left": 3,
+    "arrived": 4,
+    "net": 1,
+    "left_pct": 17.65,
+    "arrived_pct": 22.22,
+    "top_dest": [
+     [
+      "Germany",
+      1,
+      "DEU"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Hungary",
+      1,
+      "HUN"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ],
+     [
+      "Finland",
+      1,
+      "FIN"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 2,
+     "1940": 1,
+     "1950": 1,
+     "1970": 3,
+     "1980": 4,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 3,
+     "1940": 2,
+     "1950": 1,
+     "1960": 1,
+     "1970": 3,
+     "1980": 3,
+     "2000": 1,
+     "2020": 1
+    }
+   }
+  ],
+  "loss": [
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "cont": "Europe",
+    "born": 19,
+    "worked": 0,
+    "stayed": 0,
+    "left": 19,
+    "arrived": 0,
+    "net": -19,
+    "left_pct": 100.0,
+    "arrived_pct": null,
+    "top_dest": [
+     [
+      "Germany",
+      9,
+      "DEU"
+     ],
+     [
+      "United States",
+      6,
+      "USA"
+     ],
+     [
+      "France",
+      2,
+      "FRA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 1,
+     "1930": 2,
+     "1940": 2,
+     "1950": 3,
+     "1960": 2,
+     "1980": 1,
+     "1990": 3
+    },
+    "dec_w": {}
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "cont": "North America",
+    "born": 19,
+    "worked": 10,
+    "stayed": 4,
+    "left": 15,
+    "arrived": 6,
+    "net": -9,
+    "left_pct": 78.95,
+    "arrived_pct": 60.0,
+    "top_dest": [
+     [
+      "United States",
+      15,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United Kingdom",
+      4,
+      "GBR"
+     ],
+     [
+      "Germany",
+      2,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1920": 1,
+     "1940": 1,
+     "1960": 1,
+     "1980": 3,
+     "1990": 6,
+     "2000": 1,
+     "2010": 4,
+     "2020": 2
+    },
+    "dec_w": {
+     "1920": 2,
+     "1970": 1,
+     "1980": 1,
+     "1990": 2,
+     "2010": 2,
+     "2020": 2
+    }
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "cont": "Europe",
+    "born": 15,
+    "worked": 7,
+    "stayed": 5,
+    "left": 10,
+    "arrived": 2,
+    "net": -8,
+    "left_pct": 66.67,
+    "arrived_pct": 28.57,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Germany",
+      4,
+      "DEU"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Slovenia",
+      1,
+      "SVN"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 4,
+     "1940": 1,
+     "1960": 1,
+     "1970": 2,
+     "1990": 1,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 2,
+     "1970": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "cont": "Europe",
+    "born": 10,
+    "worked": 2,
+    "stayed": 2,
+    "left": 8,
+    "arrived": 0,
+    "net": -8,
+    "left_pct": 80.0,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Israel",
+      1,
+      "ISR"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1930": 1,
+     "1940": 1,
+     "1960": 2,
+     "1970": 1,
+     "1990": 2,
+     "2000": 1,
+     "2020": 2
+    },
+    "dec_w": {
+     "1930": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "cont": "Europe",
+    "born": 18,
+    "worked": 10,
+    "stayed": 9,
+    "left": 9,
+    "arrived": 1,
+    "net": -8,
+    "left_pct": 50.0,
+    "arrived_pct": 10.0,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Germany",
+      3,
+      "DEU"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Indonesia",
+      1,
+      "IDN"
+     ]
+    ],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 1,
+     "1930": 1,
+     "1950": 1,
+     "1960": 1,
+     "1970": 2,
+     "1980": 2,
+     "1990": 2,
+     "2010": 1,
+     "2020": 2
+    },
+    "dec_w": {
+     "1900": 2,
+     "1910": 2,
+     "1920": 2,
+     "1950": 1,
+     "1960": 1,
+     "1990": 1,
+     "2010": 1
+    }
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "cont": "Europe",
+    "born": 20,
+    "worked": 12,
+    "stayed": 9,
+    "left": 11,
+    "arrived": 3,
+    "net": -8,
+    "left_pct": 55.0,
+    "arrived_pct": 25.0,
+    "top_dest": [
+     [
+      "United States",
+      5,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Germany",
+      2,
+      "DEU"
+     ],
+     [
+      "Belgium",
+      1,
+      "BEL"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Australia",
+      1,
+      "AUS"
+     ],
+     [
+      "Azerbaijan",
+      1,
+      "AZE"
+     ],
+     [
+      "Belarus",
+      1,
+      "BLR"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1910": 2,
+     "1930": 1,
+     "1950": 5,
+     "1960": 1,
+     "1970": 4,
+     "2000": 3,
+     "2010": 2,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1950": 4,
+     "1960": 3,
+     "1970": 2,
+     "2000": 2
+    }
+   },
+   {
+    "iso": "CHN",
+    "name": "China",
+    "cont": "Asia",
+    "born": 8,
+    "worked": 1,
+    "stayed": 1,
+    "left": 7,
+    "arrived": 0,
+    "net": -7,
+    "left_pct": 87.5,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      6,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1950": 3,
+     "1990": 2,
+     "2000": 1,
+     "2010": 2
+    },
+    "dec_w": {
+     "2010": 1
+    }
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "cont": "Asia",
+    "born": 27,
+    "worked": 20,
+    "stayed": 20,
+    "left": 7,
+    "arrived": 0,
+    "net": -7,
+    "left_pct": 25.93,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      7,
+      "USA"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1940": 1,
+     "1960": 1,
+     "1970": 1,
+     "1980": 2,
+     "2000": 8,
+     "2010": 10,
+     "2020": 4
+    },
+    "dec_w": {
+     "1960": 1,
+     "1980": 1,
+     "2000": 6,
+     "2010": 9,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "cont": "Europe",
+    "born": 13,
+    "worked": 7,
+    "stayed": 5,
+    "left": 8,
+    "arrived": 2,
+    "net": -6,
+    "left_pct": 61.54,
+    "arrived_pct": 28.57,
+    "top_dest": [
+     [
+      "United States",
+      5,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Pakistan",
+      1,
+      "PAK"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "dec_b": {
+     "1900": 2,
+     "1930": 1,
+     "1950": 1,
+     "1960": 2,
+     "1970": 1,
+     "1980": 3,
+     "2000": 2,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1930": 1,
+     "1950": 1,
+     "1960": 1,
+     "1970": 1,
+     "1980": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "IND",
+    "name": "India",
+    "cont": "Asia",
+    "born": 6,
+    "worked": 1,
+    "stayed": 1,
+    "left": 5,
+    "arrived": 0,
+    "net": -5,
+    "left_pct": 83.33,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United Kingdom",
+      3,
+      "GBR"
+     ],
+     [
+      "United States",
+      2,
+      "USA"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1900": 1,
+     "1930": 1,
+     "1960": 1,
+     "1990": 1,
+     "2000": 1,
+     "2010": 1
+    },
+    "dec_w": {
+     "1930": 1
+    }
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "cont": "Oceania",
+    "born": 9,
+    "worked": 5,
+    "stayed": 3,
+    "left": 6,
+    "arrived": 2,
+    "net": -4,
+    "left_pct": 66.67,
+    "arrived_pct": 40.0,
+    "top_dest": [
+     [
+      "United Kingdom",
+      3,
+      "GBR"
+     ],
+     [
+      "United States",
+      2,
+      "USA"
+     ],
+     [
+      "Russia",
+      1,
+      "RUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United States",
+      1,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1940": 1,
+     "1960": 3,
+     "1970": 1,
+     "1990": 1,
+     "2000": 2
+    },
+    "dec_w": {
+     "1960": 2,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "ZAF",
+    "name": "South Africa",
+    "cont": "Africa",
+    "born": 4,
+    "worked": 0,
+    "stayed": 0,
+    "left": 4,
+    "arrived": 0,
+    "net": -4,
+    "left_pct": 100.0,
+    "arrived_pct": null,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1950": 1,
+     "1970": 1,
+     "2000": 1,
+     "2010": 1
+    },
+    "dec_w": {}
+   },
+   {
+    "iso": "CZE",
+    "name": "Czech Republic",
+    "cont": "Europe",
+    "born": 4,
+    "worked": 1,
+    "stayed": 1,
+    "left": 3,
+    "arrived": 0,
+    "net": -3,
+    "left_pct": 75.0,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      2,
+      "USA"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1940": 2,
+     "1950": 1,
+     "2000": 1
+    },
+    "dec_w": {
+     "1950": 1
+    }
+   },
+   {
+    "iso": "NZL",
+    "name": "New Zealand",
+    "cont": "Oceania",
+    "born": 3,
+    "worked": 0,
+    "stayed": 0,
+    "left": 3,
+    "arrived": 0,
+    "net": -3,
+    "left_pct": 100.0,
+    "arrived_pct": null,
+    "top_dest": [
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1900": 1,
+     "1960": 1,
+     "2000": 1
+    },
+    "dec_w": {}
+   },
+   {
+    "iso": "NOR",
+    "name": "Norway",
+    "cont": "Europe",
+    "born": 8,
+    "worked": 5,
+    "stayed": 5,
+    "left": 3,
+    "arrived": 0,
+    "net": -3,
+    "left_pct": 37.5,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      3,
+      "USA"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1960": 3,
+     "1970": 1,
+     "1980": 1,
+     "2000": 1,
+     "2010": 2
+    },
+    "dec_w": {
+     "1960": 2,
+     "1980": 1,
+     "2010": 2
+    }
+   }
+  ],
+  "n_gain": 5,
+  "n_loss": 46,
+  "n_even": 5,
+  "top_born": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "cont": "North America",
+    "born": 271,
+    "worked": 402,
+    "stayed": 267,
+    "left": 4,
+    "arrived": 135,
+    "net": 131,
+    "left_pct": 1.48,
+    "arrived_pct": 33.58,
+    "top_dest": [
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Denmark",
+      1,
+      "DNK"
+     ],
+     [
+      "Australia",
+      1,
+      "AUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United Kingdom",
+      20,
+      "GBR"
+     ],
+     [
+      "Canada",
+      15,
+      "CAN"
+     ],
+     [
+      "Germany",
+      12,
+      "DEU"
+     ],
+     [
+      "France",
+      8,
+      "FRA"
+     ],
+     [
+      "Japan",
+      7,
+      "JPN"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 9,
+     "1940": 8,
+     "1950": 18,
+     "1960": 18,
+     "1970": 32,
+     "1980": 31,
+     "1990": 39,
+     "2000": 48,
+     "2010": 38,
+     "2020": 27
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 2,
+     "1930": 10,
+     "1940": 15,
+     "1950": 30,
+     "1960": 28,
+     "1970": 44,
+     "1980": 46,
+     "1990": 57,
+     "2000": 67,
+     "2010": 58,
+     "2020": 42
+    }
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "cont": "Europe",
+    "born": 93,
+    "worked": 95,
+    "stayed": 67,
+    "left": 26,
+    "arrived": 28,
+    "net": 2,
+    "left_pct": 27.96,
+    "arrived_pct": 29.47,
+    "top_dest": [
+     [
+      "United States",
+      20,
+      "USA"
+     ],
+     [
+      "Canada",
+      4,
+      "CAN"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ],
+     [
+      "Australia",
+      1,
+      "AUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "India",
+      3,
+      "IND"
+     ],
+     [
+      "Germany",
+      3,
+      "DEU"
+     ],
+     [
+      "Australia",
+      3,
+      "AUS"
+     ],
+     [
+      "Russia",
+      2,
+      "RUS"
+     ],
+     [
+      "New Zealand",
+      2,
+      "NZL"
+     ]
+    ],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 8,
+     "1930": 7,
+     "1940": 4,
+     "1950": 8,
+     "1960": 7,
+     "1970": 12,
+     "1980": 5,
+     "1990": 7,
+     "2000": 9,
+     "2010": 13,
+     "2020": 8
+    },
+    "dec_w": {
+     "1900": 6,
+     "1910": 3,
+     "1920": 7,
+     "1930": 7,
+     "1940": 6,
+     "1950": 9,
+     "1960": 11,
+     "1970": 15,
+     "1980": 6,
+     "1990": 4,
+     "2000": 7,
+     "2010": 11,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "cont": "Europe",
+    "born": 74,
+    "worked": 74,
+    "stayed": 49,
+    "left": 25,
+    "arrived": 25,
+    "net": 0,
+    "left_pct": 33.78,
+    "arrived_pct": 33.78,
+    "top_dest": [
+     [
+      "United States",
+      12,
+      "USA"
+     ],
+     [
+      "Switzerland",
+      4,
+      "CHE"
+     ],
+     [
+      "United Kingdom",
+      3,
+      "GBR"
+     ],
+     [
+      "Canada",
+      2,
+      "CAN"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Poland",
+      9,
+      "POL"
+     ],
+     [
+      "Austria",
+      4,
+      "AUT"
+     ],
+     [
+      "Netherlands",
+      3,
+      "NLD"
+     ],
+     [
+      "Russia",
+      2,
+      "RUS"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ]
+    ],
+    "dec_b": {
+     "1900": 6,
+     "1910": 5,
+     "1920": 7,
+     "1930": 7,
+     "1940": 2,
+     "1950": 6,
+     "1960": 6,
+     "1970": 5,
+     "1980": 11,
+     "1990": 4,
+     "2000": 6,
+     "2010": 4,
+     "2020": 5
+    },
+    "dec_w": {
+     "1900": 10,
+     "1910": 8,
+     "1920": 8,
+     "1930": 11,
+     "1940": 1,
+     "1950": 5,
+     "1960": 5,
+     "1970": 3,
+     "1980": 5,
+     "1990": 5,
+     "2000": 4,
+     "2010": 1,
+     "2020": 8
+    }
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "cont": "Europe",
+    "born": 42,
+    "worked": 40,
+    "stayed": 29,
+    "left": 13,
+    "arrived": 11,
+    "net": -2,
+    "left_pct": 30.95,
+    "arrived_pct": 27.5,
+    "top_dest": [
+     [
+      "United States",
+      8,
+      "USA"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ],
+     [
+      "Sweden",
+      1,
+      "SWE"
+     ],
+     [
+      "Tunisia",
+      1,
+      "TUN"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Luxembourg",
+      2,
+      "LUX"
+     ],
+     [
+      "Poland",
+      2,
+      "POL"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ],
+     [
+      "Algeria",
+      1,
+      "DZA"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1900": 4,
+     "1910": 5,
+     "1920": 3,
+     "1930": 2,
+     "1950": 1,
+     "1960": 5,
+     "1970": 3,
+     "1980": 4,
+     "1990": 1,
+     "2000": 3,
+     "2010": 4,
+     "2020": 7
+    },
+    "dec_w": {
+     "1900": 7,
+     "1910": 4,
+     "1920": 3,
+     "1930": 2,
+     "1960": 4,
+     "1970": 1,
+     "1980": 3,
+     "1990": 3,
+     "2000": 4,
+     "2010": 6,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "cont": "Asia",
+    "born": 27,
+    "worked": 20,
+    "stayed": 20,
+    "left": 7,
+    "arrived": 0,
+    "net": -7,
+    "left_pct": 25.93,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      7,
+      "USA"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1940": 1,
+     "1960": 1,
+     "1970": 1,
+     "1980": 2,
+     "2000": 8,
+     "2010": 10,
+     "2020": 4
+    },
+    "dec_w": {
+     "1960": 1,
+     "1980": 1,
+     "2000": 6,
+     "2010": 9,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "cont": "Europe",
+    "born": 20,
+    "worked": 12,
+    "stayed": 9,
+    "left": 11,
+    "arrived": 3,
+    "net": -8,
+    "left_pct": 55.0,
+    "arrived_pct": 25.0,
+    "top_dest": [
+     [
+      "United States",
+      5,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Germany",
+      2,
+      "DEU"
+     ],
+     [
+      "Belgium",
+      1,
+      "BEL"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Australia",
+      1,
+      "AUS"
+     ],
+     [
+      "Azerbaijan",
+      1,
+      "AZE"
+     ],
+     [
+      "Belarus",
+      1,
+      "BLR"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1910": 2,
+     "1930": 1,
+     "1950": 5,
+     "1960": 1,
+     "1970": 4,
+     "2000": 3,
+     "2010": 2,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1950": 4,
+     "1960": 3,
+     "1970": 2,
+     "2000": 2
+    }
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "cont": "North America",
+    "born": 19,
+    "worked": 10,
+    "stayed": 4,
+    "left": 15,
+    "arrived": 6,
+    "net": -9,
+    "left_pct": 78.95,
+    "arrived_pct": 60.0,
+    "top_dest": [
+     [
+      "United States",
+      15,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United Kingdom",
+      4,
+      "GBR"
+     ],
+     [
+      "Germany",
+      2,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1920": 1,
+     "1940": 1,
+     "1960": 1,
+     "1980": 3,
+     "1990": 6,
+     "2000": 1,
+     "2010": 4,
+     "2020": 2
+    },
+    "dec_w": {
+     "1920": 2,
+     "1970": 1,
+     "1980": 1,
+     "1990": 2,
+     "2010": 2,
+     "2020": 2
+    }
+   },
+   {
+    "iso": "POL",
+    "name": "Poland",
+    "cont": "Europe",
+    "born": 19,
+    "worked": 0,
+    "stayed": 0,
+    "left": 19,
+    "arrived": 0,
+    "net": -19,
+    "left_pct": 100.0,
+    "arrived_pct": null,
+    "top_dest": [
+     [
+      "Germany",
+      9,
+      "DEU"
+     ],
+     [
+      "United States",
+      6,
+      "USA"
+     ],
+     [
+      "France",
+      2,
+      "FRA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 1,
+     "1930": 2,
+     "1940": 2,
+     "1950": 3,
+     "1960": 2,
+     "1980": 1,
+     "1990": 3
+    },
+    "dec_w": {}
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "cont": "Europe",
+    "born": 18,
+    "worked": 10,
+    "stayed": 9,
+    "left": 9,
+    "arrived": 1,
+    "net": -8,
+    "left_pct": 50.0,
+    "arrived_pct": 10.0,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Germany",
+      3,
+      "DEU"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Indonesia",
+      1,
+      "IDN"
+     ]
+    ],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 1,
+     "1930": 1,
+     "1950": 1,
+     "1960": 1,
+     "1970": 2,
+     "1980": 2,
+     "1990": 2,
+     "2010": 1,
+     "2020": 2
+    },
+    "dec_w": {
+     "1900": 2,
+     "1910": 2,
+     "1920": 2,
+     "1950": 1,
+     "1960": 1,
+     "1990": 1,
+     "2010": 1
+    }
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "cont": "Europe",
+    "born": 17,
+    "worked": 18,
+    "stayed": 14,
+    "left": 3,
+    "arrived": 4,
+    "net": 1,
+    "left_pct": 17.65,
+    "arrived_pct": 22.22,
+    "top_dest": [
+     [
+      "Germany",
+      1,
+      "DEU"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Hungary",
+      1,
+      "HUN"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ],
+     [
+      "Finland",
+      1,
+      "FIN"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 2,
+     "1940": 1,
+     "1950": 1,
+     "1970": 3,
+     "1980": 4,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 3,
+     "1940": 2,
+     "1950": 1,
+     "1960": 1,
+     "1970": 3,
+     "1980": 3,
+     "2000": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "cont": "Europe",
+    "born": 15,
+    "worked": 24,
+    "stayed": 12,
+    "left": 3,
+    "arrived": 12,
+    "net": 9,
+    "left_pct": 20.0,
+    "arrived_pct": 50.0,
+    "top_dest": [
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Italy",
+      1,
+      "ITA"
+     ],
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Germany",
+      4,
+      "DEU"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Italy",
+      1,
+      "ITA"
+     ],
+     [
+      "Croatia",
+      1,
+      "HRV"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1920": 1,
+     "1940": 2,
+     "1950": 2,
+     "1970": 1,
+     "1980": 2,
+     "1990": 2,
+     "2000": 1,
+     "2010": 3
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 1,
+     "1930": 2,
+     "1940": 2,
+     "1950": 1,
+     "1970": 2,
+     "1980": 9,
+     "1990": 2,
+     "2000": 1,
+     "2010": 3
+    }
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "cont": "Europe",
+    "born": 15,
+    "worked": 7,
+    "stayed": 5,
+    "left": 10,
+    "arrived": 2,
+    "net": -8,
+    "left_pct": 66.67,
+    "arrived_pct": 28.57,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Germany",
+      4,
+      "DEU"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Slovenia",
+      1,
+      "SVN"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 4,
+     "1940": 1,
+     "1960": 1,
+     "1970": 2,
+     "1990": 1,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 2,
+     "1970": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "cont": "Europe",
+    "born": 13,
+    "worked": 7,
+    "stayed": 5,
+    "left": 8,
+    "arrived": 2,
+    "net": -6,
+    "left_pct": 61.54,
+    "arrived_pct": 28.57,
+    "top_dest": [
+     [
+      "United States",
+      5,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Pakistan",
+      1,
+      "PAK"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "dec_b": {
+     "1900": 2,
+     "1930": 1,
+     "1950": 1,
+     "1960": 2,
+     "1970": 1,
+     "1980": 3,
+     "2000": 2,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1930": 1,
+     "1950": 1,
+     "1960": 1,
+     "1970": 1,
+     "1980": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "HUN",
+    "name": "Hungary",
+    "cont": "Europe",
+    "born": 10,
+    "worked": 2,
+    "stayed": 2,
+    "left": 8,
+    "arrived": 0,
+    "net": -8,
+    "left_pct": 80.0,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Israel",
+      1,
+      "ISR"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1930": 1,
+     "1940": 1,
+     "1960": 2,
+     "1970": 1,
+     "1990": 2,
+     "2000": 1,
+     "2020": 2
+    },
+    "dec_w": {
+     "1930": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "AUS",
+    "name": "Australia",
+    "cont": "Oceania",
+    "born": 9,
+    "worked": 5,
+    "stayed": 3,
+    "left": 6,
+    "arrived": 2,
+    "net": -4,
+    "left_pct": 66.67,
+    "arrived_pct": 40.0,
+    "top_dest": [
+     [
+      "United Kingdom",
+      3,
+      "GBR"
+     ],
+     [
+      "United States",
+      2,
+      "USA"
+     ],
+     [
+      "Russia",
+      1,
+      "RUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United States",
+      1,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1940": 1,
+     "1960": 3,
+     "1970": 1,
+     "1990": 1,
+     "2000": 2
+    },
+    "dec_w": {
+     "1960": 2,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    }
+   }
+  ],
+  "top_worked": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "cont": "North America",
+    "born": 271,
+    "worked": 402,
+    "stayed": 267,
+    "left": 4,
+    "arrived": 135,
+    "net": 131,
+    "left_pct": 1.48,
+    "arrived_pct": 33.58,
+    "top_dest": [
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Denmark",
+      1,
+      "DNK"
+     ],
+     [
+      "Australia",
+      1,
+      "AUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United Kingdom",
+      20,
+      "GBR"
+     ],
+     [
+      "Canada",
+      15,
+      "CAN"
+     ],
+     [
+      "Germany",
+      12,
+      "DEU"
+     ],
+     [
+      "France",
+      8,
+      "FRA"
+     ],
+     [
+      "Japan",
+      7,
+      "JPN"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 9,
+     "1940": 8,
+     "1950": 18,
+     "1960": 18,
+     "1970": 32,
+     "1980": 31,
+     "1990": 39,
+     "2000": 48,
+     "2010": 38,
+     "2020": 27
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 2,
+     "1930": 10,
+     "1940": 15,
+     "1950": 30,
+     "1960": 28,
+     "1970": 44,
+     "1980": 46,
+     "1990": 57,
+     "2000": 67,
+     "2010": 58,
+     "2020": 42
+    }
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "cont": "Europe",
+    "born": 93,
+    "worked": 95,
+    "stayed": 67,
+    "left": 26,
+    "arrived": 28,
+    "net": 2,
+    "left_pct": 27.96,
+    "arrived_pct": 29.47,
+    "top_dest": [
+     [
+      "United States",
+      20,
+      "USA"
+     ],
+     [
+      "Canada",
+      4,
+      "CAN"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ],
+     [
+      "Australia",
+      1,
+      "AUS"
+     ]
+    ],
+    "top_orig": [
+     [
+      "India",
+      3,
+      "IND"
+     ],
+     [
+      "Germany",
+      3,
+      "DEU"
+     ],
+     [
+      "Australia",
+      3,
+      "AUS"
+     ],
+     [
+      "Russia",
+      2,
+      "RUS"
+     ],
+     [
+      "New Zealand",
+      2,
+      "NZL"
+     ]
+    ],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 8,
+     "1930": 7,
+     "1940": 4,
+     "1950": 8,
+     "1960": 7,
+     "1970": 12,
+     "1980": 5,
+     "1990": 7,
+     "2000": 9,
+     "2010": 13,
+     "2020": 8
+    },
+    "dec_w": {
+     "1900": 6,
+     "1910": 3,
+     "1920": 7,
+     "1930": 7,
+     "1940": 6,
+     "1950": 9,
+     "1960": 11,
+     "1970": 15,
+     "1980": 6,
+     "1990": 4,
+     "2000": 7,
+     "2010": 11,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "cont": "Europe",
+    "born": 74,
+    "worked": 74,
+    "stayed": 49,
+    "left": 25,
+    "arrived": 25,
+    "net": 0,
+    "left_pct": 33.78,
+    "arrived_pct": 33.78,
+    "top_dest": [
+     [
+      "United States",
+      12,
+      "USA"
+     ],
+     [
+      "Switzerland",
+      4,
+      "CHE"
+     ],
+     [
+      "United Kingdom",
+      3,
+      "GBR"
+     ],
+     [
+      "Canada",
+      2,
+      "CAN"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Poland",
+      9,
+      "POL"
+     ],
+     [
+      "Austria",
+      4,
+      "AUT"
+     ],
+     [
+      "Netherlands",
+      3,
+      "NLD"
+     ],
+     [
+      "Russia",
+      2,
+      "RUS"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ]
+    ],
+    "dec_b": {
+     "1900": 6,
+     "1910": 5,
+     "1920": 7,
+     "1930": 7,
+     "1940": 2,
+     "1950": 6,
+     "1960": 6,
+     "1970": 5,
+     "1980": 11,
+     "1990": 4,
+     "2000": 6,
+     "2010": 4,
+     "2020": 5
+    },
+    "dec_w": {
+     "1900": 10,
+     "1910": 8,
+     "1920": 8,
+     "1930": 11,
+     "1940": 1,
+     "1950": 5,
+     "1960": 5,
+     "1970": 3,
+     "1980": 5,
+     "1990": 5,
+     "2000": 4,
+     "2010": 1,
+     "2020": 8
+    }
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "cont": "Europe",
+    "born": 42,
+    "worked": 40,
+    "stayed": 29,
+    "left": 13,
+    "arrived": 11,
+    "net": -2,
+    "left_pct": 30.95,
+    "arrived_pct": 27.5,
+    "top_dest": [
+     [
+      "United States",
+      8,
+      "USA"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ],
+     [
+      "Sweden",
+      1,
+      "SWE"
+     ],
+     [
+      "Tunisia",
+      1,
+      "TUN"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Luxembourg",
+      2,
+      "LUX"
+     ],
+     [
+      "Poland",
+      2,
+      "POL"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ],
+     [
+      "Algeria",
+      1,
+      "DZA"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1900": 4,
+     "1910": 5,
+     "1920": 3,
+     "1930": 2,
+     "1950": 1,
+     "1960": 5,
+     "1970": 3,
+     "1980": 4,
+     "1990": 1,
+     "2000": 3,
+     "2010": 4,
+     "2020": 7
+    },
+    "dec_w": {
+     "1900": 7,
+     "1910": 4,
+     "1920": 3,
+     "1930": 2,
+     "1960": 4,
+     "1970": 1,
+     "1980": 3,
+     "1990": 3,
+     "2000": 4,
+     "2010": 6,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "CHE",
+    "name": "Switzerland",
+    "cont": "Europe",
+    "born": 15,
+    "worked": 24,
+    "stayed": 12,
+    "left": 3,
+    "arrived": 12,
+    "net": 9,
+    "left_pct": 20.0,
+    "arrived_pct": 50.0,
+    "top_dest": [
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Italy",
+      1,
+      "ITA"
+     ],
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Germany",
+      4,
+      "DEU"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Italy",
+      1,
+      "ITA"
+     ],
+     [
+      "Croatia",
+      1,
+      "HRV"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1920": 1,
+     "1940": 2,
+     "1950": 2,
+     "1970": 1,
+     "1980": 2,
+     "1990": 2,
+     "2000": 1,
+     "2010": 3
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 1,
+     "1930": 2,
+     "1940": 2,
+     "1950": 1,
+     "1970": 2,
+     "1980": 9,
+     "1990": 2,
+     "2000": 1,
+     "2010": 3
+    }
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "cont": "Asia",
+    "born": 27,
+    "worked": 20,
+    "stayed": 20,
+    "left": 7,
+    "arrived": 0,
+    "net": -7,
+    "left_pct": 25.93,
+    "arrived_pct": 0.0,
+    "top_dest": [
+     [
+      "United States",
+      7,
+      "USA"
+     ]
+    ],
+    "top_orig": [],
+    "dec_b": {
+     "1940": 1,
+     "1960": 1,
+     "1970": 1,
+     "1980": 2,
+     "2000": 8,
+     "2010": 10,
+     "2020": 4
+    },
+    "dec_w": {
+     "1960": 1,
+     "1980": 1,
+     "2000": 6,
+     "2010": 9,
+     "2020": 3
+    }
+   },
+   {
+    "iso": "SWE",
+    "name": "Sweden",
+    "cont": "Europe",
+    "born": 17,
+    "worked": 18,
+    "stayed": 14,
+    "left": 3,
+    "arrived": 4,
+    "net": 1,
+    "left_pct": 17.65,
+    "arrived_pct": 22.22,
+    "top_dest": [
+     [
+      "Germany",
+      1,
+      "DEU"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "Hungary",
+      1,
+      "HUN"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ],
+     [
+      "Finland",
+      1,
+      "FIN"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 2,
+     "1940": 1,
+     "1950": 1,
+     "1970": 3,
+     "1980": 4,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1910": 2,
+     "1920": 3,
+     "1940": 2,
+     "1950": 1,
+     "1960": 1,
+     "1970": 3,
+     "1980": 3,
+     "2000": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "RUS",
+    "name": "Russia",
+    "cont": "Europe",
+    "born": 20,
+    "worked": 12,
+    "stayed": 9,
+    "left": 11,
+    "arrived": 3,
+    "net": -8,
+    "left_pct": 55.0,
+    "arrived_pct": 25.0,
+    "top_dest": [
+     [
+      "United States",
+      5,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Germany",
+      2,
+      "DEU"
+     ],
+     [
+      "Belgium",
+      1,
+      "BEL"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Australia",
+      1,
+      "AUS"
+     ],
+     [
+      "Azerbaijan",
+      1,
+      "AZE"
+     ],
+     [
+      "Belarus",
+      1,
+      "BLR"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1910": 2,
+     "1930": 1,
+     "1950": 5,
+     "1960": 1,
+     "1970": 4,
+     "2000": 3,
+     "2010": 2,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1950": 4,
+     "1960": 3,
+     "1970": 2,
+     "2000": 2
+    }
+   },
+   {
+    "iso": "NLD",
+    "name": "Netherlands",
+    "cont": "Europe",
+    "born": 18,
+    "worked": 10,
+    "stayed": 9,
+    "left": 9,
+    "arrived": 1,
+    "net": -8,
+    "left_pct": 50.0,
+    "arrived_pct": 10.0,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Germany",
+      3,
+      "DEU"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Indonesia",
+      1,
+      "IDN"
+     ]
+    ],
+    "dec_b": {
+     "1900": 3,
+     "1910": 2,
+     "1920": 1,
+     "1930": 1,
+     "1950": 1,
+     "1960": 1,
+     "1970": 2,
+     "1980": 2,
+     "1990": 2,
+     "2010": 1,
+     "2020": 2
+    },
+    "dec_w": {
+     "1900": 2,
+     "1910": 2,
+     "1920": 2,
+     "1950": 1,
+     "1960": 1,
+     "1990": 1,
+     "2010": 1
+    }
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "cont": "North America",
+    "born": 19,
+    "worked": 10,
+    "stayed": 4,
+    "left": 15,
+    "arrived": 6,
+    "net": -9,
+    "left_pct": 78.95,
+    "arrived_pct": 60.0,
+    "top_dest": [
+     [
+      "United States",
+      15,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "United Kingdom",
+      4,
+      "GBR"
+     ],
+     [
+      "Germany",
+      2,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1920": 1,
+     "1940": 1,
+     "1960": 1,
+     "1980": 3,
+     "1990": 6,
+     "2000": 1,
+     "2010": 4,
+     "2020": 2
+    },
+    "dec_w": {
+     "1920": 2,
+     "1970": 1,
+     "1980": 1,
+     "1990": 2,
+     "2010": 2,
+     "2020": 2
+    }
+   },
+   {
+    "iso": "DNK",
+    "name": "Denmark",
+    "cont": "Europe",
+    "born": 8,
+    "worked": 9,
+    "stayed": 8,
+    "left": 0,
+    "arrived": 1,
+    "net": 1,
+    "left_pct": 0.0,
+    "arrived_pct": 11.11,
+    "top_dest": [],
+    "top_orig": [
+     [
+      "United States",
+      1,
+      "USA"
+     ]
+    ],
+    "dec_b": {
+     "1900": 1,
+     "1920": 3,
+     "1940": 1,
+     "1970": 1,
+     "1990": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1920": 3,
+     "1940": 1,
+     "1970": 2,
+     "1990": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "ITA",
+    "name": "Italy",
+    "cont": "Europe",
+    "born": 13,
+    "worked": 7,
+    "stayed": 5,
+    "left": 8,
+    "arrived": 2,
+    "net": -6,
+    "left_pct": 61.54,
+    "arrived_pct": 28.57,
+    "top_dest": [
+     [
+      "United States",
+      5,
+      "USA"
+     ],
+     [
+      "United Kingdom",
+      2,
+      "GBR"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Pakistan",
+      1,
+      "PAK"
+     ],
+     [
+      "Switzerland",
+      1,
+      "CHE"
+     ]
+    ],
+    "dec_b": {
+     "1900": 2,
+     "1930": 1,
+     "1950": 1,
+     "1960": 2,
+     "1970": 1,
+     "1980": 3,
+     "2000": 2,
+     "2020": 1
+    },
+    "dec_w": {
+     "1900": 1,
+     "1930": 1,
+     "1950": 1,
+     "1960": 1,
+     "1970": 1,
+     "1980": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "AUT",
+    "name": "Austria",
+    "cont": "Europe",
+    "born": 15,
+    "worked": 7,
+    "stayed": 5,
+    "left": 10,
+    "arrived": 2,
+    "net": -8,
+    "left_pct": 66.67,
+    "arrived_pct": 28.57,
+    "top_dest": [
+     [
+      "United States",
+      4,
+      "USA"
+     ],
+     [
+      "Germany",
+      4,
+      "DEU"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ],
+     [
+      "United Kingdom",
+      1,
+      "GBR"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Slovenia",
+      1,
+      "SVN"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 4,
+     "1940": 1,
+     "1960": 1,
+     "1970": 2,
+     "1990": 1,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1910": 1,
+     "1920": 2,
+     "1930": 2,
+     "1970": 1,
+     "2020": 1
+    }
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "cont": "Asia",
+    "born": 5,
+    "worked": 5,
+    "stayed": 3,
+    "left": 2,
+    "arrived": 2,
+    "net": 0,
+    "left_pct": 40.0,
+    "arrived_pct": 40.0,
+    "top_dest": [
+     [
+      "United States",
+      2,
+      "USA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Hungary",
+      1,
+      "HUN"
+     ],
+     [
+      "Germany",
+      1,
+      "DEU"
+     ]
+    ],
+    "dec_b": {
+     "2000": 3,
+     "2010": 2
+    },
+    "dec_w": {
+     "2000": 4,
+     "2010": 1
+    }
+   },
+   {
+    "iso": "BEL",
+    "name": "Belgium",
+    "cont": "Europe",
+    "born": 6,
+    "worked": 5,
+    "stayed": 4,
+    "left": 2,
+    "arrived": 1,
+    "net": -1,
+    "left_pct": 33.33,
+    "arrived_pct": 20.0,
+    "top_dest": [
+     [
+      "United States",
+      1,
+      "USA"
+     ],
+     [
+      "France",
+      1,
+      "FRA"
+     ]
+    ],
+    "top_orig": [
+     [
+      "Russia",
+      1,
+      "RUS"
+     ]
+    ],
+    "dec_b": {
+     "1910": 1,
+     "1930": 1,
+     "1970": 1,
+     "2000": 1,
+     "2010": 1,
+     "2020": 1
+    },
+    "dec_w": {
+     "1910": 1,
+     "1930": 1,
+     "1970": 2,
+     "2010": 1
+    }
+   }
+  ],
+  "usa": {
+   "iso": "USA",
+   "name": "United States",
+   "cont": "North America",
+   "born": 271,
+   "worked": 402,
+   "stayed": 267,
+   "left": 4,
+   "arrived": 135,
+   "net": 131,
+   "left_pct": 1.48,
+   "arrived_pct": 33.58,
+   "top_dest": [
+    [
+     "United Kingdom",
+     2,
+     "GBR"
+    ],
+    [
+     "Denmark",
+     1,
+     "DNK"
+    ],
+    [
+     "Australia",
+     1,
+     "AUS"
+    ]
+   ],
+   "top_orig": [
+    [
+     "United Kingdom",
+     20,
+     "GBR"
+    ],
+    [
+     "Canada",
+     15,
+     "CAN"
+    ],
+    [
+     "Germany",
+     12,
+     "DEU"
+    ],
+    [
+     "France",
+     8,
+     "FRA"
+    ],
+    [
+     "Japan",
+     7,
+     "JPN"
+    ]
+   ],
+   "dec_b": {
+    "1910": 1,
+    "1920": 2,
+    "1930": 9,
+    "1940": 8,
+    "1950": 18,
+    "1960": 18,
+    "1970": 32,
+    "1980": 31,
+    "1990": 39,
+    "2000": 48,
+    "2010": 38,
+    "2020": 27
+   },
+   "dec_w": {
+    "1900": 1,
+    "1910": 2,
+    "1920": 2,
+    "1930": 10,
+    "1940": 15,
+    "1950": 30,
+    "1960": 28,
+    "1970": 44,
+    "1980": 46,
+    "1990": 57,
+    "2000": 67,
+    "2010": 58,
+    "2020": 42
+   }
+  },
+  "gbr": {
+   "iso": "GBR",
+   "name": "United Kingdom",
+   "cont": "Europe",
+   "born": 93,
+   "worked": 95,
+   "stayed": 67,
+   "left": 26,
+   "arrived": 28,
+   "net": 2,
+   "left_pct": 27.96,
+   "arrived_pct": 29.47,
+   "top_dest": [
+    [
+     "United States",
+     20,
+     "USA"
+    ],
+    [
+     "Canada",
+     4,
+     "CAN"
+    ],
+    [
+     "Switzerland",
+     1,
+     "CHE"
+    ],
+    [
+     "Australia",
+     1,
+     "AUS"
+    ]
+   ],
+   "top_orig": [
+    [
+     "India",
+     3,
+     "IND"
+    ],
+    [
+     "Germany",
+     3,
+     "DEU"
+    ],
+    [
+     "Australia",
+     3,
+     "AUS"
+    ],
+    [
+     "Russia",
+     2,
+     "RUS"
+    ],
+    [
+     "New Zealand",
+     2,
+     "NZL"
+    ]
+   ],
+   "dec_b": {
+    "1900": 3,
+    "1910": 2,
+    "1920": 8,
+    "1930": 7,
+    "1940": 4,
+    "1950": 8,
+    "1960": 7,
+    "1970": 12,
+    "1980": 5,
+    "1990": 7,
+    "2000": 9,
+    "2010": 13,
+    "2020": 8
+   },
+   "dec_w": {
+    "1900": 6,
+    "1910": 3,
+    "1920": 7,
+    "1930": 7,
+    "1940": 6,
+    "1950": 9,
+    "1960": 11,
+    "1970": 15,
+    "1980": 6,
+    "1990": 4,
+    "2000": 7,
+    "2010": 11,
+    "2020": 3
+   }
+  },
+  "deu": {
+   "iso": "DEU",
+   "name": "Germany",
+   "cont": "Europe",
+   "born": 74,
+   "worked": 74,
+   "stayed": 49,
+   "left": 25,
+   "arrived": 25,
+   "net": 0,
+   "left_pct": 33.78,
+   "arrived_pct": 33.78,
+   "top_dest": [
+    [
+     "United States",
+     12,
+     "USA"
+    ],
+    [
+     "Switzerland",
+     4,
+     "CHE"
+    ],
+    [
+     "United Kingdom",
+     3,
+     "GBR"
+    ],
+    [
+     "Canada",
+     2,
+     "CAN"
+    ]
+   ],
+   "top_orig": [
+    [
+     "Poland",
+     9,
+     "POL"
+    ],
+    [
+     "Austria",
+     4,
+     "AUT"
+    ],
+    [
+     "Netherlands",
+     3,
+     "NLD"
+    ],
+    [
+     "Russia",
+     2,
+     "RUS"
+    ],
+    [
+     "France",
+     1,
+     "FRA"
+    ]
+   ],
+   "dec_b": {
+    "1900": 6,
+    "1910": 5,
+    "1920": 7,
+    "1930": 7,
+    "1940": 2,
+    "1950": 6,
+    "1960": 6,
+    "1970": 5,
+    "1980": 11,
+    "1990": 4,
+    "2000": 6,
+    "2010": 4,
+    "2020": 5
+   },
+   "dec_w": {
+    "1900": 10,
+    "1910": 8,
+    "1920": 8,
+    "1930": 11,
+    "1940": 1,
+    "1950": 5,
+    "1960": 5,
+    "1970": 3,
+    "1980": 5,
+    "1990": 5,
+    "2000": 4,
+    "2010": 1,
+    "2020": 8
+   }
+  },
+  "jpn": {
+   "iso": "JPN",
+   "name": "Japan",
+   "cont": "Asia",
+   "born": 27,
+   "worked": 20,
+   "stayed": 20,
+   "left": 7,
+   "arrived": 0,
+   "net": -7,
+   "left_pct": 25.93,
+   "arrived_pct": 0.0,
+   "top_dest": [
+    [
+     "United States",
+     7,
+     "USA"
+    ]
+   ],
+   "top_orig": [],
+   "dec_b": {
+    "1940": 1,
+    "1960": 1,
+    "1970": 1,
+    "1980": 2,
+    "2000": 8,
+    "2010": 10,
+    "2020": 4
+   },
+   "dec_w": {
+    "1960": 1,
+    "1980": 1,
+    "2000": 6,
+    "2010": 9,
+    "2020": 3
+   }
+  },
+  "che": {
+   "iso": "CHE",
+   "name": "Switzerland",
+   "cont": "Europe",
+   "born": 15,
+   "worked": 24,
+   "stayed": 12,
+   "left": 3,
+   "arrived": 12,
+   "net": 9,
+   "left_pct": 20.0,
+   "arrived_pct": 50.0,
+   "top_dest": [
+    [
+     "France",
+     1,
+     "FRA"
+    ],
+    [
+     "Italy",
+     1,
+     "ITA"
+    ],
+    [
+     "United States",
+     1,
+     "USA"
+    ]
+   ],
+   "top_orig": [
+    [
+     "Germany",
+     4,
+     "DEU"
+    ],
+    [
+     "France",
+     1,
+     "FRA"
+    ],
+    [
+     "Italy",
+     1,
+     "ITA"
+    ],
+    [
+     "Croatia",
+     1,
+     "HRV"
+    ],
+    [
+     "United Kingdom",
+     1,
+     "GBR"
+    ]
+   ],
+   "dec_b": {
+    "1900": 1,
+    "1920": 1,
+    "1940": 2,
+    "1950": 2,
+    "1970": 1,
+    "1980": 2,
+    "1990": 2,
+    "2000": 1,
+    "2010": 3
+   },
+   "dec_w": {
+    "1900": 1,
+    "1910": 1,
+    "1930": 2,
+    "1940": 2,
+    "1950": 1,
+    "1970": 2,
+    "1980": 9,
+    "1990": 2,
+    "2000": 1,
+    "2010": 3
+   }
+  },
+  "fra": {
+   "iso": "FRA",
+   "name": "France",
+   "cont": "Europe",
+   "born": 42,
+   "worked": 40,
+   "stayed": 29,
+   "left": 13,
+   "arrived": 11,
+   "net": -2,
+   "left_pct": 30.95,
+   "arrived_pct": 27.5,
+   "top_dest": [
+    [
+     "United States",
+     8,
+     "USA"
+    ],
+    [
+     "Switzerland",
+     1,
+     "CHE"
+    ],
+    [
+     "Sweden",
+     1,
+     "SWE"
+    ],
+    [
+     "Tunisia",
+     1,
+     "TUN"
+    ]
+   ],
+   "top_orig": [
+    [
+     "Luxembourg",
+     2,
+     "LUX"
+    ],
+    [
+     "Poland",
+     2,
+     "POL"
+    ],
+    [
+     "Switzerland",
+     1,
+     "CHE"
+    ],
+    [
+     "Algeria",
+     1,
+     "DZA"
+    ],
+    [
+     "Germany",
+     1,
+     "DEU"
+    ]
+   ],
+   "dec_b": {
+    "1900": 4,
+    "1910": 5,
+    "1920": 3,
+    "1930": 2,
+    "1950": 1,
+    "1960": 5,
+    "1970": 3,
+    "1980": 4,
+    "1990": 1,
+    "2000": 3,
+    "2010": 4,
+    "2020": 7
+   },
+   "dec_w": {
+    "1900": 7,
+    "1910": 4,
+    "1920": 3,
+    "1930": 2,
+    "1960": 4,
+    "1970": 1,
+    "1980": 3,
+    "1990": 3,
+    "2000": 4,
+    "2010": 6,
+    "2020": 3
+   }
+  },
+  "pol": {
+   "iso": "POL",
+   "name": "Poland",
+   "cont": "Europe",
+   "born": 19,
+   "worked": 0,
+   "stayed": 0,
+   "left": 19,
+   "arrived": 0,
+   "net": -19,
+   "left_pct": 100.0,
+   "arrived_pct": null,
+   "top_dest": [
+    [
+     "Germany",
+     9,
+     "DEU"
+    ],
+    [
+     "United States",
+     6,
+     "USA"
+    ],
+    [
+     "France",
+     2,
+     "FRA"
+    ],
+    [
+     "United Kingdom",
+     1,
+     "GBR"
+    ]
+   ],
+   "top_orig": [],
+   "dec_b": {
+    "1900": 3,
+    "1910": 2,
+    "1920": 1,
+    "1930": 2,
+    "1940": 2,
+    "1950": 3,
+    "1960": 2,
+    "1980": 1,
+    "1990": 3
+   },
+   "dec_w": {}
+  },
+  "aut": {
+   "iso": "AUT",
+   "name": "Austria",
+   "cont": "Europe",
+   "born": 15,
+   "worked": 7,
+   "stayed": 5,
+   "left": 10,
+   "arrived": 2,
+   "net": -8,
+   "left_pct": 66.67,
+   "arrived_pct": 28.57,
+   "top_dest": [
+    [
+     "United States",
+     4,
+     "USA"
+    ],
+    [
+     "Germany",
+     4,
+     "DEU"
+    ],
+    [
+     "France",
+     1,
+     "FRA"
+    ],
+    [
+     "United Kingdom",
+     1,
+     "GBR"
+    ]
+   ],
+   "top_orig": [
+    [
+     "Slovenia",
+     1,
+     "SVN"
+    ],
+    [
+     "Germany",
+     1,
+     "DEU"
+    ]
+   ],
+   "dec_b": {
+    "1910": 1,
+    "1920": 2,
+    "1930": 4,
+    "1940": 1,
+    "1960": 1,
+    "1970": 2,
+    "1990": 1,
+    "2000": 1,
+    "2010": 1,
+    "2020": 1
+   },
+   "dec_w": {
+    "1910": 1,
+    "1920": 2,
+    "1930": 2,
+    "1970": 1,
+    "2020": 1
+   }
+  },
+  "hun": {
+   "iso": "HUN",
+   "name": "Hungary",
+   "cont": "Europe",
+   "born": 10,
+   "worked": 2,
+   "stayed": 2,
+   "left": 8,
+   "arrived": 0,
+   "net": -8,
+   "left_pct": 80.0,
+   "arrived_pct": 0.0,
+   "top_dest": [
+    [
+     "United States",
+     4,
+     "USA"
+    ],
+    [
+     "Israel",
+     1,
+     "ISR"
+    ],
+    [
+     "United Kingdom",
+     1,
+     "GBR"
+    ],
+    [
+     "Germany",
+     1,
+     "DEU"
+    ]
+   ],
+   "top_orig": [],
+   "dec_b": {
+    "1930": 1,
+    "1940": 1,
+    "1960": 2,
+    "1970": 1,
+    "1990": 2,
+    "2000": 1,
+    "2020": 2
+   },
+   "dec_w": {
+    "1930": 1,
+    "2020": 1
+   }
+  },
+  "can": {
+   "iso": "CAN",
+   "name": "Canada",
+   "cont": "North America",
+   "born": 19,
+   "worked": 10,
+   "stayed": 4,
+   "left": 15,
+   "arrived": 6,
+   "net": -9,
+   "left_pct": 78.95,
+   "arrived_pct": 60.0,
+   "top_dest": [
+    [
+     "United States",
+     15,
+     "USA"
+    ]
+   ],
+   "top_orig": [
+    [
+     "United Kingdom",
+     4,
+     "GBR"
+    ],
+    [
+     "Germany",
+     2,
+     "DEU"
+    ]
+   ],
+   "dec_b": {
+    "1920": 1,
+    "1940": 1,
+    "1960": 1,
+    "1980": 3,
+    "1990": 6,
+    "2000": 1,
+    "2010": 4,
+    "2020": 2
+   },
+   "dec_w": {
+    "1920": 2,
+    "1970": 1,
+    "1980": 1,
+    "1990": 2,
+    "2010": 2,
+    "2020": 2
+   }
+  },
+  "rus": {
+   "iso": "RUS",
+   "name": "Russia",
+   "cont": "Europe",
+   "born": 20,
+   "worked": 12,
+   "stayed": 9,
+   "left": 11,
+   "arrived": 3,
+   "net": -8,
+   "left_pct": 55.0,
+   "arrived_pct": 25.0,
+   "top_dest": [
+    [
+     "United States",
+     5,
+     "USA"
+    ],
+    [
+     "United Kingdom",
+     2,
+     "GBR"
+    ],
+    [
+     "Germany",
+     2,
+     "DEU"
+    ],
+    [
+     "Belgium",
+     1,
+     "BEL"
+    ]
+   ],
+   "top_orig": [
+    [
+     "Australia",
+     1,
+     "AUS"
+    ],
+    [
+     "Azerbaijan",
+     1,
+     "AZE"
+    ],
+    [
+     "Belarus",
+     1,
+     "BLR"
+    ]
+   ],
+   "dec_b": {
+    "1900": 1,
+    "1910": 2,
+    "1930": 1,
+    "1950": 5,
+    "1960": 1,
+    "1970": 4,
+    "2000": 3,
+    "2010": 2,
+    "2020": 1
+   },
+   "dec_w": {
+    "1900": 1,
+    "1950": 4,
+    "1960": 3,
+    "1970": 2,
+    "2000": 2
+   }
+  },
+  "swe": {
+   "iso": "SWE",
+   "name": "Sweden",
+   "cont": "Europe",
+   "born": 17,
+   "worked": 18,
+   "stayed": 14,
+   "left": 3,
+   "arrived": 4,
+   "net": 1,
+   "left_pct": 17.65,
+   "arrived_pct": 22.22,
+   "top_dest": [
+    [
+     "Germany",
+     1,
+     "DEU"
+    ],
+    [
+     "United Kingdom",
+     1,
+     "GBR"
+    ],
+    [
+     "United States",
+     1,
+     "USA"
+    ]
+   ],
+   "top_orig": [
+    [
+     "France",
+     1,
+     "FRA"
+    ],
+    [
+     "Hungary",
+     1,
+     "HUN"
+    ],
+    [
+     "Germany",
+     1,
+     "DEU"
+    ],
+    [
+     "Finland",
+     1,
+     "FIN"
+    ]
+   ],
+   "dec_b": {
+    "1900": 1,
+    "1910": 2,
+    "1920": 2,
+    "1940": 1,
+    "1950": 1,
+    "1970": 3,
+    "1980": 4,
+    "2000": 1,
+    "2010": 1,
+    "2020": 1
+   },
+   "dec_w": {
+    "1900": 1,
+    "1910": 2,
+    "1920": 3,
+    "1940": 2,
+    "1950": 1,
+    "1960": 1,
+    "1970": 3,
+    "1980": 3,
+    "2000": 1,
+    "2020": 1
+   }
+  },
+  "dnk": {
+   "iso": "DNK",
+   "name": "Denmark",
+   "cont": "Europe",
+   "born": 8,
+   "worked": 9,
+   "stayed": 8,
+   "left": 0,
+   "arrived": 1,
+   "net": 1,
+   "left_pct": 0.0,
+   "arrived_pct": 11.11,
+   "top_dest": [],
+   "top_orig": [
+    [
+     "United States",
+     1,
+     "USA"
+    ]
+   ],
+   "dec_b": {
+    "1900": 1,
+    "1920": 3,
+    "1940": 1,
+    "1970": 1,
+    "1990": 1,
+    "2020": 1
+   },
+   "dec_w": {
+    "1900": 1,
+    "1920": 3,
+    "1940": 1,
+    "1970": 2,
+    "1990": 1,
+    "2020": 1
+   }
+  },
+  "chn": {
+   "iso": "CHN",
+   "name": "China",
+   "cont": "Asia",
+   "born": 8,
+   "worked": 1,
+   "stayed": 1,
+   "left": 7,
+   "arrived": 0,
+   "net": -7,
+   "left_pct": 87.5,
+   "arrived_pct": 0.0,
+   "top_dest": [
+    [
+     "United States",
+     6,
+     "USA"
+    ],
+    [
+     "United Kingdom",
+     1,
+     "GBR"
+    ]
+   ],
+   "top_orig": [],
+   "dec_b": {
+    "1950": 3,
+    "1990": 2,
+    "2000": 1,
+    "2010": 2
+   },
+   "dec_w": {
+    "2010": 1
+   }
+  },
+  "isr": {
+   "iso": "ISR",
+   "name": "Israel",
+   "cont": "Asia",
+   "born": 5,
+   "worked": 5,
+   "stayed": 3,
+   "left": 2,
+   "arrived": 2,
+   "net": 0,
+   "left_pct": 40.0,
+   "arrived_pct": 40.0,
+   "top_dest": [
+    [
+     "United States",
+     2,
+     "USA"
+    ]
+   ],
+   "top_orig": [
+    [
+     "Hungary",
+     1,
+     "HUN"
+    ],
+    [
+     "Germany",
+     1,
+     "DEU"
+    ]
+   ],
+   "dec_b": {
+    "2000": 3,
+    "2010": 2
+   },
+   "dec_w": {
+    "2000": 4,
+    "2010": 1
+   }
+  },
+  "ind": {
+   "iso": "IND",
+   "name": "India",
+   "cont": "Asia",
+   "born": 6,
+   "worked": 1,
+   "stayed": 1,
+   "left": 5,
+   "arrived": 0,
+   "net": -5,
+   "left_pct": 83.33,
+   "arrived_pct": 0.0,
+   "top_dest": [
+    [
+     "United Kingdom",
+     3,
+     "GBR"
+    ],
+    [
+     "United States",
+     2,
+     "USA"
+    ]
+   ],
+   "top_orig": [],
+   "dec_b": {
+    "1900": 1,
+    "1930": 1,
+    "1960": 1,
+    "1990": 1,
+    "2000": 1,
+    "2010": 1
+   },
+   "dec_w": {
+    "1930": 1
+   }
+  },
+  "nld": {
+   "iso": "NLD",
+   "name": "Netherlands",
+   "cont": "Europe",
+   "born": 18,
+   "worked": 10,
+   "stayed": 9,
+   "left": 9,
+   "arrived": 1,
+   "net": -8,
+   "left_pct": 50.0,
+   "arrived_pct": 10.0,
+   "top_dest": [
+    [
+     "United States",
+     4,
+     "USA"
+    ],
+    [
+     "Germany",
+     3,
+     "DEU"
+    ],
+    [
+     "United Kingdom",
+     1,
+     "GBR"
+    ],
+    [
+     "Switzerland",
+     1,
+     "CHE"
+    ]
+   ],
+   "top_orig": [
+    [
+     "Indonesia",
+     1,
+     "IDN"
+    ]
+   ],
+   "dec_b": {
+    "1900": 3,
+    "1910": 2,
+    "1920": 1,
+    "1930": 1,
+    "1950": 1,
+    "1960": 1,
+    "1970": 2,
+    "1980": 2,
+    "1990": 2,
+    "2010": 1,
+    "2020": 2
+   },
+   "dec_w": {
+    "1900": 2,
+    "1910": 2,
+    "1920": 2,
+    "1950": 1,
+    "1960": 1,
+    "1990": 1,
+    "2010": 1
+   }
+  },
+  "pol_de_then": 14,
+  "pol_de_then_to_de": 8,
+  "top_work_by_dec": [
+   {
+    "dec": 1900,
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 10,
+    "second": "France",
+    "second_n": 7
+   },
+   {
+    "dec": 1910,
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 8,
+    "second": "France",
+    "second_n": 4
+   },
+   {
+    "dec": 1920,
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 8,
+    "second": "United Kingdom",
+    "second_n": 7
+   },
+   {
+    "dec": 1930,
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 11,
+    "second": "United States",
+    "second_n": 10
+   },
+   {
+    "dec": 1940,
+    "iso": "USA",
+    "name": "United States",
+    "n": 15,
+    "second": "United Kingdom",
+    "second_n": 6
+   },
+   {
+    "dec": 1950,
+    "iso": "USA",
+    "name": "United States",
+    "n": 30,
+    "second": "United Kingdom",
+    "second_n": 9
+   },
+   {
+    "dec": 1960,
+    "iso": "USA",
+    "name": "United States",
+    "n": 28,
+    "second": "United Kingdom",
+    "second_n": 11
+   },
+   {
+    "dec": 1970,
+    "iso": "USA",
+    "name": "United States",
+    "n": 44,
+    "second": "United Kingdom",
+    "second_n": 15
+   },
+   {
+    "dec": 1980,
+    "iso": "USA",
+    "name": "United States",
+    "n": 46,
+    "second": "Switzerland",
+    "second_n": 9
+   },
+   {
+    "dec": 1990,
+    "iso": "USA",
+    "name": "United States",
+    "n": 57,
+    "second": "Germany",
+    "second_n": 5
+   },
+   {
+    "dec": 2000,
+    "iso": "USA",
+    "name": "United States",
+    "n": 67,
+    "second": "United Kingdom",
+    "second_n": 7
+   },
+   {
+    "dec": 2010,
+    "iso": "USA",
+    "name": "United States",
+    "n": 58,
+    "second": "United Kingdom",
+    "second_n": 11
+   },
+   {
+    "dec": 2020,
+    "iso": "USA",
+    "name": "United States",
+    "n": 42,
+    "second": "Germany",
+    "second_n": 8
+   }
+  ]
+ },
+ "flows": {
+  "n_pairs": 109,
+  "top": [
+   {
+    "from": "GBR",
+    "to": "USA",
+    "from_name": "United Kingdom",
+    "to_name": "United States",
+    "n": 20
+   },
+   {
+    "from": "CAN",
+    "to": "USA",
+    "from_name": "Canada",
+    "to_name": "United States",
+    "n": 15
+   },
+   {
+    "from": "DEU",
+    "to": "USA",
+    "from_name": "Germany",
+    "to_name": "United States",
+    "n": 12
+   },
+   {
+    "from": "POL",
+    "to": "DEU",
+    "from_name": "Poland",
+    "to_name": "Germany",
+    "n": 9
+   },
+   {
+    "from": "FRA",
+    "to": "USA",
+    "from_name": "France",
+    "to_name": "United States",
+    "n": 8
+   },
+   {
+    "from": "JPN",
+    "to": "USA",
+    "from_name": "Japan",
+    "to_name": "United States",
+    "n": 7
+   },
+   {
+    "from": "POL",
+    "to": "USA",
+    "from_name": "Poland",
+    "to_name": "United States",
+    "n": 6
+   },
+   {
+    "from": "CHN",
+    "to": "USA",
+    "from_name": "China",
+    "to_name": "United States",
+    "n": 6
+   },
+   {
+    "from": "RUS",
+    "to": "USA",
+    "from_name": "Russia",
+    "to_name": "United States",
+    "n": 5
+   },
+   {
+    "from": "ITA",
+    "to": "USA",
+    "from_name": "Italy",
+    "to_name": "United States",
+    "n": 5
+   },
+   {
+    "from": "ZAF",
+    "to": "USA",
+    "from_name": "South Africa",
+    "to_name": "United States",
+    "n": 4
+   },
+   {
+    "from": "AUT",
+    "to": "USA",
+    "from_name": "Austria",
+    "to_name": "United States",
+    "n": 4
+   },
+   {
+    "from": "AUT",
+    "to": "DEU",
+    "from_name": "Austria",
+    "to_name": "Germany",
+    "n": 4
+   },
+   {
+    "from": "HUN",
+    "to": "USA",
+    "from_name": "Hungary",
+    "to_name": "United States",
+    "n": 4
+   },
+   {
+    "from": "GBR",
+    "to": "CAN",
+    "from_name": "United Kingdom",
+    "to_name": "Canada",
+    "n": 4
+   },
+   {
+    "from": "DEU",
+    "to": "CHE",
+    "from_name": "Germany",
+    "to_name": "Switzerland",
+    "n": 4
+   },
+   {
+    "from": "NLD",
+    "to": "USA",
+    "from_name": "Netherlands",
+    "to_name": "United States",
+    "n": 4
+   },
+   {
+    "from": "IND",
+    "to": "GBR",
+    "from_name": "India",
+    "to_name": "United Kingdom",
+    "n": 3
+   },
+   {
+    "from": "DEU",
+    "to": "GBR",
+    "from_name": "Germany",
+    "to_name": "United Kingdom",
+    "n": 3
+   },
+   {
+    "from": "NOR",
+    "to": "USA",
+    "from_name": "Norway",
+    "to_name": "United States",
+    "n": 3
+   },
+   {
+    "from": "NLD",
+    "to": "DEU",
+    "from_name": "Netherlands",
+    "to_name": "Germany",
+    "n": 3
+   },
+   {
+    "from": "AUS",
+    "to": "GBR",
+    "from_name": "Australia",
+    "to_name": "United Kingdom",
+    "n": 3
+   },
+   {
+    "from": "IND",
+    "to": "USA",
+    "from_name": "India",
+    "to_name": "United States",
+    "n": 2
+   },
+   {
+    "from": "RUS",
+    "to": "GBR",
+    "from_name": "Russia",
+    "to_name": "United Kingdom",
+    "n": 2
+   },
+   {
+    "from": "ISR",
+    "to": "USA",
+    "from_name": "Israel",
+    "to_name": "United States",
+    "n": 2
+   }
+  ],
+  "to_us": 135,
+  "to_us_pct": 56.96,
+  "from_us": 4
+ },
+ "us": {
+  "n": 402,
+  "abroad": 135,
+  "pct": 33.58,
+  "share": 52.89,
+  "born": 271,
+  "net": 131,
+  "first_dec_lead": 1940,
+  "orig": [
+   [
+    "United Kingdom",
+    20,
+    "GBR"
+   ],
+   [
+    "Canada",
+    15,
+    "CAN"
+   ],
+   [
+    "Germany",
+    12,
+    "DEU"
+   ],
+   [
+    "France",
+    8,
+    "FRA"
+   ],
+   [
+    "Japan",
+    7,
+    "JPN"
+   ]
+  ],
+  "n_orig": 40,
+  "pre1940_share": 11.81,
+  "since2000_share": 63.98,
+  "since1950_share": 61.69,
+  "since1950_abroad_pct": 33.6,
+  "d2020": {
+   "dec": 2020,
+   "n": 67,
+   "abroad": 24,
+   "pct": 35.82,
+   "us_n": 42,
+   "us_abroad": 16,
+   "us_pct": 38.1,
+   "us_share": 62.69
+  },
+  "d2010": {
+   "dec": 2010,
+   "n": 97,
+   "abroad": 32,
+   "pct": 32.99,
+   "us_n": 58,
+   "us_abroad": 22,
+   "us_pct": 37.93,
+   "us_share": 59.79
+  },
+  "d1950": {
+   "dec": 1950,
+   "n": 54,
+   "abroad": 17,
+   "pct": 31.48,
+   "us_n": 30,
+   "us_abroad": 12,
+   "us_pct": 40.0,
+   "us_share": 55.56
+  },
+  "d1930": {
+   "dec": 1930,
+   "n": 38,
+   "abroad": 9,
+   "pct": 23.68,
+   "us_n": 10,
+   "us_abroad": 1,
+   "us_pct": 10.0,
+   "us_share": 26.32
+  },
+  "share_imports": 56.96
+ },
+ "germany": {
+  "n_then": 93,
+  "n_now": 74,
+  "abroad_then": 34,
+  "abroad_then_pct": 36.56,
+  "cohorts": [
+   {
+    "lab": "born before 1880",
+    "n": 27,
+    "abroad": 4,
+    "pct": 14.81,
+    "us": 1,
+    "gbr": 0
+   },
+   {
+    "lab": "born 1880 to 1909",
+    "n": 27,
+    "abroad": 10,
+    "pct": 37.04,
+    "us": 5,
+    "gbr": 3
+   },
+   {
+    "lab": "born 1910 to 1929",
+    "n": 13,
+    "abroad": 8,
+    "pct": 61.54,
+    "us": 5,
+    "gbr": 1
+   },
+   {
+    "lab": "born 1930 or later",
+    "n": 26,
+    "abroad": 12,
+    "pct": 46.15,
+    "us": 8,
+    "gbr": 0
+   }
+  ],
+  "by_dec": [
+   {
+    "dec": 1900,
+    "n": 32,
+    "born_de": 9,
+    "born_de_home": 7,
+    "born_de_abroad": 2,
+    "work_de": 10,
+    "work_de_pct": 31.25
+   },
+   {
+    "dec": 1910,
+    "n": 24,
+    "born_de": 8,
+    "born_de_home": 8,
+    "born_de_abroad": 0,
+    "work_de": 8,
+    "work_de_pct": 33.33
+   },
+   {
+    "dec": 1920,
+    "n": 33,
+    "born_de": 8,
+    "born_de_home": 7,
+    "born_de_abroad": 1,
+    "work_de": 8,
+    "work_de_pct": 24.24
+   },
+   {
+    "dec": 1930,
+    "n": 38,
+    "born_de": 9,
+    "born_de_home": 8,
+    "born_de_abroad": 1,
+    "work_de": 11,
+    "work_de_pct": 28.95
+   },
+   {
+    "dec": 1940,
+    "n": 30,
+    "born_de": 3,
+    "born_de_home": 1,
+    "born_de_abroad": 2,
+    "work_de": 1,
+    "work_de_pct": 3.33
+   },
+   {
+    "dec": 1950,
+    "n": 54,
+    "born_de": 9,
+    "born_de_home": 5,
+    "born_de_abroad": 4,
+    "work_de": 5,
+    "work_de_pct": 9.26
+   },
+   {
+    "dec": 1960,
+    "n": 59,
+    "born_de": 10,
+    "born_de_home": 5,
+    "born_de_abroad": 5,
+    "work_de": 5,
+    "work_de_pct": 8.47
+   },
+   {
+    "dec": 1970,
+    "n": 78,
+    "born_de": 5,
+    "born_de_home": 2,
+    "born_de_abroad": 3,
+    "work_de": 3,
+    "work_de_pct": 3.85
+   },
+   {
+    "dec": 1980,
+    "n": 76,
+    "born_de": 11,
+    "born_de_home": 4,
+    "born_de_abroad": 7,
+    "work_de": 5,
+    "work_de_pct": 6.58
+   },
+   {
+    "dec": 1990,
+    "n": 75,
+    "born_de": 6,
+    "born_de_home": 4,
+    "born_de_abroad": 2,
+    "work_de": 5,
+    "work_de_pct": 6.67
+   },
+   {
+    "dec": 2000,
+    "n": 97,
+    "born_de": 6,
+    "born_de_home": 3,
+    "born_de_abroad": 3,
+    "work_de": 4,
+    "work_de_pct": 4.12
+   },
+   {
+    "dec": 2010,
+    "n": 97,
+    "born_de": 4,
+    "born_de_home": 0,
+    "born_de_abroad": 4,
+    "work_de": 1,
+    "work_de_pct": 1.03
+   },
+   {
+    "dec": 2020,
+    "n": 67,
+    "born_de": 5,
+    "born_de_home": 5,
+    "born_de_abroad": 0,
+    "work_de": 8,
+    "work_de_pct": 11.94
+   }
+  ],
+  "early_abroad_pct": 10.0,
+  "early_n": 30,
+  "late_abroad_pct": 49.21,
+  "late_n": 63,
+  "work_share_to1932": 31.31,
+  "work_share_since1933": 6.51,
+  "work_to1932": 31,
+  "n_to1932": 99,
+  "exiles_n": 18,
+  "exiles_us": 10,
+  "exiles_gbr": 4,
+  "exiles": [
+   {
+    "n": "Otto Stern",
+    "by": 1888,
+    "y": 1943,
+    "cat": "Physics",
+    "to": "United States",
+    "aff": "Carnegie Institute of Technology",
+    "bp": "Sorau"
+   },
+   {
+    "n": "Ernst B. Chain",
+    "by": 1906,
+    "y": 1945,
+    "cat": "Medicine",
+    "to": "United Kingdom",
+    "aff": "University of Oxford",
+    "bp": "Berlin"
+   },
+   {
+    "n": "Fritz Lipmann",
+    "by": 1899,
+    "y": 1953,
+    "cat": "Medicine",
+    "to": "United States",
+    "aff": "Harvard Medical School",
+    "bp": "Koenigsberg"
+   },
+   {
+    "n": "Hans Krebs",
+    "by": 1900,
+    "y": 1953,
+    "cat": "Medicine",
+    "to": "United Kingdom",
+    "aff": "Sheffield University",
+    "bp": "Hildesheim"
+   },
+   {
+    "n": "Max Born",
+    "by": 1882,
+    "y": 1954,
+    "cat": "Physics",
+    "to": "United Kingdom",
+    "aff": "Edinburgh University",
+    "bp": "Breslau"
+   },
+   {
+    "n": "Polykarp Kusch",
+    "by": 1911,
+    "y": 1955,
+    "cat": "Physics",
+    "to": "United States",
+    "aff": "Columbia University",
+    "bp": "Blankenburg"
+   },
+   {
+    "n": "Maria Goeppert Mayer",
+    "by": 1906,
+    "y": 1963,
+    "cat": "Physics",
+    "to": "United States",
+    "aff": "University of California",
+    "bp": "Kattowitz"
+   },
+   {
+    "n": "Konrad Bloch",
+    "by": 1912,
+    "y": 1964,
+    "cat": "Medicine",
+    "to": "United States",
+    "aff": "Harvard University",
+    "bp": "Neisse"
+   },
+   {
+    "n": "Alfred Kastler",
+    "by": 1902,
+    "y": 1966,
+    "cat": "Physics",
+    "to": "France",
+    "aff": "École Normale Supérieure",
+    "bp": "Guebwiller"
+   },
+   {
+    "n": "Hans Bethe",
+    "by": 1906,
+    "y": 1967,
+    "cat": "Physics",
+    "to": "United States",
+    "aff": "Cornell University",
+    "bp": "Strasbourg"
+   },
+   {
+    "n": "Max Delbrück",
+    "by": 1906,
+    "y": 1969,
+    "cat": "Medicine",
+    "to": "United States",
+    "aff": "California Institute of Technology (Caltech)",
+    "bp": "Berlin"
+   },
+   {
+    "n": "Sir Bernard Katz",
+    "by": 1911,
+    "y": 1970,
+    "cat": "Medicine",
+    "to": "United Kingdom",
+    "aff": "University College",
+    "bp": "Leipzig"
+   },
+   {
+    "n": "Gerhard Herzberg",
+    "by": 1904,
+    "y": 1971,
+    "cat": "Chemistry",
+    "to": "Canada",
+    "aff": "National Research Council of Canada",
+    "bp": "Hamburg"
+   },
+   {
+    "n": "John C. Polanyi",
+    "by": 1929,
+    "y": 1986,
+    "cat": "Chemistry",
+    "to": "Canada",
+    "aff": "University of Toronto",
+    "bp": "Berlin"
+   },
+   {
+    "n": "Jack Steinberger",
+    "by": 1921,
+    "y": 1988,
+    "cat": "Physics",
+    "to": "Switzerland",
+    "aff": "CERN",
+    "bp": "Bad Kissingen"
+   },
+   {
+    "n": "Hans G. Dehmelt",
+    "by": 1922,
+    "y": 1989,
+    "cat": "Physics",
+    "to": "United States",
+    "aff": "University of Washington",
+    "bp": "Görlitz"
+   },
+   {
+    "n": "Herbert Kroemer",
+    "by": 1928,
+    "y": 2000,
+    "cat": "Physics",
+    "to": "United States",
+    "aff": "University of California",
+    "bp": "Weimar"
+   },
+   {
+    "n": "John B. Goodenough",
+    "by": 1922,
+    "y": 2019,
+    "cat": "Chemistry",
+    "to": "United States",
+    "aff": "University of Texas",
+    "bp": "Jena"
+   }
+  ],
+  "net_now": 0,
+  "work_share_d1900": 31.25,
+  "work_share_d1910": 33.33,
+  "work_share_d1920": 24.24,
+  "work_share_d1950": 9.26,
+  "prewar_home_n": 30,
+  "prewar_n": 34,
+  "named": {
+   "Hans Bethe": {
+    "y": 1967,
+    "to": "United States",
+    "aff": "Cornell University",
+    "by": 1906,
+    "bp": "Strasbourg",
+    "abroad": true,
+    "then": true
+   },
+   "Max Born": {
+    "y": 1954,
+    "to": "United Kingdom",
+    "aff": "Edinburgh University",
+    "by": 1882,
+    "bp": "Breslau",
+    "abroad": true,
+    "then": true
+   },
+   "Otto Stern": {
+    "y": 1943,
+    "to": "United States",
+    "aff": "Carnegie Institute of Technology",
+    "by": 1888,
+    "bp": "Sorau",
+    "abroad": true,
+    "then": true
+   },
+   "Hans Krebs": {
+    "y": 1953,
+    "to": "United Kingdom",
+    "aff": "Sheffield University",
+    "by": 1900,
+    "bp": "Hildesheim",
+    "abroad": true,
+    "then": true
+   },
+   "Arno Penzias": {
+    "y": 1978,
+    "to": "United States",
+    "aff": "Bell Laboratories",
+    "by": 1933,
+    "bp": "Munich",
+    "abroad": true,
+    "then": true
+   },
+   "Jack Steinberger": {
+    "y": 1988,
+    "to": "Switzerland",
+    "aff": "CERN",
+    "by": 1921,
+    "bp": "Bad Kissingen",
+    "abroad": true,
+    "then": true
+   },
+   "Ernst Boris Chain": null,
+   "Max Delbrück": {
+    "y": 1969,
+    "to": "United States",
+    "aff": "California Institute of Technology (Caltech)",
+    "by": 1906,
+    "bp": "Berlin",
+    "abroad": true,
+    "then": true
+   },
+   "Bernard Katz": null,
+   "Herbert Kroemer": {
+    "y": 2000,
+    "to": "United States",
+    "aff": "University of California",
+    "by": 1928,
+    "bp": "Weimar",
+    "abroad": true,
+    "then": true
+   },
+   "Gerhard Herzberg": {
+    "y": 1971,
+    "to": "Canada",
+    "aff": "National Research Council of Canada",
+    "by": 1904,
+    "bp": "Hamburg",
+    "abroad": true,
+    "then": true
+   }
+  },
+  "austria": {
+   "n": 15,
+   "abroad": 10,
+   "pct": 66.67
+  },
+  "hungary": {
+   "n": 10,
+   "abroad": 8,
+   "pct": 80.0
+  }
+ },
+ "japan": {
+  "n": 27,
+  "n_all": 31,
+  "first": 1949,
+  "first_name": "Hideki Yukawa",
+  "before2000": 5,
+  "since2000": 22,
+  "by_dec": [
+   {
+    "dec": 1900,
+    "born": 0,
+    "worked": 0,
+    "share": 0.0
+   },
+   {
+    "dec": 1910,
+    "born": 0,
+    "worked": 0,
+    "share": 0.0
+   },
+   {
+    "dec": 1920,
+    "born": 0,
+    "worked": 0,
+    "share": 0.0
+   },
+   {
+    "dec": 1930,
+    "born": 0,
+    "worked": 0,
+    "share": 0.0
+   },
+   {
+    "dec": 1940,
+    "born": 1,
+    "worked": 0,
+    "share": 3.33
+   },
+   {
+    "dec": 1950,
+    "born": 0,
+    "worked": 0,
+    "share": 0.0
+   },
+   {
+    "dec": 1960,
+    "born": 1,
+    "worked": 1,
+    "share": 1.69
+   },
+   {
+    "dec": 1970,
+    "born": 1,
+    "worked": 0,
+    "share": 1.28
+   },
+   {
+    "dec": 1980,
+    "born": 2,
+    "worked": 1,
+    "share": 2.63
+   },
+   {
+    "dec": 1990,
+    "born": 0,
+    "worked": 0,
+    "share": 0.0
+   },
+   {
+    "dec": 2000,
+    "born": 8,
+    "worked": 6,
+    "share": 8.25
+   },
+   {
+    "dec": 2010,
+    "born": 10,
+    "worked": 9,
+    "share": 10.31
+   },
+   {
+    "dec": 2020,
+    "born": 4,
+    "worked": 3,
+    "share": 5.97
+   }
+  ],
+  "abroad": [
+   {
+    "n": "Hideki Yukawa",
+    "y": 1949,
+    "to": "United States",
+    "aff": "Columbia University",
+    "cat": "Physics"
+   },
+   {
+    "n": "Leo Esaki",
+    "y": 1973,
+    "to": "United States",
+    "aff": "IBM Thomas J. Watson Research Center",
+    "cat": "Physics"
+   },
+   {
+    "n": "Susumu Tonegawa",
+    "y": 1987,
+    "to": "United States",
+    "aff": "Massachusetts Institute of Technology (MIT)",
+    "cat": "Medicine"
+   },
+   {
+    "n": "Osamu Shimomura",
+    "y": 2008,
+    "to": "United States",
+    "aff": "Marine Biological Laboratory (MBL)",
+    "cat": "Chemistry"
+   },
+   {
+    "n": "Yoichiro Nambu",
+    "y": 2008,
+    "to": "United States",
+    "aff": "Enrico Fermi Institute, University of Chicago",
+    "cat": "Physics"
+   },
+   {
+    "n": "Shuji Nakamura",
+    "y": 2014,
+    "to": "United States",
+    "aff": "University of California",
+    "cat": "Physics"
+   },
+   {
+    "n": "Syukuro Manabe",
+    "y": 2021,
+    "to": "United States",
+    "aff": "Princeton University",
+    "cat": "Physics"
+   }
+  ],
+  "n_abroad": 7,
+  "abroad_pct": 25.93,
+  "net": -7,
+  "rank_since2000_born": 3,
+  "since2000_share": 8.43,
+  "since2000_top_born": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 113
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 30
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "n": 22
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 15
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 14
+   },
+   {
+    "iso": "CAN",
+    "name": "Canada",
+    "n": 7
+   }
+  ],
+  "since2000_top_worked": [
+   {
+    "iso": "USA",
+    "name": "United States",
+    "n": 167
+   },
+   {
+    "iso": "GBR",
+    "name": "United Kingdom",
+    "n": 21
+   },
+   {
+    "iso": "JPN",
+    "name": "Japan",
+    "n": 18
+   },
+   {
+    "iso": "FRA",
+    "name": "France",
+    "n": 13
+   },
+   {
+    "iso": "DEU",
+    "name": "Germany",
+    "n": 13
+   },
+   {
+    "iso": "ISR",
+    "name": "Israel",
+    "n": 5
+   }
+  ],
+  "pre2000_share": 1.0,
+  "d2000": {
+   "dec": 2000,
+   "born": 8,
+   "worked": 6,
+   "share": 8.25
+  },
+  "d2010": {
+   "dec": 2010,
+   "born": 10,
+   "worked": 9,
+   "share": 10.31
+  },
+  "d2020": {
+   "dec": 2020,
+   "born": 4,
+   "worked": 3,
+   "share": 5.97
+  },
+  "rank_since2000_worked": 3
+ },
+ "institutions": {
+  "n": 361,
+  "top": [
+   {
+    "name": "Harvard University",
+    "n": 31,
+    "city": "Cambridge, MA",
+    "country": "USA",
+    "pt": [
+     -71.10731,
+     42.37402
+    ],
+    "cats": {
+     "Economics": 8,
+     "Chemistry": 7,
+     "Physics": 9,
+     "Medicine": 6,
+     "Peace": 1
+    },
+    "iso": "USA",
+    "born_abroad": 7,
+    "born_abroad_pct": 22.58
+   },
+   {
+    "name": "Massachusetts Institute of Technology",
+    "n": 25,
+    "city": "Cambridge, MA",
+    "country": "USA",
+    "pt": [
+     -71.10731,
+     42.37402
+    ],
+    "cats": {
+     "Economics": 10,
+     "Physics": 8,
+     "Medicine": 4,
+     "Chemistry": 3
+    },
+    "iso": "USA",
+    "born_abroad": 12,
+    "born_abroad_pct": 48.0
+   },
+   {
+    "name": "Stanford University",
+    "n": 24,
+    "city": "Stanford, CA",
+    "country": "USA",
+    "pt": [
+     -122.16386,
+     37.42473
+    ],
+    "cats": {
+     "Economics": 6,
+     "Medicine": 3,
+     "Physics": 9,
+     "Chemistry": 6
+    },
+    "iso": "USA",
+    "born_abroad": 5,
+    "born_abroad_pct": 20.83
+   },
+   {
+    "name": "University of California, Berkeley",
+    "n": 23,
+    "city": "Berkeley, CA",
+    "country": "USA",
+    "pt": [
+     -122.27472,
+     37.87179
+    ],
+    "cats": {
+     "Economics": 6,
+     "Physics": 9,
+     "Chemistry": 7,
+     "Medicine": 1
+    },
+    "iso": "USA",
+    "born_abroad": 9,
+    "born_abroad_pct": 39.13
+   },
+   {
+    "name": "California Institute of Technology",
+    "n": 20,
+    "city": "Pasadena, CA",
+    "country": "USA",
+    "pt": [
+     -118.1244,
+     34.1385
+    ],
+    "cats": {
+     "Chemistry": 5,
+     "Physics": 9,
+     "Medicine": 5,
+     "Peace": 1
+    },
+    "iso": "USA",
+    "born_abroad": 4,
+    "born_abroad_pct": 20.0
+   },
+   {
+    "name": "University of Chicago",
+    "n": 20,
+    "city": "Chicago, IL",
+    "country": "USA",
+    "pt": [
+     -87.59972,
+     41.78972
+    ],
+    "cats": {
+     "Physics": 4,
+     "Economics": 15,
+     "Chemistry": 1
+    },
+    "iso": "USA",
+    "born_abroad": 3,
+    "born_abroad_pct": 15.79
+   },
+   {
+    "name": "Columbia University",
+    "n": 19,
+    "city": "New York, NY",
+    "country": "USA",
+    "pt": [
+     -73.96194,
+     40.8075
+    ],
+    "cats": {
+     "Medicine": 3,
+     "Economics": 5,
+     "Chemistry": 4,
+     "Physics": 6,
+     "Peace": 1
+    },
+    "iso": "USA",
+    "born_abroad": 9,
+    "born_abroad_pct": 47.37
+   },
+   {
+    "name": "Rockefeller University",
+    "n": 19,
+    "city": "New York, NY",
+    "country": "USA",
+    "pt": [
+     -73.95556,
+     40.7625
+    ],
+    "cats": {
+     "Medicine": 13,
+     "Chemistry": 6
+    },
+    "iso": "USA",
+    "born_abroad": 5,
+    "born_abroad_pct": 26.32
+   },
+   {
+    "name": "Princeton University",
+    "n": 18,
+    "city": "Princeton, NJ",
+    "country": "USA",
+    "pt": [
+     -74.66827,
+     40.35978
+    ],
+    "cats": {
+     "Economics": 6,
+     "Physics": 10,
+     "Chemistry": 1,
+     "Medicine": 1
+    },
+    "iso": "USA",
+    "born_abroad": 10,
+    "born_abroad_pct": 55.56
+   },
+   {
+    "name": "University of Cambridge",
+    "n": 18,
+    "city": "Cambridge",
+    "country": "United Kingdom",
+    "pt": [
+     0.11316,
+     52.20536
+    ],
+    "cats": {
+     "Medicine": 4,
+     "Physics": 8,
+     "Chemistry": 3,
+     "Economics": 3
+    },
+    "iso": "GBR",
+    "born_abroad": 1,
+    "born_abroad_pct": 5.56
+   },
+   {
+    "name": "Howard Hughes Medical Institute",
+    "n": 17,
+    "city": "Durham, NC",
+    "country": "USA",
+    "pt": [
+     -78.89862,
+     35.99403
+    ],
+    "cats": {
+     "Medicine": 9,
+     "Chemistry": 8
+    },
+    "iso": "USA",
+    "born_abroad": 6,
+    "born_abroad_pct": 35.29
+   },
+   {
+    "name": "MRC Laboratory of Molecular Biology",
+    "n": 10,
+    "city": "Cambridge",
+    "country": "United Kingdom",
+    "pt": [
+     0.13509,
+     52.19461
+    ],
+    "cats": {
+     "Chemistry": 8,
+     "Medicine": 2
+    },
+    "iso": "GBR",
+    "born_abroad": 4,
+    "born_abroad_pct": 40.0
+   },
+   {
+    "name": "University of Oxford",
+    "n": 10,
+    "city": "Oxford",
+    "country": "United Kingdom",
+    "pt": [
+     -1.255,
+     51.755
+    ],
+    "cats": {
+     "Medicine": 6,
+     "Chemistry": 3,
+     "Physics": 1
+    },
+    "iso": "GBR",
+    "born_abroad": 3,
+    "born_abroad_pct": 30.0
+   },
+   {
+    "name": "Yale University",
+    "n": 9,
+    "city": "New Haven, CT",
+    "country": "USA",
+    "pt": [
+     -72.93387,
+     41.30324
+    ],
+    "cats": {
+     "Medicine": 1,
+     "Economics": 4,
+     "Chemistry": 3,
+     "Physics": 1
+    },
+    "iso": "USA",
+    "born_abroad": 4,
+    "born_abroad_pct": 44.44
+   },
+   {
+    "name": "Bell Labs",
+    "n": 8,
+    "city": "Holmdel, NJ",
+    "country": "USA",
+    "pt": [
+     -74.17704,
+     40.34772
+    ],
+    "cats": {
+     "Physics": 8
+    },
+    "iso": "USA",
+    "born_abroad": 3,
+    "born_abroad_pct": 37.5
+   },
+   {
+    "name": "Cornell University",
+    "n": 8,
+    "city": "Ithaca, NY",
+    "country": "USA",
+    "pt": [
+     -76.48389,
+     42.44917
+    ],
+    "cats": {
+     "Physics": 4,
+     "Chemistry": 3,
+     "Medicine": 1
+    },
+    "iso": "USA",
+    "born_abroad": 2,
+    "born_abroad_pct": 25.0
+   },
+   {
+    "name": "Harvard Medical School",
+    "n": 8,
+    "city": "Boston, MA",
+    "country": "USA",
+    "pt": [
+     -71.11694,
+     42.37444
+    ],
+    "cats": {
+     "Medicine": 8
+    },
+    "iso": "USA",
+    "born_abroad": 5,
+    "born_abroad_pct": 62.5
+   },
+   {
+    "name": "University of California, Santa Barbara",
+    "n": 8,
+    "city": "Santa Barbara, CA",
+    "country": "USA",
+    "pt": [
+     -119.84639,
+     34.41632
+    ],
+    "cats": {
+     "Chemistry": 2,
+     "Physics": 5,
+     "Economics": 1
+    },
+    "iso": "USA",
+    "born_abroad": 5,
+    "born_abroad_pct": 71.43
+   },
+   {
+    "name": "Berlin University",
+    "n": 7,
+    "city": "Berlin",
+    "country": "Germany",
+    "pt": [
+     13.39333,
+     52.51805
+    ],
+    "cats": {
+     "Chemistry": 5,
+     "Physics": 2
+    },
+    "iso": "DEU",
+    "born_abroad": 4,
+    "born_abroad_pct": 57.14
+   },
+   {
+    "name": "University College",
+    "n": 7,
+    "city": "London",
+    "country": "United Kingdom",
+    "pt": [
+     -0.13361,
+     51.52472
+    ],
+    "cats": {
+     "Medicine": 5,
+     "Chemistry": 1,
+     "Physics": 1
+    },
+    "iso": "GBR",
+    "born_abroad": 4,
+    "born_abroad_pct": 57.14
+   },
+   {
+    "name": "University of Heidelberg",
+    "n": 7,
+    "city": "Heidelberg",
+    "country": "Germany",
+    "pt": [
+     8.70639,
+     49.41028
+    ],
+    "cats": {
+     "Medicine": 1,
+     "Chemistry": 4,
+     "Physics": 2
+    },
+    "iso": "DEU",
+    "born_abroad": 2,
+    "born_abroad_pct": 28.57
+   },
+   {
+    "name": "Institut Pasteur",
+    "n": 6,
+    "city": "Paris",
+    "country": "France",
+    "pt": [
+     2.31111,
+     48.84028
+    ],
+    "cats": {
+     "Medicine": 6
+    },
+    "iso": "FRA",
+    "born_abroad": 1,
+    "born_abroad_pct": 16.67
+   },
+   {
+    "name": "London University",
+    "n": 6,
+    "city": "London",
+    "country": "United Kingdom",
+    "pt": [
+     -0.13361,
+     51.52472
+    ],
+    "cats": {
+     "Medicine": 3,
+     "Chemistry": 1,
+     "Physics": 2
+    },
+    "iso": "GBR",
+    "born_abroad": 1,
+    "born_abroad_pct": 16.67
+   },
+   {
+    "name": "P.N. Lebedev Physical Institute",
+    "n": 6,
+    "city": "Moscow",
+    "country": "Russia",
+    "pt": [
+     37.56528,
+     55.69778
+    ],
+    "cats": {
+     "Physics": 6
+    },
+    "iso": "RUS",
+    "born_abroad": 1,
+    "born_abroad_pct": 16.67
+   },
+   {
+    "name": "Sorbonne University",
+    "n": 6,
+    "city": "Paris",
+    "country": "France",
+    "pt": [
+     2.35595,
+     48.86009
+    ],
+    "cats": {
+     "Medicine": 1,
+     "Physics": 2,
+     "Chemistry": 2,
+     "Peace": 1
+    },
+    "iso": "FRA",
+    "born_abroad": 2,
+    "born_abroad_pct": 33.33
+   }
+  ],
+  "mpg": 30,
+  "top10_us": 9,
+  "top20_us": 15,
+  "top10_n": 217,
+  "wiki": [
+   {
+    "wiki": "Harvard University",
+    "wiki_n": 29,
+    "mine": 31
+   },
+   {
+    "wiki": "Massachusetts Institute of Technology",
+    "wiki_n": 25,
+    "mine": 25
+   },
+   {
+    "wiki": "Stanford University",
+    "wiki_n": 24,
+    "mine": 24
+   },
+   {
+    "wiki": "University of California, Berkeley",
+    "wiki_n": 23,
+    "mine": 23
+   },
+   {
+    "wiki": "California Institute of Technology",
+    "wiki_n": 20,
+    "mine": 20
+   },
+   {
+    "wiki": "University of Chicago",
+    "wiki_n": 20,
+    "mine": 20
+   },
+   {
+    "wiki": "Columbia University",
+    "wiki_n": 19,
+    "mine": 19
+   },
+   {
+    "wiki": "University of Cambridge",
+    "wiki_n": 18,
+    "mine": 18
+   },
+   {
+    "wiki": "Princeton University",
+    "wiki_n": 18,
+    "mine": 18
+   },
+   {
+    "wiki": "Howard Hughes Medical Institute",
+    "wiki_n": 15,
+    "mine": 17
+   },
+   {
+    "wiki": "Rockefeller University",
+    "wiki_n": 13,
+    "mine": 19
+   },
+   {
+    "wiki": "University of Oxford",
+    "wiki_n": 10,
+    "mine": 10
+   },
+   {
+    "wiki": "MRC Laboratory of Molecular Biology",
+    "wiki_n": 10,
+    "mine": 10
+   },
+   {
+    "wiki": "Yale University",
+    "wiki_n": 9,
+    "mine": 9
+   },
+   {
+    "wiki": "Bell Labs",
+    "wiki_n": 8,
+    "mine": 8
+   },
+   {
+    "wiki": "Cornell University",
+    "wiki_n": 8,
+    "mine": 8
+   },
+   {
+    "wiki": "Harvard Medical School",
+    "wiki_n": 8,
+    "mine": 8
+   },
+   {
+    "wiki": "Case Western Reserve University",
+    "wiki_n": 7,
+    "mine": null
+   },
+   {
+    "wiki": "Heidelberg University",
+    "wiki_n": 7,
+    "mine": 7
+   },
+   {
+    "wiki": "University of California, Santa Barbara",
+    "wiki_n": 7,
+    "mine": 8
+   }
+  ],
+  "wiki_n": 20,
+  "wiki_same": 15,
+  "wiki_revid": 1381233532
+ },
+ "women": {
+  "n": 70,
+  "pct": 6.97,
+  "by_dec": [
+   {
+    "dec": 1900,
+    "n": 56,
+    "w": 3,
+    "pct": 5.36,
+    "sci_n": 33,
+    "sci_w": 1,
+    "pl_n": 23,
+    "pl_w": 2,
+    "sci_pct": 3.03,
+    "pl_pct": 8.7
+   },
+   {
+    "dec": 1910,
+    "n": 38,
+    "w": 1,
+    "pct": 2.63,
+    "sci_n": 24,
+    "sci_w": 1,
+    "pl_n": 14,
+    "pl_w": 0,
+    "sci_pct": 4.17,
+    "pl_pct": 0.0
+   },
+   {
+    "dec": 1920,
+    "n": 54,
+    "w": 2,
+    "pct": 3.7,
+    "sci_n": 33,
+    "sci_w": 0,
+    "pl_n": 21,
+    "pl_w": 2,
+    "sci_pct": 0.0,
+    "pl_pct": 9.52
+   },
+   {
+    "dec": 1930,
+    "n": 55,
+    "w": 3,
+    "pct": 5.45,
+    "sci_n": 38,
+    "sci_w": 1,
+    "pl_n": 17,
+    "pl_w": 2,
+    "sci_pct": 2.63,
+    "pl_pct": 11.76
+   },
+   {
+    "dec": 1940,
+    "n": 40,
+    "w": 3,
+    "pct": 7.5,
+    "sci_n": 30,
+    "sci_w": 1,
+    "pl_n": 10,
+    "pl_w": 2,
+    "sci_pct": 3.33,
+    "pl_pct": 20.0
+   },
+   {
+    "dec": 1950,
+    "n": 71,
+    "w": 0,
+    "pct": 0.0,
+    "sci_n": 54,
+    "sci_w": 0,
+    "pl_n": 17,
+    "pl_w": 0,
+    "sci_pct": 0.0,
+    "pl_pct": 0.0
+   },
+   {
+    "dec": 1960,
+    "n": 75,
+    "w": 3,
+    "pct": 4.0,
+    "sci_n": 59,
+    "sci_w": 2,
+    "pl_n": 16,
+    "pl_w": 1,
+    "sci_pct": 3.39,
+    "pl_pct": 6.25
+   },
+   {
+    "dec": 1970,
+    "n": 103,
+    "w": 4,
+    "pct": 3.88,
+    "sci_n": 80,
+    "sci_w": 1,
+    "pl_n": 23,
+    "pl_w": 3,
+    "sci_pct": 1.25,
+    "pl_pct": 13.04
+   },
+   {
+    "dec": 1980,
+    "n": 94,
+    "w": 4,
+    "pct": 4.26,
+    "sci_n": 76,
+    "sci_w": 3,
+    "pl_n": 18,
+    "pl_w": 1,
+    "sci_pct": 3.95,
+    "pl_pct": 5.56
+   },
+   {
+    "dec": 1990,
+    "n": 101,
+    "w": 7,
+    "pct": 6.93,
+    "sci_n": 77,
+    "sci_w": 1,
+    "pl_n": 24,
+    "pl_w": 6,
+    "sci_pct": 1.3,
+    "pl_pct": 25.0
+   },
+   {
+    "dec": 2000,
+    "n": 119,
+    "w": 11,
+    "pct": 9.24,
+    "sci_n": 99,
+    "sci_w": 6,
+    "pl_n": 20,
+    "pl_w": 5,
+    "sci_pct": 6.06,
+    "pl_pct": 25.0
+   },
+   {
+    "dec": 2010,
+    "n": 117,
+    "w": 13,
+    "pct": 11.11,
+    "sci_n": 97,
+    "sci_w": 5,
+    "pl_n": 20,
+    "pl_w": 8,
+    "sci_pct": 5.15,
+    "pl_pct": 40.0
+   },
+   {
+    "dec": 2020,
+    "n": 82,
+    "w": 16,
+    "pct": 19.51,
+    "sci_n": 69,
+    "sci_w": 8,
+    "pl_n": 13,
+    "pl_w": 8,
+    "sci_pct": 11.59,
+    "pl_pct": 61.54
+   }
+  ],
+  "by_cat": [
+   {
+    "cat": "Physics",
+    "short": "Physics",
+    "n": 231,
+    "w": 5,
+    "pct": 2.16,
+    "first": "Marie Curie",
+    "first_y": 1903
+   },
+   {
+    "cat": "Chemistry",
+    "short": "Chemistry",
+    "n": 202,
+    "w": 8,
+    "pct": 3.96,
+    "first": "Marie Curie",
+    "first_y": 1911
+   },
+   {
+    "cat": "Physiology or Medicine",
+    "short": "Medicine",
+    "n": 235,
+    "w": 14,
+    "pct": 5.96,
+    "first": "Gerty Cori",
+    "first_y": 1947
+   },
+   {
+    "cat": "Economic Sciences",
+    "short": "Economics",
+    "n": 101,
+    "w": 3,
+    "pct": 2.97,
+    "first": "Elinor Ostrom",
+    "first_y": 2009
+   },
+   {
+    "cat": "Literature",
+    "short": "Literature",
+    "n": 123,
+    "w": 19,
+    "pct": 15.45,
+    "first": "Selma Lagerlöf",
+    "first_y": 1909
+   },
+   {
+    "cat": "Peace",
+    "short": "Peace",
+    "n": 113,
+    "w": 21,
+    "pct": 18.58,
+    "first": "Bertha von Suttner",
+    "first_y": 1905
+   }
+  ],
+  "d1900": {
+   "dec": 1900,
+   "n": 56,
+   "w": 3,
+   "pct": 5.36,
+   "sci_n": 33,
+   "sci_w": 1,
+   "pl_n": 23,
+   "pl_w": 2,
+   "sci_pct": 3.03,
+   "pl_pct": 8.7
+  },
+  "d2000": {
+   "dec": 2000,
+   "n": 119,
+   "w": 11,
+   "pct": 9.24,
+   "sci_n": 99,
+   "sci_w": 6,
+   "pl_n": 20,
+   "pl_w": 5,
+   "sci_pct": 6.06,
+   "pl_pct": 25.0
+  },
+  "d2010": {
+   "dec": 2010,
+   "n": 117,
+   "w": 13,
+   "pct": 11.11,
+   "sci_n": 97,
+   "sci_w": 5,
+   "pl_n": 20,
+   "pl_w": 8,
+   "sci_pct": 5.15,
+   "pl_pct": 40.0
+  },
+  "d2020": {
+   "dec": 2020,
+   "n": 82,
+   "w": 16,
+   "pct": 19.51,
+   "sci_n": 69,
+   "sci_w": 8,
+   "pl_n": 13,
+   "pl_w": 8,
+   "sci_pct": 11.59,
+   "pl_pct": 61.54
+  },
+  "before1960": 12,
+  "before1960_n": 314,
+  "since2000": 40,
+  "since2000_n": 318,
+  "sci_since2000_pct": 7.17,
+  "sci_before2000_pct": 2.18,
+  "flow_w_abroad_pct": 27.59,
+  "flow_m_abroad_pct": 31.33,
+  "flow_w_n": 29,
+  "since2000_pct": 12.58,
+  "before1960_pct": 3.82
+ },
+ "peace_lit": {
+  "n": 236,
+  "placed": 224,
+  "abroad": 41,
+  "pct": 18.3,
+  "no_res": 12,
+  "with_aff": 4,
+  "lit": 23.28,
+  "pea": 12.96,
+  "top": [
+   {
+    "from": "Poland",
+    "to": "Germany",
+    "n": 2
+   },
+   {
+    "from": "Belarus",
+    "to": "Israel",
+    "n": 2
+   },
+   {
+    "from": "Algeria",
+    "to": "France",
+    "n": 1
+   },
+   {
+    "from": "Zimbabwe",
+    "to": "South Africa",
+    "n": 1
+   },
+   {
+    "from": "Russia",
+    "to": "Belarus",
+    "n": 1
+   },
+   {
+    "from": "Mexico",
+    "to": "Switzerland",
+    "n": 1
+   }
+  ]
+ },
+ "people": {
+  "Albert Einstein": {
+   "y": 1921,
+   "cat": "Physics",
+   "b": "Germany",
+   "w": "Germany",
+   "bp": "Ulm",
+   "aff": "Kaiser-Wilhelm-Institut (now Max-Planck-Institut) für Physik",
+   "b_iso": "DEU",
+   "w_iso": "DEU"
+  },
+  "Marie Curie": {
+   "y": 1903,
+   "cat": "Physics",
+   "b": "Poland",
+   "w": null,
+   "bp": "Warsaw",
+   "aff": null,
+   "b_iso": "POL",
+   "w_iso": null
+  },
+  "Hideki Yukawa": {
+   "y": 1949,
+   "cat": "Physics",
+   "b": "Japan",
+   "w": "United States",
+   "bp": "Tokyo",
+   "aff": "Columbia University",
+   "b_iso": "JPN",
+   "w_iso": "USA"
+  },
+  "Yoichiro Nambu": {
+   "y": 2008,
+   "cat": "Physics",
+   "b": "Japan",
+   "w": "United States",
+   "bp": "Tokyo",
+   "aff": "Enrico Fermi Institute, University of Chicago",
+   "b_iso": "JPN",
+   "w_iso": "USA"
+  },
+  "Shuji Nakamura": {
+   "y": 2014,
+   "cat": "Physics",
+   "b": "Japan",
+   "w": "United States",
+   "bp": "Ikata",
+   "aff": "University of California",
+   "b_iso": "JPN",
+   "w_iso": "USA"
+  },
+  "Syukuro Manabe": {
+   "y": 2021,
+   "cat": "Physics",
+   "b": "Japan",
+   "w": "United States",
+   "bp": "Shingu, Ehime",
+   "aff": "Princeton University",
+   "b_iso": "JPN",
+   "w_iso": "USA"
+  },
+  "Abdus Salam": {
+   "y": 1979,
+   "cat": "Physics",
+   "b": "Pakistan",
+   "w": "Italy",
+   "bp": "Jhang Maghiāna",
+   "aff": "International Centre for Theoretical Physics",
+   "b_iso": "PAK",
+   "w_iso": "ITA"
+  },
+  "Wilhelm Conrad Röntgen": {
+   "y": 1901,
+   "cat": "Physics",
+   "b": "Germany",
+   "w": "Germany",
+   "bp": "Lennep",
+   "aff": "Munich University",
+   "b_iso": "DEU",
+   "w_iso": "DEU"
+  },
+  "Fritz Haber": {
+   "y": 1918,
+   "cat": "Chemistry",
+   "b": "Poland",
+   "w": "Germany",
+   "bp": "Breslau",
+   "aff": "Kaiser-Wilhelm-Institut (now Fritz-Haber-Institut) für physikalische Chemie und Electrochemie",
+   "b_iso": "POL",
+   "w_iso": "DEU"
+  },
+  "Enrico Fermi": {
+   "y": 1938,
+   "cat": "Physics",
+   "b": "Italy",
+   "w": "Italy",
+   "bp": "Rome",
+   "aff": "Rome University",
+   "b_iso": "ITA",
+   "w_iso": "ITA"
+  },
+  "Kazuo Ishiguro": {
+   "y": 2017,
+   "cat": "Literature",
+   "b": "Japan",
+   "w": null,
+   "bp": "Nagasaki",
+   "aff": null,
+   "b_iso": "JPN",
+   "w_iso": null
+  },
+  "Ardem Patapoutian": {
+   "y": 2021,
+   "cat": "Medicine",
+   "b": "Lebanon",
+   "w": "United States",
+   "bp": "Beirut",
+   "aff": "Scripps Research",
+   "b_iso": "LBN",
+   "w_iso": "USA"
+  },
+  "Abhijit Banerjee": {
+   "y": 2019,
+   "cat": "Economics",
+   "b": "India",
+   "w": "United States",
+   "bp": "Mumbai",
+   "aff": "Massachusetts Institute of Technology (MIT)",
+   "b_iso": "IND",
+   "w_iso": "USA"
+  },
+  "Demis Hassabis": {
+   "y": 2024,
+   "cat": "Chemistry",
+   "b": "United Kingdom",
+   "w": "United Kingdom",
+   "bp": "London",
+   "aff": "Google DeepMind",
+   "b_iso": "GBR",
+   "w_iso": "GBR"
+  },
+  "John Macleod": {
+   "y": 1923,
+   "cat": "Medicine",
+   "b": "United Kingdom",
+   "w": "Canada",
+   "bp": "Cluny",
+   "aff": "University of Toronto",
+   "b_iso": "GBR",
+   "w_iso": "CAN"
+  },
+  "Jack Kilby": {
+   "y": 2000,
+   "cat": "Physics",
+   "b": "United States",
+   "w": "United States",
+   "bp": "Jefferson City, MO",
+   "aff": "Texas Instruments",
+   "b_iso": "USA",
+   "w_iso": "USA"
+  },
+  "Marie Curie 1911": {
+   "y": 1911,
+   "cat": "Chemistry",
+   "b": "Poland",
+   "w": "France",
+   "bp": "Warsaw",
+   "aff": "Sorbonne University",
+   "b_iso": "POL",
+   "w_iso": "FRA"
+  }
+ },
+ "decades": {
+  "rows": [
+   {
+    "dec": 1900,
+    "n_all": 56,
+    "n_flow": 32
+   },
+   {
+    "dec": 1910,
+    "n_all": 38,
+    "n_flow": 24
+   },
+   {
+    "dec": 1920,
+    "n_all": 54,
+    "n_flow": 33
+   },
+   {
+    "dec": 1930,
+    "n_all": 55,
+    "n_flow": 38
+   },
+   {
+    "dec": 1940,
+    "n_all": 40,
+    "n_flow": 30
+   },
+   {
+    "dec": 1950,
+    "n_all": 71,
+    "n_flow": 54
+   },
+   {
+    "dec": 1960,
+    "n_all": 75,
+    "n_flow": 59
+   },
+   {
+    "dec": 1970,
+    "n_all": 103,
+    "n_flow": 78
+   },
+   {
+    "dec": 1980,
+    "n_all": 94,
+    "n_flow": 76
+   },
+   {
+    "dec": 1990,
+    "n_all": 101,
+    "n_flow": 75
+   },
+   {
+    "dec": 2000,
+    "n_all": 119,
+    "n_flow": 97
+   },
+   {
+    "dec": 2010,
+    "n_all": 117,
+    "n_flow": 97
+   },
+   {
+    "dec": 2020,
+    "n_all": 82,
+    "n_flow": 67
+   }
+  ]
+ }
+}

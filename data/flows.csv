@@ -1,0 +1,110 @@
+birth_iso3,birth_country,work_iso3,work_country,prizes
+GBR,United Kingdom,USA,United States,20
+CAN,Canada,USA,United States,15
+DEU,Germany,USA,United States,12
+POL,Poland,DEU,Germany,9
+FRA,France,USA,United States,8
+JPN,Japan,USA,United States,7
+POL,Poland,USA,United States,6
+CHN,China,USA,United States,6
+RUS,Russia,USA,United States,5
+ITA,Italy,USA,United States,5
+ZAF,South Africa,USA,United States,4
+AUT,Austria,USA,United States,4
+AUT,Austria,DEU,Germany,4
+HUN,Hungary,USA,United States,4
+GBR,United Kingdom,CAN,Canada,4
+DEU,Germany,CHE,Switzerland,4
+NLD,Netherlands,USA,United States,4
+IND,India,GBR,United Kingdom,3
+DEU,Germany,GBR,United Kingdom,3
+NOR,Norway,USA,United States,3
+NLD,Netherlands,DEU,Germany,3
+AUS,Australia,GBR,United Kingdom,3
+IND,India,USA,United States,2
+RUS,Russia,GBR,United Kingdom,2
+ISR,Israel,USA,United States,2
+TUR,Turkey,USA,United States,2
+CZE,Czech Republic,USA,United States,2
+AUS,Australia,USA,United States,2
+NZL,New Zealand,GBR,United Kingdom,2
+LUX,Luxembourg,FRA,France,2
+POL,Poland,FRA,France,2
+DEU,Germany,CAN,Canada,2
+ITA,Italy,GBR,United Kingdom,2
+USA,United States,GBR,United Kingdom,2
+RUS,Russia,DEU,Germany,2
+UKR,Ukraine,USA,United States,2
+LTU,Lithuania,GBR,United Kingdom,1
+PAK,Pakistan,ITA,Italy,1
+EGY,Egypt,USA,United States,1
+NZL,New Zealand,USA,United States,1
+AUS,Australia,RUS,Russia,1
+FRA,France,CHE,Switzerland,1
+LTU,Lithuania,USA,United States,1
+FRA,France,SWE,Sweden,1
+LBN,Lebanon,USA,United States,1
+HUN,Hungary,ISR,Israel,1
+VEN,Venezuela,USA,United States,1
+USA,United States,DNK,Denmark,1
+FIN,Finland,USA,United States,1
+USA,United States,AUS,Australia,1
+ITA,Italy,CHE,Switzerland,1
+ARG,Argentina,GBR,United Kingdom,1
+CHE,Switzerland,FRA,France,1
+KOR,South Korea,USA,United States,1
+CHN,China,GBR,United Kingdom,1
+FRA,France,TUN,Tunisia,1
+CYP,Cyprus,GBR,United Kingdom,1
+DZA,Algeria,FRA,France,1
+CHE,Switzerland,ITA,Italy,1
+HUN,Hungary,GBR,United Kingdom,1
+EGY,Egypt,GBR,United Kingdom,1
+FRA,France,DEU,Germany,1
+CHE,Switzerland,USA,United States,1
+DEU,Germany,FRA,France,1
+HUN,Hungary,DEU,Germany,1
+BEL,Belgium,USA,United States,1
+SVN,Slovenia,AUT,Austria,1
+HUN,Hungary,SWE,Sweden,1
+ROU,Romania,USA,United States,1
+DEU,Germany,SWE,Sweden,1
+UKR,Ukraine,FRA,France,1
+RUS,Russia,BEL,Belgium,1
+HRV,Croatia,CHE,Switzerland,1
+AZE,Azerbaijan,RUS,Russia,1
+FRA,France,ARG,Argentina,1
+MEX,Mexico,USA,United States,1
+AUT,Austria,FRA,France,1
+POL,Poland,GBR,United Kingdom,1
+AUT,Austria,GBR,United Kingdom,1
+GBR,United Kingdom,CHE,Switzerland,1
+NLD,Netherlands,GBR,United Kingdom,1
+JOR,Jordan,USA,United States,1
+DEU,Germany,AUT,Austria,1
+RUS,Russia,CHE,Switzerland,1
+CZE,Czech Republic,DEU,Germany,1
+BRA,Brazil,GBR,United Kingdom,1
+SVK,Slovakia,DEU,Germany,1
+TUN,Tunisia,USA,United States,1
+FIN,Finland,SWE,Sweden,1
+GBR,United Kingdom,AUS,Australia,1
+DEU,Germany,ISR,Israel,1
+MAR,Morocco,FRA,France,1
+ESP,Spain,USA,United States,1
+BLR,Belarus,USA,United States,1
+NLD,Netherlands,CHE,Switzerland,1
+LCA,Saint Lucia,USA,United States,1
+ROU,Romania,DEU,Germany,1
+PAK,Pakistan,USA,United States,1
+SWE,Sweden,DEU,Germany,1
+POL,Poland,CHE,Switzerland,1
+SWE,Sweden,GBR,United Kingdom,1
+SWE,Sweden,USA,United States,1
+BIH,Bosnia and Herzegovina,CHE,Switzerland,1
+LVA,Latvia,DEU,Germany,1
+IDN,Indonesia,NLD,Netherlands,1
+IRL,Ireland,USA,United States,1
+TWN,Taiwan,USA,United States,1
+BEL,Belgium,FRA,France,1
+BLR,Belarus,RUS,Russia,1

@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Nobel Brain Drain</title>
+<meta name="description" content="Where Nobel laureates were born against where they were working when they won: {{abroad.n|int}} prizes in physics, chemistry, medicine and economics on one flow map, with the net gain and loss of every country.">
+<meta property="og:title" content="The Nobel brain drain: where laureates were born, and where they won">
+<meta property="og:description" content="{{us.pct|pc}} of Nobel prizes won by people working in the United States went to people born abroad. A flow map of {{abroad.n|int}} prizes, 1901 to {{source.y1|raw}}.">
+<meta property="og:image" content="https://maps.tristanhotham.com/nobel-brain-drain/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/nobel-brain-drain/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Medal and paper: laboratory cream, medal gold, ink, and the red and blue of gain and loss. */
+:root{
+  --bg:#F7F3EC; --panel:#ECE6DA; --fg:#1D1B22; --muted:#67626C; --rule:#E2DBCD; --card:#FFFCF6; --border:#CFC5B3;
+  --hot:#A3202E; --cool:#2F5D8C; --gold:#C8961E; --plum:#7A4E9E; --land:#EAE4D7; --sea:#F2EEE6;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16141A; --panel:#211E26; --fg:#EEE9E3; --muted:#A8A0AC; --rule:#36313C; --card:#1C1A21; --border:#4A4450;
+  --hot:#E36A78; --cool:#86A8D8; --gold:#F2C14E; --plum:#C08AC4; --land:#28252E; --sea:#1A181E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#16141A; --panel:#211E26; --fg:#EEE9E3; --muted:#A8A0AC; --rule:#36313C; --card:#1C1A21; --border:#4A4450;
+  --hot:#E36A78; --cool:#86A8D8; --gold:#F2C14E; --plum:#C08AC4; --land:#28252E; --sea:#1A181E; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,11vw,94px)/.9 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .a{color:var(--hot)}
+.mark{width:clamp(78px,16vw,128px);height:auto;display:block;color:var(--fg)}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:56ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.h{color:var(--hot)} .stats b.c{color:var(--cool)} .stats b.g{color:var(--gold)} .stats b.p{color:var(--plum)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:290px;z-index:100001;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn i.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.timebar{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:12px;align-items:center;margin:0 0 8px}
+.play{width:46px;height:46px;border-radius:50%;border:0;background:var(--hot);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.play svg{width:20px;height:20px}
+.yr{font:900 40px/1 var(--display);letter-spacing:-.02em;min-width:4.2ch;font-variant-numeric:tabular-nums}
+.yr small{display:block;font:400 11px/1.2 var(--mono);color:var(--muted);letter-spacing:.04em}
+input[type=range].slider{width:100%;accent-color:var(--hot);min-height:32px}
+.spark{height:58px;margin:0 0 10px;cursor:pointer}
+@media (max-width:600px){.yr{font-size:30px}.timebar{gap:8px;grid-template-columns:auto 1fr auto}.timebar .slider{grid-column:1/-1;order:5}}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.side{background:var(--card);border:1px solid var(--border);padding:12px 12px 10px;font:400 13px/1.45 var(--mono);max-height:640px;overflow:auto}
+@media (max-width:900px){.side{max-height:none}}
+.side h4{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.side h4:first-child{margin-top:2px}
+.side .big{font:800 26px/1.1 var(--display);margin:2px 0 4px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side ol,.side ul{margin:4px 0 8px;padding-left:20px}
+.side li{margin:3px 0}
+.side li small,.side td small{color:var(--muted)}
+.side table{width:100%;border-collapse:collapse;margin:4px 0 6px}
+.side td{padding:4px 4px 4px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.side td.num{text-align:right;white-space:nowrap}
+.back{font:400 12px var(--mono);background:none;border:0;color:var(--muted);padding:0;cursor:pointer;text-decoration:underline;margin-bottom:6px}
+.go{cursor:pointer;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px}
+.lmap{height:620px;border:1px solid var(--border);background:var(--sea);border-radius:2px}
+@media (max-width:600px){.lmap{height:min(64vh,470px)}}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.lyrBtn{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:8px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:258px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(70vh,520px);overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel select{font:400 12px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:2px;padding:2px 4px;width:100%;min-height:0}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.lyrPanel .sub span{flex:0 0 58px}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 7px;border-top:1px solid var(--rule);padding-top:9px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.cityL{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 2px var(--bg);pointer-events:none}
+.cityL i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--fg);margin-right:4px;vertical-align:1px}
+.cityL.s{font-size:10px;font-weight:400}
+.cntL{font:700 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;opacity:.75;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none;text-align:center}
+.mapnote{background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--border);border-radius:3px;padding:6px 9px;font:400 12px/1.35 var(--mono);max-width:min(300px,62vw);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.mapnote b{font-weight:600}
+.mapnote:empty{display:none}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--fg)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--fg)}
+.leaflet-popup-content{font:400 12.5px/1.45 var(--mono);margin:10px 12px}
+.leaflet-popup-content b{font:700 15px/1.2 var(--display)}
+.leaflet-popup-content small{color:var(--muted)}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px;align-items:center}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:13px;height:13px;margin-right:6px;border-radius:2px;border:1px solid rgba(0,0,0,.15)}
+.legend i.c{border-radius:50%}
+.legend i.o{border-radius:50%;background:none!important;border:1.5px solid}
+.legend .ln{display:inline-block;width:22px;height:0;border-top:3px solid;margin-right:6px}
+.legend .ln.d{border-top-style:dashed}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.tbl{width:100%;border-collapse:collapse;font:400 13px/1.4 var(--mono)}
+table.tbl th{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 6px 6px 0;border-bottom:2px solid var(--fg)}
+table.tbl th.num,table.tbl td.num{text-align:right}
+table.tbl td{padding:6px 6px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.tbl tr.click{cursor:pointer}
+table.tbl tr.click:hover td{background:var(--panel)}
+.tablebox{max-height:430px;overflow:auto;border:1px solid var(--border);background:var(--card);padding:0 10px}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a,.cta button{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px;background:none;color:var(--fg);cursor:pointer}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Science</span><span>World, 1901 to {{source.y1|raw}}</span></div>
+<header class="hero">
+  <h1>The Nobel <span class="a">brain drain</span></h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Where Nobel laureates were born, against where they were working when they won. {{abroad.n|int}} prizes in physics, chemistry, medicine and economics, 1901 to {{source.y1|raw}}, on one map: the countries that grow laureates, the countries that collect them, and the one that has collected more than all the rest together.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Nobel Prize API; Wikidata; Natural Earth</div>
+
+<div class="stats">
+  <div><b class="h">{{abroad.pct|pc}}</b><span>of {{abroad.n|int}} science and economics prizes went to someone working outside their birth country</span></div>
+  <div><b class="c">+{{us.net|int}}</b><span>the United States' net gain: {{us.n|int}} prizes won there, {{us.born|int}} by people born there</span></div>
+  <div><b class="g">{{germany.work_share_to1932|pc}} to {{germany.work_share_since1933|pc}}</b><span>Germany's share of prizes, before 1933 and since</span></div>
+  <div><b class="p">{{women.d2020.pct|pc}}</b><span>of prizes to people in the 2020s went to women; {{women.before1960_pct|f1}}% before 1960</span></div>
+</div>
+
+<p class="lede">A Nobel prize is awarded to a person, but it is also claimed by places: by the town where the laureate was born, the country on their first passport, and the university that employed them on the day the telephone rang from Stockholm. These are often not the same. Of the {{abroad.n|int}} prizes in physics, chemistry, physiology or medicine and economics for which the Nobel Prize's own data give both a birthplace and an affiliation at the time of the award, {{abroad.abroad|int}} ({{abroad.pct|pc}}) went to someone working in a country other than the one they were born in.</p>
+<p>Draw a line from each birthplace to each workplace and the map below appears: a thick red rope from Europe to the north-east of the United States and California, finer threads from Japan, China, India and South Africa, and a blue web inside Europe that thins out after 1933. Use the prize buttons and the decade slider to filter it, switch to women or men, search for a laureate, a country or an institution, and click any line for the person behind it.</p>
+
+<h2><span class="n">01 · The map</span>From birthplace to prize</h2>
+<div class="bleed" id="atlas">
+<div class="timebar">
+  <button class="play" id="play" aria-label="Play through the decades"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg></button>
+  <div class="yr" id="yr">All<small id="yrsub">award decades</small></div>
+  <input type="range" class="slider" id="slider" min="0" max="13" step="1" value="13" aria-label="Award decade">
+  <button class="btn" id="allBtn" aria-pressed="true">All decades</button>
+</div>
+<div class="spark" id="spark" title="Prizes by award decade: click to choose a decade"></div>
+<div class="controls"><div class="scrollrow" id="pRow"><span class="ctl-l">Prize</span></div></div>
+<div class="controls">
+  <div class="scrollrow" id="gRow"><span class="ctl-l">Who</span><button class="btn" data-g="all" aria-pressed="true">Everyone</button><button class="btn" data-g="w" aria-pressed="false">Women</button><button class="btn" data-g="m" aria-pressed="false">Men</button></div>
+  <div class="scrollrow" id="aRow"><span class="ctl-l">Show</span><button class="btn" data-a="0" aria-pressed="true">All laureates</button><button class="btn" data-a="1" aria-pressed="false">Born abroad only</button></div>
+</div>
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a laureate, a country or an institution" aria-label="Search a laureate, a country or an institution" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+</div>
+<div class="controls"><div class="scrollrow" id="focusRow"><span class="ctl-l">Zoom to</span></div></div>
+<div class="mapgrid">
+  <div><div id="map" class="lmap" role="application" aria-label="Flow map of Nobel laureates from birthplace to workplace"></div>
+    <div class="legend" id="legend"></div></div>
+  <div class="side" id="side" aria-live="polite"></div>
+</div>
+<p class="src">Lines run from a laureate's birthplace (open circle) to their affiliation when the prize was awarded (filled circle). Grey dots: laureates who won in the country they were born in. Peace and Literature laureates have no affiliation in the Nobel data and are drawn, when switched on, as dashed lines to their country of residence at the award. Countries are present-day ones. Sources: Nobel Prize API (Nobel Prize Outreach); Wikidata (CC0) for birthplace and institution coordinates; Natural Earth for outlines and city names. Base map tiles © Esri.</p>
+</div>
+
+<h2><span class="n">02 · Gain and loss</span>One country gained, almost everyone else lost</h2>
+<p>For every country, count the prizes won by people working there and subtract the prizes won by people born there. The United States comes out {{us.net|int}} ahead: {{us.n|int}} prizes won by people working in America, against {{us.born|int}} won by Americans by birth, wherever they worked. Only {{countries.n_gain|int}} countries finish in credit at all, and after the United States the gains are small: Switzerland +{{countries.che.net|int}}, the United Kingdom +{{countries.gbr.net|int}}, Denmark and Sweden +1 each.</p>
+<div class="figure"><p class="fig-h">Net gain or loss of laureates, by country</p><p class="fig-sub">Prizes won by people working in a country minus prizes won by people born there; present-day borders. Physics, chemistry, medicine and economics. Click a bar to see the country on the map.</p>
+<div class="controls"><div class="scrollrow" id="netMode"><button class="btn" data-m="net" aria-pressed="true">Net gain or loss</button><button class="btn" data-m="bw" aria-pressed="false">Born there and won there</button></div></div>
+<div class="chart" id="netChart"></div></div>
+<p>The losers are a roll-call of twentieth-century upheaval. Poland's {{countries.pol.net|int}} looks like the biggest loss, but {{countries.pol_de_then|int}} of its {{countries.pol.born|int}} laureates were born in what was then Germany, in Breslau and the Prussian east, and {{countries.pol_de_then_to_de|int}} of them won in Germany: a story about borders moving rather than people. Hungary sent {{germany.hungary.abroad|int}} of its {{germany.hungary.n|int}} laureates abroad, Austria {{germany.austria.abroad|int}} of {{germany.austria.n|int}}. Canada ({{countries.can.net|int}}) lost scientists to the United States next door: all {{countries.can.left|int}} Canadian-born laureates who won abroad were working there; China ({{countries.chn.net|int}}) and India ({{countries.ind.net|int}}) lost almost all the laureates they grew.</p>
+
+<h2><span class="n">03 · The great importer</span>The United States</h2>
+<p>Until the 1930s the United States was a minor Nobel nation: {{us.pre1940_share|pc}} of the science prizes awarded before 1940 went to people working there. Germany led in each of the first four decades. From the 1940s the United States has led every decade, and since 1950 it has taken {{us.since1950_share|pc}} of all prizes in the four subjects.</p>
+<div class="figure"><p class="fig-h">Share of prizes won by people working in the United States</p><p class="fig-sub">By award decade, physics, chemistry, medicine and economics. Hover for numbers.</p><div class="chart" id="usShareChart"></div></div>
+<p>A large part of that American haul was born somewhere else. Of the {{us.n|int}} prizes won in the United States, {{us.abroad|int}} ({{us.pct|pc}}) went to people born abroad, from {{us.n_orig|int}} countries. The largest suppliers are the United Kingdom ({{us.orig.0.1|int}}), Canada ({{us.orig.1.1|int}}), Germany ({{us.orig.2.1|int}}), France ({{us.orig.3.1|int}}) and Japan ({{us.orig.4.1|int}}). In the 2010s and 2020s the foreign-born share of American prizes was {{us.d2010.us_pct|pc}} and {{us.d2020.us_pct|pc}}: higher than in any decade since the 1950s. Of every prize won by someone working outside their birth country, {{us.share_imports|pc}} were won in America.</p>
+<div class="figure"><p class="fig-h">The largest flows</p><p class="fig-sub">Birth country to the country of the affiliation at the award, present-day borders. Click a bar to draw that flow on the map.</p><div class="chart" id="flowChart"></div></div>
+
+<h2><span class="n">04 · Germany</span>The loss that arrived late</h2>
+<p>Germany dominated the early Nobel prizes. Up to 1932, {{germany.work_to1932|int}} of the {{germany.n_to1932|int}} science prizes ({{germany.work_share_to1932|pc}}) went to people working in Germany, and almost every German-born laureate of that time stayed: only {{germany.early_abroad_pct|pc}} of German-born winners up to 1932 were working abroad. Since 1933, Germany's share has been {{germany.work_share_since1933|pc}}, and {{germany.late_abroad_pct|pc}} of German-born winners have been working in another country.</p>
+<div class="figure"><p class="fig-h">Germany before and after 1933</p><p class="fig-sub">Left: share of each decade's prizes won by people working in Germany. Right: laureates born in the German lands of the day (as the Nobel data name the birth country at the time, including places now in Poland, Russia and France), by where they won.</p>
+<div class="chart" id="deChart"></div><div class="legend" id="deLegend"></div></div>
+<p>The prizes lag the history. The Nazi dismissals of 1933 pushed hundreds of scientists out of German universities, many of them Jewish, but their Nobel prizes came years or decades later, in Britain and America: Otto Stern in {{germany.named.Otto Stern.y|raw}}, Hans Krebs and Max Born in the 1950s, Hans Bethe in {{germany.named.Hans Bethe.y|raw}}. Among German-born laureates born between 1880 and 1929, {{germany.exiles_n|int}} won while working abroad, {{germany.exiles_us|int}} of them in the United States and {{germany.exiles_gbr|int}} in Britain. The data cannot say when or why each of them left (the list below also includes people who moved as children, or after the war), only where they were when the prize came.</p>
+<div class="figure"><p class="fig-h">German-born laureates born 1880 to 1929 who won abroad</p><p class="fig-sub">Click a row to see the line on the map.</p><div class="tablebox"><table class="tbl" id="deTable"></table></div></div>
+
+<h2><span class="n">05 · Japan</span>The late riser that stays at home</h2>
+<p>Japan had {{japan.before2000|int}} science laureates in the whole of the twentieth century and {{japan.since2000|int}} since 2000. Since 2000 it has been the third most common birth country of science and economics laureates, behind only the United States and the United Kingdom, with {{japan.since2000_share|f1}}% of all prizes, against {{japan.pre2000_share|f1}}% before. Unlike most other countries outside the United States, Japan keeps its laureates: most won at home, at Kyoto, Nagoya and Tokyo universities and at companies such as Shimadzu and Asahi Kasei. The exceptions went to America: {{japan.n_abroad|int}} of {{japan.n|int}}, including Yoichiro Nambu in Chicago, Shuji Nakamura at Santa Barbara and Syukuro Manabe at Princeton.</p>
+<div class="figure"><p class="fig-h">Japanese-born laureates, by award decade</p><p class="fig-sub">Physics, chemistry, medicine and economics, by where they were working when they won.</p><div class="chart" id="jpChart"></div><div class="legend" id="jpLegend"></div></div>
+<p>One caveat shows how slippery "where the work was done" can be. Hideki Yukawa, Japan's first laureate in {{japan.first|raw}}, worked out his meson theory in Japan in the 1930s, but the Nobel data list Columbia University first among his affiliations in 1949, so he counts here as a prize won in the United States. Affiliation at the time of the award is a good guide to where a laureate's career had taken them, and a rougher one to where the winning work was done.</p>
+
+<h2><span class="n">06 · Institutions</span>The top of the table is American</h2>
+<p>Counting every affiliation the Nobel data list at the time of an award, {{institutions.top.0.name|raw}} comes first with {{institutions.top.0.n|int}} prizes, then {{institutions.top.1.name|raw}} ({{institutions.top.1.n|int}}), {{institutions.top.2.name|raw}} ({{institutions.top.2.n|int}}) and {{institutions.top.3.name|raw}} ({{institutions.top.3.n|int}}). {{institutions.top10_us|int}} of the top ten are American; the University of Cambridge ({{institutions.top.9.n|int}}) is the highest outside the United States. Grouped together, the Max Planck institutes and their predecessors the Kaiser Wilhelm institutes would hold {{institutions.mpg|int}}.</p>
+<div class="figure"><p class="fig-h">Prizes by institution at the time of the award</p><p class="fig-sub">Every listed affiliation counts, so a laureate at two institutions counts for both. Hover a bar for how many of its laureates were born in another country; click to see it on the map.</p><div class="chart" id="uniChart"></div></div>
+<p>These counts follow the Nobel Prize's own affiliations, and they match Wikipedia's list of Nobel laureates by university affiliation, which uses the same source, for {{institutions.wiki_same|int}} of its top {{institutions.wiki_n|int}} institutions; the others differ by a recent prize or by naming (I count the Rockefeller Institute as Rockefeller University). Universities' own claims, which often include alumni and visitors, are much larger.</p>
+
+<h2><span class="n">07 · Mobility</span>Born abroad, decade by decade</h2>
+<p>The share of prizes going to people working outside their birth country has been remarkably steady: {{abroad.min_dec.pct|pc}} in the {{abroad.min_dec.dec|raw}}s at its lowest, {{abroad.max_dec.pct|pc}} in the {{abroad.max_dec.dec|raw}}s at its highest, and {{abroad.d2020.pct|pc}} in the 2020s so far. What changed is not how much laureates moved but where they went: before 1933 mostly between European countries, afterwards overwhelmingly to the United States.</p>
+<div class="figure"><p class="fig-h">Share born in another country, by award decade</p><p class="fig-sub">All four prizes, and prizes won in the United States (decades with 10 or more).</p><div class="chart" id="abChart"></div><div class="legend" id="abLegend"></div></div>
+<p>The four subjects are much alike: {{abroad.by_prize.1.pct|pc}} of chemistry prizes went to someone working outside their birth country, {{abroad.by_prize.0.pct|pc}} in physics, {{abroad.by_prize.3.pct|pc}} in economics and {{abroad.by_prize.2.pct|pc}} in medicine.</p>
+
+<h2><span class="n">08 · Women</span>From {{women.before1960_pct|f1}}% to {{women.d2020.pct|pc}}</h2>
+<p>Women have won {{women.n|int}} of the {{source.n_recs|int}} Nobel prizes awarded to people. Before 1960 it was {{women.before1960|int}} of {{women.before1960_n|int}}; in the 2020s so far it is {{women.d2020.w|int}} of {{women.d2020.n|int}} ({{women.d2020.pct|pc}}). The sciences have moved more slowly: women won {{women.sci_before2000_pct|f1}}% of science and economics prizes before 2000 and {{women.sci_since2000_pct|f1}}% since. Physics has had {{women.by_cat.0.w|int}} women laureates in {{women.by_cat.0.n|int}} prizes and economics {{women.by_cat.3.w|int}} in {{women.by_cat.3.n|int}}.</p>
+<div class="figure"><p class="fig-h">Women's share of Nobel prizes, by decade</p><p class="fig-sub">All six prizes (bars) and the four with affiliations (line). Hover for numbers.</p><div class="chart" id="womenChart"></div><div class="legend" id="womenLegend"></div></div>
+<p>Women laureates in the sciences were about as likely as men to be working abroad: {{women.flow_w_abroad_pct|pc}} of {{women.flow_w_n|int}}, against {{women.flow_m_abroad_pct|pc}} of men. Marie Curie, born in Warsaw and working in Paris, is one of the earliest lines on the map; the Nobel data give her no affiliation for her 1903 physics prize, so only her 1911 chemistry prize is drawn.</p>
+
+<h2><span class="n">09 · Peace and Literature</span>Writers and peacemakers mostly stay put</h2>
+<p>The Nobel data give no affiliation for Peace and Literature laureates, so they are not in the analysis above. Most do have a country of residence at the award: {{peace_lit.placed|int}} of {{peace_lit.n|int}}. By that measure {{peace_lit.pct|pc}} were living outside their birth country, {{peace_lit.lit|pc}} of writers and {{peace_lit.pea|pc}} of peace laureates, far fewer than the scientists. Switch on Literature and Peace in the map above to see them as dashed lines.</p>
+<p class="pull">Since 1950, {{us.since1950_share|pc}} of Nobel prizes in the sciences and economics have gone to people working in the United States, and a third of those to people born somewhere else.</p>
+
+<h2><span class="n">10 · How I did this</span>Methods and caveats</h2>
+<p><b>Prizes and people.</b> The official Nobel Prize API lists {{source.n_api|int}} laureates, {{source.n_org|int}} of them organisations. I counted one record per prize awarded to a person, {{source.n_recs|int}} in all, so the {{source.n_multi_prize|int}} people with two prizes (Marie Curie, John Bardeen, Frederick Sanger, Linus Pauling and Barry Sharpless) count twice. Names, prizes, years, sex, birthplaces and affiliations come from the API. The flow analysis covers the {{source.n_sci|int}} prizes in physics, chemistry, medicine and economics, less {{source.n_sci_noaff|int}} with no affiliation in the API (among them Marie Curie in 1903 and Friedrich von Hayek and Gunnar Myrdal in 1974) and {{source.n_sci_nobirth|int}} with no birthplace: {{abroad.n|int}} prizes. Where the API lists several affiliations ({{source.n_multi_aff|int}} prizes), I used the first that has a place; only {{source.n_multi_cty|int}} list affiliations in more than one country.</p>
+<p><b>Matching and placing.</b> I matched the API to a Wikidata query of physics, chemistry and medicine laureates by Wikidata ID, checking that prize and year agree: all {{source.n_sci3|int}} such prizes matched, {{source.n_match_id|int}} by ID and the rest by name, prize and year (two laureates have duplicate Wikidata items). The Wikidata extract also contains a fictional laureate, Sheldon Cooper, who matched nothing. Birthplaces are placed at Wikidata's coordinates where available ({{source.n_b_wd|int}} prizes), otherwise at the API's present-day city point ({{source.n_b_api|int}}), a Natural Earth town ({{source.n_b_ne|int}}) or the country's centre ({{source.n_b_country|int}}). Where both exist they are a median {{source.bw_km_median|f1}} km apart. Workplaces are placed at a Wikidata employer of the same person whose name matches the affiliation and lies within 60 km of the API's city ({{source.n_w_emp|int}} of the {{abroad.n|int}}), else at the API's city point, a city centroid ({{source.n_w_api|int}}), or a hand-set point ({{source.n_w_manual|int}}). Every row of the data has a method column.</p>
+<p><b>Countries.</b> Birth and work countries are the present-day countries the API gives ("countryNow"), so a laureate born in Breslau in 1868 counts as Polish-born. The Germany section uses the country named at the time of birth instead.</p>
+<p><b>What this is not.</b> Affiliation at the award is not the same as where the prize-winning work was done, which can be decades earlier and elsewhere. Birth country is not nationality: many laureates born abroad moved as children. And Nobel prizes are a tiny, idiosyncratic sample of science, decided by committees whose choices have their own geography and their own biases, not least against women.</p>
+<details><summary>Sources and licences</summary>
+<ul>
+<li>Nobel Prize API v2.1 (api.nobelprize.org), Nobel Prize Outreach, retrieved {{meta.retrieved|raw}}: laureates, prizes, birthplaces, affiliations and residences. The downloaded file carries no licence statement. Nobel Prize Outreach publishes the API's terms of use on nobelprize.org; I understand the metadata are offered under CC0 but could not confirm that from the file, so check the terms before reusing the derived laureate list.</li>
+<li>Wikidata, via QLever, retrieved {{meta.retrieved|raw}}: coordinates of birthplaces and employers. CC0.</li>
+<li>Wikipedia, List of Nobel laureates by university affiliation (revision {{institutions.wiki_revid|raw}}), used only to cross-check institution counts. CC BY-SA 4.0.</li>
+<li>Natural Earth countries and populated places (public domain).</li>
+<li>Base map tiles © Esri.</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/{{meta.doi|raw}}">Read the paper</a><a href="https://github.com/Tristan-Hotham/nobel-brain-drain">Data and code</a><a href="{{meta.blog|raw}}">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) The Nobel brain drain: where laureates were born and where they won. Zenodo. <a href="https://doi.org/{{meta.doi|raw}}">https://doi.org/{{meta.doi|raw}}</a></p>
+<p>Licence: text, figures and derived data CC BY 4.0, code MIT. Wikidata is CC0; see the sources above for the Nobel Prize API.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const R = /*RESULTS*/;
+const SITE = /*SITE*/;
+const WORLD = /*WORLD*/;
+const CITIES = /*CITIES*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", hideTip);
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const CN = iso => (SITE.cname[iso] || iso || "unknown");
+const small = () => innerWidth < 900;
+const wdlink = (q, t) => q ? `<a href="https://www.wikidata.org/wiki/${esc(q)}" target="_blank" rel="noopener">${esc(t || "Wikidata")}</a>` : "";
+const DECS = [1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020];
+const decName = d => d + "s";
+const PRIZES = ["Physics", "Chemistry", "Physiology or Medicine", "Economic Sciences", "Literature", "Peace"];
+const PSHORT = ["Physics", "Chemistry", "Medicine", "Economics", "Literature", "Peace"];
+const PCOL = ["#2F5D8C", "#3E8E5E", "#A3202E", "#C8961E", "#7A4E9E", "#2A9BA8"];
+const PCOLD = ["#86A8D8", "#7CC49A", "#E36A78", "#F2C14E", "#C08AC4", "#6CCAD4"];
+const DCOL = { USA: "#A3202E", EUR: "#2F5D8C", OTH: "#C8961E" }, DCOLD = { USA: "#E36A78", EUR: "#86A8D8", OTH: "#F2C14E" };
+const HOME = "#8C8478";
+const BM = ["Wikidata birthplace coordinates", "Nobel API city point", "Natural Earth town", "country centre (birthplace too vague)", "not placed"];
+const WM = ["Wikidata employer coordinates", "Nobel API city point (city centroid)", "hand-set or Natural Earth point", "country centre", "not placed", "residence city", "residence country (centre)"];
+const destOf = r => r[10] === "USA" ? "USA" : SITE.cont[r[10]] === "Europe" ? "EUR" : "OTH";
+
+/* hero mark: a medal whose ring is split into born-at-home and born-abroad prizes */
+(function () {
+  const g = document.getElementById("heroMark");
+  el("circle", { cx: 60, cy: 60, r: 55, fill: "none", stroke: "currentColor", "stroke-width": 2 }, g);
+  const f = R.abroad.pct / 100, r = 44, ri = 30, a0 = -Math.PI / 2, a1 = a0 + 2 * Math.PI * f;
+  const p = (a, rr) => `${(60 + rr * Math.cos(a)).toFixed(2)} ${(60 + rr * Math.sin(a)).toFixed(2)}`;
+  const seg = (s, e, c) => el("path", { d: `M${p(s, ri)} L${p(s, r)} A${r} ${r} 0 ${e - s > Math.PI ? 1 : 0} 1 ${p(e, r)} L${p(e, ri)} A${ri} ${ri} 0 ${e - s > Math.PI ? 1 : 0} 0 ${p(s, ri)}Z`, fill: c, stroke: "var(--bg)", "stroke-width": 1.5 }, g);
+  seg(a0, a1, "#A3202E"); seg(a1, a0 + 2 * Math.PI, "#C8961E");
+  el("circle", { cx: 60, cy: 60, r: 9, fill: "currentColor" }, g);
+})();
+
+/* ---------- map machinery ---------- */
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const ESRI_ATT = 'Tiles &copy; Esri, HERE, Garmin, USGS, NGA, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, and the GIS user community';
+const LYDEF = { base: "plain", hills: true, hillK: 35, labels: false, labelK: 80, names: true, nameLvl: 1, cnames: true, borders: true, lines: true, lineK: 60, colour: "dest", births: true, works: true, home: true, insts: false, shade: false };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("nobel_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("nobel_layers", JSON.stringify(LY)); } catch (e) {} };
+const map = L.map("map", { minZoom: 1, maxZoom: 12, maxBounds: [[-75, -200], [86, 200]], zoomSnap: .5, preferCanvas: true }).setView([38, 0], small() ? 1 : 2);
+["hills:250", "fill:400", "labels:450", "lines:600", "dots:610", "names:620"].forEach(s => { const [n, z] = s.split(":"); map.createPane(n); map.getPane(n).style.zIndex = z; });
+["hills", "labels", "names"].forEach(n => map.getPane(n).style.pointerEvents = "none");
+const lineR = L.canvas({ pane: "lines", padding: .3, tolerance: 4 }), dotR = L.canvas({ pane: "dots", padding: .3, tolerance: 3 });
+let base = null, hills = null, labels = null; const names = L.layerGroup(), cnames = L.layerGroup(), lineLayer = L.layerGroup(), dotLayer = L.layerGroup(), instLayer = L.layerGroup();
+function setTiles() {
+  [base, labels, hills].forEach(l => { if (l) map.removeLayer(l); });
+  const t = isDark() ? "Dark" : "Light";
+  const url = LY.base === "relief" ? ESRI + "World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}" : LY.base === "satellite" ? ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}" : `${ESRI}Canvas/World_${t}_Gray_Base/MapServer/tile/{z}/{y}/{x}`;
+  base = L.tileLayer(url, { maxZoom: 16, maxNativeZoom: LY.base === "relief" ? 13 : 16, attribution: ESRI_ATT }).addTo(map);
+  hills = L.tileLayer(ESRI + "Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}", { maxZoom: 16, maxNativeZoom: 16, pane: "hills" });
+  labels = L.tileLayer(`${ESRI}Canvas/World_${t}_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 16, pane: "labels" });
+  applyLayers();
+}
+function applyLayers() {
+  if (!base) return;
+  if (LY.hills) { hills.addTo(map); hills.setOpacity(Math.min(1, .15 + LY.hillK / 120)); } else map.removeLayer(hills);
+  if (LY.labels) { labels.addTo(map); labels.setOpacity(LY.labelK / 100); } else map.removeLayer(labels);
+  if (LY.names) names.addTo(map); else map.removeLayer(names);
+  if (LY.cnames) cnames.addTo(map); else map.removeLayer(cnames);
+  lineLayer.addTo(map); dotLayer.addTo(map); if (LY.insts) instLayer.addTo(map); else map.removeLayer(instLayer);
+  cLayer.setStyle(cStyle); placeNames(); draw();
+}
+function placeNames() {
+  names.clearLayers(); cnames.clearLayers();
+  const z = map.getZoom(), bb = map.getBounds().pad(.05); const boxes = [];
+  if (LY.names) {
+    const minPop = [[2, 8e6], [3, 3e6], [4, 1e6], [5, 4e5], [6, 1.5e5], [99, 4e4]].find(([zz]) => z < zz + (LY.nameLvl === 2 ? 1.5 : LY.nameLvl === 0 ? -1 : 0))[1] * (LY.nameLvl === 0 ? 2 : 1);
+    let n = 0;
+    for (const c of CITIES) {
+      if (c.pop < minPop || !bb.contains([c.lat, c.lon])) continue;
+      const pt = map.latLngToContainerPoint([c.lat, c.lon]), big = c.pop >= 5e6;
+      const bx = [pt.x - 4, pt.y - 8, pt.x + 10 + c.name.length * (big ? 6.9 : 6.3), pt.y + 7];
+      if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) continue;
+      boxes.push(bx); L.marker([c.lat, c.lon], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cityL" + (big ? "" : " s"), html: `<i></i>${esc(c.name)}`, iconSize: null, iconAnchor: [3, 6] }) }).addTo(names);
+      if (++n >= 120) break;
+    }
+  }
+  if (LY.cnames && z >= 3 && z < 7) {
+    WORLD.features.forEach(f => { const g = SITE.cpos[f.properties.iso]; if (!g || !bb.contains([g[1], g[0]])) return; const nm = CN(f.properties.iso);
+      if (z < 4 && (g[2] || 0) < 2e7) return; const pt = map.latLngToContainerPoint([g[1], g[0]]), w = nm.length * 7.2;
+      const bx = [pt.x - w / 2, pt.y - 7, pt.x + w / 2, pt.y + 7]; if (boxes.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) return; boxes.push(bx);
+      L.marker([g[1], g[0]], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cntL", html: esc(nm), iconSize: [w, 14], iconAnchor: [w / 2, 7] }) }).addTo(cnames); });
+  }
+}
+(function layerControl() {
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const d = L.DomUtil.create("div"); L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button>
+<div class="lyrPanel" hidden>
+ <div class="row"><label style="font-weight:600">Base map</label><div class="sub"><select data-k="base" aria-label="Base map"><option value="plain">Plain grey</option><option value="relief">Shaded relief</option><option value="satellite">Satellite</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="hills"> Hills and mountains</label><div class="sub"><span>strength</span><input type="range" data-k="hillK" min="10" max="100" step="5" aria-label="Hill shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="labels"> Map labels</label><div class="sub"><span>strength</span><input type="range" data-k="labelK" min="20" max="100" step="5" aria-label="Map label strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="names"> Bold city names</label><div class="sub"><span>how many</span><select data-k="nameLvl" aria-label="How many city names"><option value="0">Biggest only</option><option value="1">Some</option><option value="2">Lots</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="cnames"> Country names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="borders"> Borders</label></div>
+ <div class="hd">Laureates</div>
+ <div class="row"><label><input type="checkbox" data-k="lines"> Lines from birthplace to prize</label><div class="sub"><span>strength</span><input type="range" data-k="lineK" min="15" max="100" step="5" aria-label="Line strength"></div><div class="sub"><span>colour by</span><select data-k="colour" aria-label="Colour lines by"><option value="dest">Where they won</option><option value="prize">Prize</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="births"> Birthplaces (open circles)</label></div>
+ <div class="row"><label><input type="checkbox" data-k="works"> Workplaces (filled circles)</label></div>
+ <div class="row"><label><input type="checkbox" data-k="home"> Won in their birth country (grey)</label></div>
+ <div class="row"><label><input type="checkbox" data-k="insts"> Institutions with two or more prizes</label></div>
+ <div class="row"><label><input type="checkbox" data-k="shade"> Countries shaded by net gain or loss</label></div>
+ <button class="reset">Reset layers</button>
+</div>`;
+    return d; } });
+  map.addControl(new Ctl());
+  const box = map.getContainer(), btn = box.querySelector(".lyrBtn"), pan = box.querySelector(".lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => pan.querySelectorAll("[data-k]").forEach(i => { const k = i.dataset.k; if (i.type === "checkbox") i.checked = LY[k]; else i.value = LY[k]; });
+  pan.querySelectorAll("[data-k]").forEach(i => i.addEventListener(i.type === "range" ? "input" : "change", () => {
+    const k = i.dataset.k; LY[k] = i.type === "checkbox" ? i.checked : (k === "base" || k === "colour" ? i.value : +i.value);
+    if (k === "hillK") LY.hills = true; if (k === "labelK") LY.labels = true; if (k === "nameLvl") LY.names = true; if (k === "lineK" || k === "colour") LY.lines = true;
+    sync(); saveLY(); if (k === "base") setTiles(); else applyLayers(); legend();
+  }));
+  pan.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); setTiles(); legend(); };
+  window.syncLayers = sync;
+  sync();
+})();
+const Note = L.Control.extend({ options: { position: "bottomleft" }, onAdd() { const d = L.DomUtil.create("div", "mapnote"); d.id = "mapnote"; L.DomEvent.disableClickPropagation(d); return d; } });
+map.addControl(new Note());
+L.control.scale({ imperial: false, position: "bottomright" }).addTo(map);
+
+/* ---------- state and filters ---------- */
+const S = { dec: null, g: "all", ab: 0, prizes: new Set([0, 1, 2, 3]), sel: null, lau: null, inst: null, flow: null, playing: false };
+let P = null;   // rows from data/points.json
+const abroadRow = r => r[6] && r[9] && r[7] && r[10] && r[7] !== r[10];
+const keep = r => S.prizes.has(r[2]) && (S.g === "all" || (S.g === "w" ? r[4] === 1 : r[4] === 0)) && (S.dec == null || Math.floor(r[3] / 10) * 10 === S.dec) && (!S.ab || abroadRow(r));
+function filtLabel() { return [S.prizes.size === 6 ? "all prizes" : S.prizes.size === 4 && [0, 1, 2, 3].every(i => S.prizes.has(i)) ? "science and economics" : [...S.prizes].sort().map(i => PSHORT[i]).join(", ") || "no prize", S.dec == null ? "all decades" : "awarded in the " + decName(S.dec), S.g === "all" ? "" : S.g === "w" ? "women" : "men", S.ab ? "born abroad" : ""].filter(Boolean).join(", "); }
+const rows = () => P ? P.filter(keep) : [];
+
+/* ---------- countries ---------- */
+let CC_N = {};
+function countryNet() { const c = {}; for (const r of rows()) { if (!r[15]) continue; c[r[7]] = c[r[7]] || { b: 0, w: 0 }; c[r[10]] = c[r[10]] || { b: 0, w: 0 }; c[r[7]].b++; c[r[10]].w++; } return c; }
+function netCol(n) { if (!n) return css("--land"); const a = Math.min(1, Math.sqrt(Math.abs(n) / 30)); return n > 0 ? `rgba(47,93,140,${.15 + .75 * a})` : `rgba(163,32,46,${.15 + .75 * a})`; }
+function cStyle(f) {
+  const iso = f.properties.iso, bd = css("--border") || "#999", sel = iso === S.sel, c = CC_N[iso];
+  const on = LY.shade && c;
+  return { color: sel ? css("--fg") : bd, weight: LY.borders ? (sel ? 2.4 : .6) : (sel ? 2 : 0), fillColor: on ? netCol(c.w - c.b) : css("--land"), fillOpacity: on ? .6 : .1 };
+}
+const cLayer = L.geoJSON(WORLD, { pane: "fill", style: cStyle, onEachFeature: (f, l) => {
+  l.on("click", e => { pickCountry(f.properties.iso, false); });
+  l.on("mousemove", e => { const r = map.getContainer().getBoundingClientRect(); showTip(cTip(f.properties.iso), r.left + e.containerPoint.x, r.top + e.containerPoint.y); });
+  l.on("mouseout", hideTip);
+} }).addTo(map);
+function cTip(iso) { const c = CC_N[iso] || { b: 0, w: 0 }; return `<b>${esc(CN(iso))}</b><br>${fmt(c.b)} born here, ${fmt(c.w)} won here (${esc(filtLabel())})<br>net ${c.w - c.b >= 0 ? "+" : ""}${c.w - c.b}`; }
+
+/* ---------- lines and dots ---------- */
+function arc(a, b) { const pts = [], dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1, nx = -dy / len, ny = dx / len, h = len * .16 * (len > 90 ? 90 / len : 1); for (let t = 0; t <= 1.0001; t += .04) { const m = 4 * t * (1 - t) * h; pts.push([a[1] + dy * t + ny * m, a[0] + dx * t + nx * m]); } return pts; }
+const colOf = r => LY.colour === "prize" ? (isDark() ? PCOLD : PCOL)[r[2]] : (isDark() ? DCOLD : DCOL)[destOf(r)];
+let LAUSEL = null;
+function popupHtml(r) {
+  const pl = r[2] >= 4;
+  return `<b>${esc(r[1])}</b><br>${PSHORT[r[2]]} ${r[3]}${r[4] ? " · woman" : ""}<br><small>Born</small> ${r[5] ? r[5] + ", " : ""}${esc(r[8] || "place not given")}, ${esc(CN(r[7]))}${r[18] && r[18] !== CN(r[7]) ? ` <small>(then ${esc(r[18])})</small>` : ""}<br>` +
+    (r[9] ? `<small>${pl ? "Living in" : "Won at"}</small> ${pl ? "" : esc(r[11]) + ", "}${esc(r[12] || "")}${r[12] ? ", " : ""}${esc(CN(r[10]))}<br>` : `<small>No affiliation or residence in the Nobel data</small><br>`) +
+    `<small>Placed by: birth, ${BM[r[13]]}; ${pl ? "residence" : "work"}, ${WM[r[14]]}</small><br><a href="https://www.nobelprize.org/prizes/${esc(r[17])}" target="_blank" rel="noopener">nobelprize.org</a>${r[16] ? " · " + wdlink(r[16]) : ""}`;
+}
+function draw() {
+  lineLayer.clearLayers(); dotLayer.clearLayers(); instLayer.clearLayers();
+  CC_N = countryNet(); cLayer.setStyle(cStyle);
+  if (!P) return;
+  const rs = rows(), op = LY.lineK / 100, dark = isDark();
+  const sel = LAUSEL;
+  // home dots first, then lines (US last so it sits on top), then end points
+  if (LY.home) rs.forEach(r => { if (r[9] && !abroadRow(r) && r[7] === r[10]) L.circleMarker([r[9][1], r[9][0]], { renderer: dotR, radius: 2.6, color: HOME, weight: 0, fillColor: HOME, fillOpacity: .75 }).on("click", e => pickLaureate(r, false, e.latlng)).addTo(dotLayer); });
+  const ab = rs.filter(abroadRow).sort((a, b) => (destOf(a) === "USA") - (destOf(b) === "USA"));
+  if (LY.lines) ab.forEach(r => {
+    const hl = sel && sel[0] === r[0] && sel[3] === r[3], c = colOf(r), pl = r[2] >= 4;
+    const line = L.polyline(arc(r[6], r[9]), { renderer: lineR, color: hl ? (dark ? "#fff" : "#000") : c, weight: hl ? 3.2 : 1.3, opacity: hl ? 1 : op * (S.flow && !(S.flow[0] === r[7] && S.flow[1] === r[10]) ? .25 : 1), dashArray: pl ? "4 4" : null, lineCap: "round" });
+    line.on("click", e => { L.DomEvent.stopPropagation(e); pickLaureate(r, false, e.latlng); });
+    line.on("mousemove", e => { const b = map.getContainer().getBoundingClientRect(); showTip(`<b>${esc(r[1])}</b>, ${PSHORT[r[2]]} ${r[3]}<br>${esc(CN(r[7]))} to ${esc(CN(r[10]))}`, b.left + e.containerPoint.x, b.top + e.containerPoint.y); });
+    line.on("mouseout", hideTip);
+    line.addTo(lineLayer);
+  });
+  ab.forEach(r => { const c = colOf(r);
+    if (LY.births) L.circleMarker([r[6][1], r[6][0]], { renderer: dotR, radius: 2.8, color: c, weight: 1.2, fill: true, fillColor: css("--bg") || "#fff", fillOpacity: 1 }).on("click", e => pickLaureate(r, false, e.latlng)).addTo(dotLayer);
+    if (LY.works) L.circleMarker([r[9][1], r[9][0]], { renderer: dotR, radius: 3.2, color: css("--bg"), weight: .8, fillColor: c, fillOpacity: .95 }).on("click", e => pickLaureate(r, false, e.latlng)).addTo(dotLayer); });
+  if (LY.insts) SITE.inst.forEach(x => { const n = x.n; L.circleMarker([x.pt[1], x.pt[0]], { renderer: dotR, radius: 3 + 2.2 * Math.sqrt(n), color: dark ? "#fff" : "#1D1B22", weight: 1.2, fillColor: "#C8961E", fillOpacity: .55 })
+      .bindPopup(`<b>${esc(x.name)}</b><br>${esc(x.city)}<br>${fmt(n)} prizes at the award (all years), ${fmt(x.born_abroad)} to people born in another country`).addTo(instLayer); });
+  if (sel && sel[6]) { const r = sel; [r[6], r[9]].forEach((p, i) => { if (p) L.circleMarker([p[1], p[0]], { renderer: dotR, radius: 6, color: dark ? "#fff" : "#000", weight: 2, fill: false }).addTo(dotLayer); }); }
+}
+
+/* ---------- time ---------- */
+function setDec(d) {
+  S.dec = d; const sl = document.getElementById("slider"); sl.value = d == null ? DECS.length : DECS.indexOf(d);
+  document.getElementById("allBtn").setAttribute("aria-pressed", d == null);
+  document.getElementById("yr").firstChild.nodeValue = d == null ? "All" : d + "s";
+  update();
+}
+function update() {
+  const rs = rows();
+  document.getElementById("yrsub").textContent = P ? `${fmt(rs.length)} prizes shown` : "loading";
+  draw(); sparkCursor(); side(); legend();
+}
+let timer = null;
+function play(on) {
+  S.playing = on; const b = document.getElementById("play");
+  b.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>';
+  b.setAttribute("aria-label", on ? "Pause" : "Play through the decades"); clearInterval(timer);
+  if (on) { setDec(DECS[0]); timer = setInterval(() => { const i = DECS.indexOf(S.dec); if (i >= DECS.length - 1) { play(false); return; } setDec(DECS[i + 1]); }, 1500); }
+}
+document.getElementById("play").onclick = () => play(!S.playing);
+document.getElementById("slider").addEventListener("input", e => { if (S.playing) play(false); const v = +e.target.value; setDec(v >= DECS.length ? null : DECS[v]); });
+document.getElementById("allBtn").onclick = () => { if (S.playing) play(false); setDec(null); };
+(function prizeRow() {
+  const row = document.getElementById("pRow");
+  PRIZES.forEach((p, i) => { const b = document.createElement("button"); b.className = "btn"; b.dataset.p = i; b.innerHTML = `<i class="sw" style="background:${PCOL[i]}"></i>${PSHORT[i]}`; b.setAttribute("aria-pressed", S.prizes.has(i));
+    b.onclick = () => { S.prizes.has(i) ? S.prizes.delete(i) : S.prizes.add(i); b.setAttribute("aria-pressed", S.prizes.has(i)); update(); }; row.appendChild(b); });
+  const all = document.createElement("button"); all.className = "btn"; all.textContent = "All six";
+  all.onclick = () => { PRIZES.forEach((_, i) => S.prizes.add(i)); row.querySelectorAll("[data-p]").forEach(x => x.setAttribute("aria-pressed", true)); update(); }; row.appendChild(all);
+})();
+window.setPrizes = list => { S.prizes = new Set(list); document.querySelectorAll("#pRow [data-p]").forEach(x => x.setAttribute("aria-pressed", S.prizes.has(+x.dataset.p))); update(); };
+document.querySelectorAll("#gRow .btn").forEach(b => b.onclick = () => { S.g = b.dataset.g; document.querySelectorAll("#gRow .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); update(); });
+document.querySelectorAll("#aRow .btn").forEach(b => b.onclick = () => { S.ab = +b.dataset.a; document.querySelectorAll("#aRow .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); update(); });
+
+let sparkSel = null;
+function spark() {
+  resp(document.getElementById("spark"), w => {
+    const box = document.getElementById("spark"), h = 58, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Prizes by award decade" }, box);
+    const rows_ = R.abroad.by_dec, mx = Math.max(...rows_.map(r => r.n)), bw = w / rows_.length;
+    sparkSel = el("rect", { x: 0, y: 0, width: bw, height: h, fill: css("--hot"), opacity: .12 }, svg);
+    rows_.forEach((r, i) => { const hh = 40 * r.n / mx, ha = 40 * r.abroad / mx;
+      el("rect", { x: i * bw + 2, y: 44 - hh, width: bw - 4, height: hh - ha, fill: css("--muted"), opacity: .45 }, svg);
+      el("rect", { x: i * bw + 2, y: 44 - ha, width: bw - 4, height: ha, fill: "#A3202E", opacity: .85 }, svg);
+      lbl(svg, i * bw + bw / 2, 56, w < 560 ? "'" + String(r.dec).slice(2) : r.dec + "s", "lab s m", "middle"); });
+    svg.addEventListener("click", e => { const rr = svg.getBoundingClientRect(); const i = Math.min(rows_.length - 1, Math.floor((e.clientX - rr.left) / rr.width * rows_.length)); if (S.playing) play(false); setDec(DECS[i]); });
+    svg.addEventListener("mousemove", e => { const rr = svg.getBoundingClientRect(); const i = Math.min(rows_.length - 1, Math.floor((e.clientX - rr.left) / rr.width * rows_.length)); const r = rows_[i]; showTip(`<b>${r.dec}s</b><br>${fmt(r.n)} science and economics prizes, ${fmt(r.abroad)} (${r.pct.toFixed(0)}%) born abroad (red)`, e.clientX, e.clientY); });
+    svg.addEventListener("mouseleave", hideTip);
+    sparkSel._bw = bw; sparkCursor();
+  });
+}
+function sparkCursor() { if (!sparkSel) return; if (S.dec == null) { sparkSel.setAttribute("opacity", 0); return; } sparkSel.setAttribute("opacity", .14); sparkSel.setAttribute("x", DECS.indexOf(S.dec) * sparkSel._bw); }
+
+/* ---------- legend and side panel ---------- */
+function legend() {
+  const e = document.getElementById("legend"), dk = isDark();
+  let h = "";
+  if (LY.colour === "prize") h += PRIZES.map((p, i) => S.prizes.has(i) ? `<span><span class="ln${i >= 4 ? " d" : ""}" style="border-color:${(dk ? PCOLD : PCOL)[i]}"></span>${PSHORT[i]}</span>` : "").join("");
+  else h += `<span><span class="ln" style="border-color:${(dk ? DCOLD : DCOL).USA}"></span>born abroad, won in the United States</span><span><span class="ln" style="border-color:${(dk ? DCOLD : DCOL).EUR}"></span>won in Europe</span><span><span class="ln" style="border-color:${(dk ? DCOLD : DCOL).OTH}"></span>won elsewhere</span>`;
+  h += `<span><i class="o" style="border-color:${css("--fg")}"></i>birthplace</span><span><i class="c" style="background:${css("--fg")}"></i>workplace</span>`;
+  if (LY.home) h += `<span><i class="c" style="background:${HOME}"></i>won in their birth country</span>`;
+  if (S.prizes.has(4) || S.prizes.has(5)) h += `<span><span class="ln d" style="border-color:${css("--muted")}"></span>Peace, Literature: to country of residence</span>`;
+  if (LY.shade) h += `<span><i style="background:rgba(47,93,140,.7)"></i>net gain</span><span><i style="background:rgba(163,32,46,.7)"></i>net loss</span>`;
+  h += `<span>Showing: ${esc(filtLabel())}</span>`;
+  e.innerHTML = h;
+}
+function note(h) { document.getElementById("mapnote").innerHTML = h || ""; }
+function lauLi(r) { return `<li><span class="go" data-l="${r[0]}:${r[3]}:${r[2]}">${esc(r[1])}</span> <small>${PSHORT[r[2]]} ${r[3]}${r[10] && r[7] !== r[10] ? " · " + esc(CN(r[7])) + " to " + esc(CN(r[10])) : ""}</small></li>`; }
+function findLau(key) { const [id, y, p] = key.split(":"); return P.find(r => r[0] === id && r[3] === +y && r[2] === +p); }
+function side() {
+  const box = document.getElementById("side"); let h = "";
+  if (!P) { box.innerHTML = `<h4>Loading</h4><p class="sub">Loading laureates...</p>`; return; }
+  const rs = rows();
+  if (S.lau) {
+    const r = S.lau;
+    h = `<button class="back">Back</button><h4>${PSHORT[r[2]]} ${r[3]}</h4><div class="big">${esc(r[1])}</div><table>
+<tr><td>Born</td><td>${r[5] || ""} ${esc(r[8] || "")}</td></tr><tr><td>Birth country (today)</td><td><span class="go" data-c="${esc(r[7])}">${esc(CN(r[7]))}</span>${r[18] && r[18] !== CN(r[7]) ? `<br><small>then: ${esc(r[18])}</small>` : ""}</td></tr>
+<tr><td>${r[2] >= 4 ? "Residence at the award" : "Affiliation at the award"}</td><td>${r[2] >= 4 ? "" : esc(r[11] || "none given") + "<br>"}${esc(r[12] || "")}${r[10] ? ` <span class="go" data-c="${esc(r[10])}">${esc(CN(r[10]))}</span>` : ""}</td></tr>
+<tr><td>Born abroad?</td><td>${!r[10] ? "not known" : r[7] === r[10] ? "no" : "yes"}</td></tr>
+<tr><td>Placed by</td><td><small>birth: ${BM[r[13]]}<br>${r[2] >= 4 ? "residence" : "work"}: ${WM[r[14]]}</small></td></tr></table>
+<p><a href="https://www.nobelprize.org/prizes/${esc(r[17])}" target="_blank" rel="noopener">Nobel Prize facts</a> · ${wdlink(r[16])}</p>`;
+  } else if (S.inst) {
+    const x = S.inst, ppl = P.filter(r => r[11] === x.name || (x.name.startsWith("University of California, ") && r[11] === "University of California" && (r[12] || "").startsWith(x.city.split(",")[0])));
+    h = `<button class="back">Back</button><h4>Institution · ${esc(x.city)}</h4><div class="big">${esc(x.name)}</div><p class="sub">${fmt(x.n)} prizes at the award (every listed affiliation counts), ${fmt(x.born_abroad)} to people born in another country.</p><h4>Listed first (on the map)</h4><ol>` + ppl.map(lauLi).join("") + `</ol>`;
+  } else if (S.flow) {
+    const [a, b] = S.flow, fl = rs.filter(r => r[7] === a && r[10] === b);
+    h = `<button class="back">Back</button><h4>Flow</h4><div class="big">${esc(CN(a))} to ${esc(CN(b))}</div><p class="sub">${fmt(fl.length)} prizes (${esc(filtLabel())})</p><ol>` + fl.map(lauLi).join("") + `</ol>`;
+  } else if (S.sel) {
+    const iso = S.sel, c = CC_N[iso] || { b: 0, w: 0 }, born = rs.filter(r => r[7] === iso), won = rs.filter(r => r[10] === iso);
+    const left = born.filter(r => r[10] && r[10] !== iso), came = won.filter(r => r[7] !== iso);
+    const tally = (list, k) => { const t = {}; list.forEach(r => t[r[k]] = (t[r[k]] || 0) + 1); return Object.entries(t).sort((x, y) => y[1] - x[1]).slice(0, 6).map(([i, n]) => `<span class="go" data-c="${esc(i)}">${esc(CN(i))}</span> ${n}`).join(", "); };
+    h = `<h4>${esc(SITE.cont[iso] || "Country")}</h4><div class="big">${esc(CN(iso))}</div><p class="sub">${esc(filtLabel())}</p><table>
+<tr><td>Born here</td><td class="num">${fmt(born.length)}</td></tr><tr><td>Won while working here</td><td class="num">${fmt(won.length)}</td></tr>
+<tr><td>Net (science and economics)</td><td class="num">${c.w - c.b >= 0 ? "+" : ""}${c.w - c.b}</td></tr><tr><td>Born here, won abroad</td><td class="num">${fmt(left.length)}</td></tr><tr><td>Born abroad, won here</td><td class="num">${fmt(came.length)}</td></tr></table>`;
+    if (left.length) h += `<h4>Where those born here won</h4><p>${tally(left, 10)}</p>`;
+    if (came.length) h += `<h4>Where those who won here were born</h4><p>${tally(came, 7)}</p>`;
+    h += `<h4>Born here</h4><ol>` + born.slice().reverse().slice(0, 60).map(lauLi).join("") + `</ol>` + (born.length > 60 ? `<p class="sub">and ${born.length - 60} more.</p>` : "");
+    if (came.length) h += `<h4>Born abroad, won here</h4><ol>` + came.slice().reverse().slice(0, 60).map(lauLi).join("") + `</ol>`;
+    note(`<b>${esc(CN(iso))}</b>: ${fmt(born.length)} born here, ${fmt(won.length)} won here`);
+  } else {
+    const fl = rs.filter(r => r[15]), ab = fl.filter(abroadRow);
+    const pairs = {}; ab.forEach(r => { const k = r[7] + ">" + r[10]; pairs[k] = (pairs[k] || 0) + 1; });
+    const tp = Object.entries(pairs).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    const dest = {}; ab.forEach(r => dest[r[10]] = (dest[r[10]] || 0) + 1);
+    h = `<h4>${esc(filtLabel())}</h4><div class="big">${fmt(rs.length)} prizes</div><p class="sub">${fl.length ? `${fmt(ab.length)} of ${fmt(fl.length)} with an affiliation (${(100 * ab.length / fl.length).toFixed(0)}%) went to people born in another country` : "No affiliations for these prizes: lines go to the country of residence."}</p>`;
+    if (tp.length) h += `<h4>Largest flows</h4><ol>` + tp.map(([k, n]) => { const [a, b] = k.split(">"); return `<li><span class="go" data-f="${k}">${esc(CN(a))} to ${esc(CN(b))}</span> <small>${n}</small></li>`; }).join("") + `</ol>`;
+    const td = Object.entries(dest).sort((a, b) => b[1] - a[1]).slice(0, 5);
+    if (td.length) h += `<h4>Where the born-abroad won</h4><p>${td.map(([i, n]) => `<span class="go" data-c="${esc(i)}">${esc(CN(i))}</span> ${n}`).join(", ")}</p>`;
+    h += `<p class="sub">Click a line or a dot for the laureate, a country for its gains and losses, or search a name.</p>`;
+    note("");
+  }
+  box.innerHTML = h;
+  const b = box.querySelector(".back"); if (b) b.onclick = () => { S.lau = null; S.inst = null; S.flow = null; LAUSEL = null; draw(); side(); };
+  box.querySelectorAll("[data-c]").forEach(e => e.onclick = () => pickCountry(e.dataset.c, true));
+  box.querySelectorAll("[data-l]").forEach(e => e.onclick = () => { const r = findLau(e.dataset.l); if (r) pickLaureate(r, true); });
+  box.querySelectorAll("[data-f]").forEach(e => e.onclick = () => { const [a, b] = e.dataset.f.split(">"); pickFlow(a, b); });
+}
+function toMap() { if (small()) document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "start" }); }
+const FIT = { USA: [[24, -125], [50, -66]], FRA: [[41.3, -5.2], [51.2, 9.6]], NOR: [[57.9, 4.5], [71.2, 31]], RUS: [[41, 27], [70, 140]], NLD: [[50.7, 3.3], [53.6, 7.3]], CHN: [[18, 73], [53.6, 135]], CAN: [[42, -140], [62, -52]], GBR: [[49.8, -8.5], [59, 2]], DNK: [[54.5, 8], [57.8, 12.8]] };
+function fitIso(iso) { const f = WORLD.features.find(x => x.properties.iso === iso); if (FIT[iso]) return map.fitBounds(FIT[iso]); if (f) return map.fitBounds(L.geoJSON(f).getBounds(), { padding: [10, 10], maxZoom: 7 }); const g = SITE.cpos[iso]; if (g) map.setView([g[1], g[0]], 6); }
+function clearSel() { S.sel = null; S.lau = null; S.inst = null; S.flow = null; LAUSEL = null; }
+function pickCountry(iso, move) { clearSel(); S.sel = iso; if (move) { fitIso(iso); toMap(); } draw(); side(); }
+function pickLaureate(r, move, at) {
+  clearSel(); S.lau = r; LAUSEL = r;
+  if (!keep(r)) { S.prizes.add(r[2]); document.querySelectorAll("#pRow [data-p]").forEach(x => x.setAttribute("aria-pressed", S.prizes.has(+x.dataset.p))); S.g = "all"; document.querySelectorAll("#gRow .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.g === "all")); S.ab = 0; document.querySelectorAll("#aRow .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.a === "0")); S.dec = null; setDec(null); S.lau = r; LAUSEL = r; }
+  const pts = [r[6], r[9]].filter(Boolean);
+  if (move && pts.length) { if (pts.length === 2 && (pts[0][0] !== pts[1][0] || pts[0][1] !== pts[1][1])) map.fitBounds(L.latLngBounds(pts.map(p => [p[1], p[0]])).pad(.25), { padding: [30, 30], maxZoom: 7, animate: false }); else map.setView([pts[0][1], pts[0][0]], 7, { animate: false }); toMap(); }
+  const ll = at || (r[9] ? L.latLng(r[9][1], r[9][0]) : L.latLng(r[6][1], r[6][0]));
+  L.popup({ maxWidth: 280 }).setLatLng(ll).setContent(popupHtml(r)).openOn(map);
+  draw(); side();
+}
+function pickFlow(a, b) { clearSel(); S.flow = [a, b]; draw(); side(); }
+function pickInst(x) { clearSel(); S.inst = x; LY.insts = true; saveLY(); if (window.syncLayers) syncLayers(); applyLayers(); if (x.pt) map.setView([x.pt[1], x.pt[0]], 9); toMap(); side(); }
+(function focusRow() {
+  const row = document.getElementById("focusRow");
+  const F = [["Europe", [[35, -12], [62, 35]]], ["North America", [[22, -128], [55, -60]]], ["Boston", [[42.1, -71.4], [42.6, -70.8]]], ["California", [[32.5, -123], [38.5, -116.5]]], ["Central Europe", [[45, 5], [55, 22]]], ["East Asia", [[20, 100], [46, 146]]], ["World", null]];
+  F.forEach(([n, b]) => { const x = document.createElement("button"); x.className = "btn"; x.textContent = n; x.onclick = () => { if (!b) { clearSel(); map.setView([38, 0], small() ? 1 : 2); draw(); side(); } else map.fitBounds(b); toMap(); }; row.appendChild(x); });
+})();
+
+/* ---------- search ---------- */
+(function search() {
+  const inp = document.getElementById("q"), sug = document.getElementById("sug"); let opts = [], k = -1;
+  const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  function build(q) {
+    const nq = norm(q); if (nq.length < 2) return [];
+    const out = [];
+    Object.keys(SITE.c).forEach(iso => { const n = CN(iso); if (norm(n).includes(nq)) out.push({ t: "c", n, iso, s: norm(n).startsWith(nq) ? 6 : 2 }); });
+    SITE.inst.forEach(x => { if (norm(x.name).includes(nq)) out.push({ t: "i", n: x.name, x, s: (norm(x.name).startsWith(nq) ? 3 : 1.5) + x.n / 20 }); });
+    if (P) P.forEach(r => { const nn = norm(r[1]); if (nn.includes(nq)) out.push({ t: "l", n: r[1], r, s: nn.startsWith(nq) || nn.includes(" " + nq) ? 4 : 1 }); });
+    return out.sort((a, b) => b.s - a.s).slice(0, 12);
+  }
+  const lab = o => o.t === "c" ? `${esc(o.n)} <span>country</span>` : o.t === "i" ? `${esc(o.n)} <span>institution, ${fmt(o.x.n)} prizes</span>` : `${esc(o.n)} <span>${PSHORT[o.r[2]]} ${o.r[3]}</span>`;
+  const show = () => { sug.innerHTML = opts.map((o, i) => `<li role="option" aria-selected="${i === k}" data-i="${i}">${lab(o)}</li>`).join(""); sug.style.display = opts.length ? "block" : "none"; };
+  const choose = o => { sug.style.display = "none"; inp.value = o.n; inp.blur(); if (o.t === "c") pickCountry(o.iso, true); else if (o.t === "i") pickInst(o.x); else pickLaureate(o.r, true); };
+  inp.addEventListener("input", () => { opts = build(inp.value); k = -1; show(); });
+  inp.addEventListener("keydown", e => { if (e.key === "ArrowDown") { k = Math.min(opts.length - 1, k + 1); show(); e.preventDefault(); } else if (e.key === "ArrowUp") { k = Math.max(0, k - 1); show(); e.preventDefault(); } else if (e.key === "Enter" && opts.length) { choose(opts[Math.max(0, k)]); } else if (e.key === "Escape") { sug.style.display = "none"; } });
+  sug.addEventListener("click", e => { const li = e.target.closest("li"); if (li) choose(opts[+li.dataset.i]); });
+  document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+})();
+map.on("zoomend moveend", () => { placeNames(); });
+
+/* ---------- charts ---------- */
+function hbars(box, rows_, opts) {
+  resp(box, (w, sm) => {
+    const maxLab = Math.max(...rows_.map(r => String(r.lab ?? r.v).length)), lw = sm ? Math.min(150, w * .44) : Math.min(260, w * .42), rh = 26, h = rows_.length * rh + 10, x0 = lw, x1 = w - 10 - maxLab * 7.4, max = opts.max || Math.max(...rows_.map(r => r.v)) || 1;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": opts.aria }, box);
+    rows_.forEach((r, i) => {
+      const y = 4 + i * rh, bw = Math.max(r.v > 0 ? 2 : 0, (x1 - x0) * r.v / max);
+      const cut = sm ? 20 : 34;
+      const t = lbl(svg, x0 - 8, y + 16, r.n.length > cut ? r.n.slice(0, cut - 1) + "." : r.n, "lab", "end");
+      const b = el("rect", { x: x0, y: y + 3, width: bw, height: rh - 9, fill: r.c, rx: 2 }, svg);
+      lbl(svg, x0 + bw + 6, y + 16, r.lab ?? fmt(r.v), "lab b");
+      [b, t].forEach(e => { if (r.tip) { e.addEventListener("mousemove", ev => showTip(r.tip, ev.clientX, ev.clientY)); e.addEventListener("mouseleave", hideTip); } if (r.click) { e.style.cursor = "pointer"; e.addEventListener("click", r.click); } });
+    });
+  });
+}
+function divbars(box, rows_, opts) {
+  resp(box, (w, sm) => {
+    const rh = 26, h = rows_.length * rh + 30, lw = sm ? 112 : 170, cap = opts.cap, x0 = lw + 30, x1 = w - (sm ? 88 : 120), mid = x0 + (x1 - x0) * cap / (2 * cap), sc = (x1 - x0) / (2 * cap);
+    const svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": opts.aria }, box);
+    el("line", { x1: mid, x2: mid, y1: 18, y2: h, stroke: css("--fg"), "stroke-width": 1 }, svg);
+    lbl(svg, w - 4, 11, sm ? "born / won" : "born / won there", "lab s m", "end");
+    rows_.forEach((r, i) => {
+      const y = 24 + i * rh, v = Math.max(-cap, Math.min(cap, r.v)), x = v >= 0 ? mid : mid + v * sc, bw = Math.abs(v) * sc;
+      const b = el("rect", { x, y: y + 3, width: Math.max(bw, 1.5), height: rh - 9, fill: r.v >= 0 ? "#2F5D8C" : "#A3202E", rx: 2 }, svg);
+      if (Math.abs(r.v) > cap) el("path", { d: `M${x + bw - 26} ${y + 20} l8 -16 m5 16 l8 -16`, stroke: css("--bg"), "stroke-width": 3 }, svg);
+      lbl(svg, lw, y + 16, r.n, "lab", "end");
+      if (Math.abs(r.v) > cap) lbl(svg, r.v >= 0 ? mid + bw - 34 : mid - bw + 34, y + 16, (r.v > 0 ? "+" : "") + r.v, "lab b", r.v >= 0 ? "end" : "start").style.fill = "#fff";
+      else lbl(svg, r.v >= 0 ? mid + bw + 6 : mid - bw - 6, y + 16, (r.v > 0 ? "+" : "") + r.v, "lab b", r.v >= 0 ? "start" : "end");
+      lbl(svg, w - 4, y + 16, `${r.b} / ${r.w}`, "lab s m", "end");
+      [b].forEach(e => { e.style.cursor = "pointer"; e.addEventListener("click", r.click); e.addEventListener("mousemove", ev => showTip(r.tip, ev.clientX, ev.clientY)); e.addEventListener("mouseleave", hideTip); });
+    });
+  });
+}
+function vbars(box, xs, series, opts) {
+  resp(box, (w, sm) => {
+    const h = opts.h || (sm ? 230 : 270), m = { l: opts.pct ? 40 : 28, r: 8, t: 16, b: 26 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": opts.aria }, box);
+    const bw = (w - m.l - m.r) / xs.length, Y = v => (h - m.t - m.b) * v / opts.max;
+    opts.ticks.forEach(v => { const y = h - m.b - Y(v); el("line", { x1: m.l, x2: w - m.r, y1: y, y2: y, stroke: css("--rule") }, svg); lbl(svg, m.l - 5, y + 4, v + (opts.pct ? "%" : ""), "lab s m", "end"); });
+    xs.forEach((d, i) => {
+      let y = h - m.b; const x = m.l + i * bw + 2;
+      series.forEach(s => { const v = s.v[i] || 0; if (!v) return; const hh = Y(v); y -= hh; const r = el("rect", { x, y, width: bw - 4, height: hh, fill: s.c(i) }, svg);
+        r.addEventListener("mousemove", ev => showTip(opts.tip(i), ev.clientX, ev.clientY)); r.addEventListener("mouseleave", hideTip); });
+      if (opts.top) { const t = opts.top(i); if (t) lbl(svg, x + bw / 2 - 2, y - 4, t, "lab s", "middle"); }
+      if (!sm || i % 2 === 0) lbl(svg, x + bw / 2 - 2, h - 8, sm ? "'" + String(d).slice(2) : d + "s", "lab s m", "middle");
+    });
+    if (opts.line) { const L_ = opts.line; const pts = L_.v.map((v, i) => v == null ? null : [m.l + i * bw + bw / 2, h - m.b - Y(v)]);
+      el("path", { d: "M" + pts.filter(Boolean).map(p => p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" L"), fill: "none", stroke: L_.c, "stroke-width": 2.2 }, svg);
+      pts.forEach((p, i) => { if (!p) return; const c = el("circle", { cx: p[0], cy: p[1], r: 3.4, fill: L_.c, stroke: css("--card"), "stroke-width": 1 }, svg); c.addEventListener("mousemove", ev => showTip(opts.tip(i), ev.clientX, ev.clientY)); c.addEventListener("mouseleave", hideTip); }); }
+  });
+}
+function lines(box, series, opts) {
+  resp(box, (w, sm) => {
+    const h = sm ? 240 : 290, m = { l: 44, r: sm ? 50 : 130, t: 12, b: 28 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": opts.aria }, box);
+    const xs = opts.xs, X = i => m.l + i / (xs.length - 1) * (w - m.l - m.r), mx = opts.max, Y = v => h - m.b - v / mx * (h - m.t - m.b);
+    for (let v = 0; v <= mx + 1e-9; v += opts.step) { el("line", { x1: m.l, x2: w - m.r, y1: Y(v), y2: Y(v), stroke: css("--rule") }, svg); lbl(svg, m.l - 6, Y(v) + 4, v + "%", "lab s m", "end"); }
+    xs.forEach((d, i) => { if (i % (sm ? 2 : 1) === 0) lbl(svg, X(i), h - 10, sm ? "'" + String(d).slice(2) : d + "s", "lab s m", "middle"); });
+    const ends = [];
+    series.forEach(s => {
+      const pts = s.v.map((v, i) => v == null ? null : [X(i), Y(v)]);
+      let d = "", pen = false; pts.forEach(p => { if (!p) { pen = false; return; } d += (pen ? " L" : " M") + p[0].toFixed(1) + " " + p[1].toFixed(1); pen = true; });
+      el("path", { d, fill: "none", stroke: s.c, "stroke-width": s.w || 2.4, "stroke-dasharray": s.dash || "", "stroke-linejoin": "round" }, svg);
+      s.v.forEach((v, i) => { if (v == null) return; const c = el("circle", { cx: X(i), cy: Y(v), r: 3.4, fill: s.c, stroke: css("--card"), "stroke-width": 1 }, svg);
+        c.addEventListener("mousemove", ev => showTip(`<b>${esc(s.n)}</b>, ${xs[i]}s<br>${v.toFixed(1)}%${s.tipx ? s.tipx(i) : ""}`, ev.clientX, ev.clientY)); c.addEventListener("mouseleave", hideTip); });
+      const last = pts.filter(Boolean).pop(); ends.push({ y: last[1], s });
+    });
+    ends.sort((a, b) => a.y - b.y); let prev = -99; ends.forEach(e => { const y = Math.max(e.y + 4, prev + 13); prev = y; lbl(svg, w - m.r + 6, y, sm ? e.s.short || e.s.n : e.s.n, "lab s").setAttribute("fill", e.s.c); });
+  });
+}
+function goMap(f) { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(f, 350); }
+function charts() {
+  // net gain and loss
+  const NET = R.countries.gain.slice(0, 5).concat(R.countries.loss.slice(0, 12).reverse()).sort((a, b) => b.net - a.net);
+  const netDraw = mode => { const box = document.getElementById("netChart"); box.innerHTML = "";
+    if (mode === "net") divbars(box, NET.map(c => ({ n: c.name, v: c.net, b: c.born, w: c.worked, tip: `<b>${esc(c.name)}</b><br>${fmt(c.born)} prizes to people born here, ${fmt(c.worked)} to people working here<br>left: ${fmt(c.left)}, arrived: ${fmt(c.arrived)}`, click: () => goMap(() => pickCountry(c.iso, true)) })), { cap: 22, aria: "Net gain or loss of laureates by country" });
+    else { const T = R.countries.top_worked.slice(0, 12); const rows_ = []; T.forEach(c => { rows_.push({ n: c.name + ", born", v: c.born, c: "#A3202E", lab: fmt(c.born) }); rows_.push({ n: c.name + ", won", v: c.worked, c: "#2F5D8C", lab: fmt(c.worked), click: () => goMap(() => pickCountry(c.iso, true)) }); }); hbars(box, rows_, { aria: "Laureates born in and winning in each country" }); } };
+  document.querySelectorAll("#netMode .btn").forEach(b => b.onclick = () => { document.querySelectorAll("#netMode .btn").forEach(x => x.setAttribute("aria-pressed", x === b)); netDraw(b.dataset.m); });
+  netDraw("net");
+  // US share
+  const B = R.abroad.by_dec;
+  vbars(document.getElementById("usShareChart"), DECS, [{ c: () => "#A3202E", v: B.map(b => b.us_share) }], { max: 80, pct: true, ticks: [0, 20, 40, 60, 80], aria: "Share of prizes won by people working in the United States by decade", top: i => B[i].us_share.toFixed(0) + "%", tip: i => `<b>${B[i].dec}s</b><br>${fmt(B[i].us_n)} of ${fmt(B[i].n)} prizes won in the US<br>${B[i].us_n ? fmt(B[i].us_abroad) + " of them by people born abroad" : ""}` });
+  // flows
+  hbars(document.getElementById("flowChart"), R.flows.top.slice(0, 12).map(f => ({ n: `${f.from_name} to ${f.to_name}`.replace(/United Kingdom/g, "UK").replace(/United States/g, "US"), v: f.n, c: f.to === "USA" ? "#A3202E" : "#2F5D8C",
+    tip: `<b>${esc(f.from_name)} to ${esc(f.to_name)}</b><br>${fmt(f.n)} prizes`, click: () => goMap(() => { setPrizes([0, 1, 2, 3]); map.setView([40, -20], small() ? 1 : 2); pickFlow(f.from, f.to); }) })), { aria: "Largest flows from birth country to country of the affiliation" });
+  // Germany
+  const G = R.germany.by_dec;
+  const deBox = document.getElementById("deChart");
+  const d1 = document.createElement("div"), d2 = document.createElement("div"); d1.className = d2.className = "chart"; deBox.appendChild(d1); deBox.appendChild(d2); d2.style.marginTop = "14px";
+  vbars(d1, DECS, [{ c: i => G[i].dec < 1940 ? "#A3202E" : "#B9AE9C", v: G.map(g => g.work_de_pct) }], { max: 40, pct: true, ticks: [0, 10, 20, 30, 40], aria: "Share of prizes won in Germany by decade", top: i => G[i].work_de_pct.toFixed(0) + "%", tip: i => `<b>${G[i].dec}s</b><br>${fmt(G[i].work_de)} of ${fmt(G[i].n)} prizes won by people working in Germany` });
+  vbars(d2, DECS, [{ c: () => "#8C8478", v: G.map(g => g.born_de_home) }, { c: () => "#2F5D8C", v: G.map(g => g.born_de_abroad) }], { max: 15, ticks: [0, 5, 10, 15], aria: "German-born laureates by where they won", tip: i => `<b>${G[i].dec}s</b><br>${fmt(G[i].born_de)} born in the German lands<br>${fmt(G[i].born_de_home)} won in Germany, ${fmt(G[i].born_de_abroad)} abroad` });
+  document.getElementById("deLegend").innerHTML = `<span><i style="background:#A3202E"></i>share won in Germany, to the 1930s</span><span><i style="background:#B9AE9C"></i>since</span><span><i style="background:#8C8478"></i>German-born, won in Germany</span><span><i style="background:#2F5D8C"></i>German-born, won abroad</span>`;
+  const t = document.getElementById("deTable");
+  t.innerHTML = `<thead><tr><th>Laureate</th><th>Born</th><th>Prize</th><th>Won at</th></tr></thead><tbody>` + R.germany.exiles.map(e => `<tr class="click" data-n="${esc(e.n)}" data-y="${e.y}"><td>${esc(e.n)}</td><td>${e.by}, ${esc(e.bp)}</td><td>${esc(e.cat)} ${e.y}</td><td>${esc(e.aff)}, ${esc(e.to)}</td></tr>`).join("") + `</tbody>`;
+  t.querySelectorAll("tr[data-n]").forEach(r => r.onclick = () => { if (!P) return; const x = P.find(p => p[1] === r.dataset.n && p[3] === +r.dataset.y); if (x) goMap(() => pickLaureate(x, true)); });
+  // Japan
+  const J = R.japan.by_dec;
+  const jh = DECS.map(d => R.japan.by_dec.find(j => j.dec === d)), jab = DECS.map(d => R.japan.abroad.filter(a => Math.floor(a.y / 10) * 10 === d).length);
+  vbars(document.getElementById("jpChart"), DECS, [{ c: () => "#C8961E", v: jh.map((j, i) => j.born - jab[i]) }, { c: () => "#A3202E", v: jab }], { max: 12, ticks: [0, 4, 8, 12], aria: "Japanese-born laureates by decade", top: i => jh[i].born ? String(jh[i].born) : "", tip: i => `<b>${DECS[i]}s</b><br>${fmt(jh[i].born)} born in Japan, ${fmt(jab[i])} of them won in the United States` });
+  document.getElementById("jpLegend").innerHTML = `<span><i style="background:#C8961E"></i>won in Japan</span><span><i style="background:#A3202E"></i>won in the United States</span>`;
+  // institutions
+  hbars(document.getElementById("uniChart"), R.institutions.top.slice(0, 20).map(x => ({ n: x.name, v: x.n, c: x.iso === "USA" ? "#A3202E" : x.iso === "GBR" ? "#2F5D8C" : "#C8961E",
+    tip: `<b>${esc(x.name)}</b><br>${esc(x.city)}<br>${fmt(x.n)} prizes, ${fmt(x.born_abroad)} to people born in another country (${x.born_abroad_pct == null ? "n/a" : x.born_abroad_pct.toFixed(0) + "%"})`,
+    click: () => { const s = SITE.inst.find(i => i.name === x.name); if (s) goMap(() => pickInst(s)); } })), { aria: "Prizes by institution" });
+  // born abroad by decade
+  lines(document.getElementById("abChart"), [{ n: "All four prizes", short: "All", c: css("--fg") || "#1D1B22", v: B.map(b => b.pct), tipx: k => `<br>${fmt(B[k].abroad)} of ${fmt(B[k].n)}` }, { n: "Won in the US", short: "US", c: "#A3202E", v: B.map(b => b.us_n >= 10 ? b.us_pct : null), tipx: k => `<br>${fmt(B[k].us_abroad)} of ${fmt(B[k].us_n)}` }], { xs: DECS, max: 60, step: 20, aria: "Share of laureates born abroad by decade" });
+  document.getElementById("abLegend").innerHTML = `<span><span class="ln" style="border-color:${css("--fg")}"></span>all four prizes</span><span><span class="ln" style="border-color:#A3202E"></span>prizes won in the United States</span>`;
+  // women
+  const Wd = R.women.by_dec;
+  vbars(document.getElementById("womenChart"), DECS, [{ c: () => "#7A4E9E", v: Wd.map(w => w.pct) }], { max: 25, pct: true, ticks: [0, 5, 10, 15, 20, 25], aria: "Women's share of Nobel prizes by decade", top: i => Wd[i].pct.toFixed(0) + "%", line: { c: css("--fg") || "#1D1B22", v: Wd.map(w => w.sci_pct) },
+    tip: i => `<b>${Wd[i].dec}s</b><br>all prizes: ${fmt(Wd[i].w)} women of ${fmt(Wd[i].n)}<br>science and economics: ${fmt(Wd[i].sci_w)} of ${fmt(Wd[i].sci_n)}<br>peace and literature: ${fmt(Wd[i].pl_w)} of ${fmt(Wd[i].pl_n)}` });
+  document.getElementById("womenLegend").innerHTML = `<span><i style="background:#7A4E9E"></i>all six prizes</span><span><span class="ln" style="border-color:${css("--fg")}"></span>physics, chemistry, medicine and economics</span>`;
+}
+
+/* ---------- start ---------- */
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; setTiles(); legend(); redraws.forEach(f => f()); draw(); };
+charts(); spark(); setTiles(); legend(); side(); placeNames();
+fetch("data/points.json").then(r => r.json()).then(j => { P = j.rows; update(); });
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

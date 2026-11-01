@@ -1,0 +1,57 @@
+iso3,country,continent,born_there,affiliated_there,net_gain,stayed,left,arrived,left_pct,arrived_pct,top_destinations,top_origins
+USA,United States,North America,271,402,131,267,4,135,1.48,33.58,United Kingdom 2; Denmark 1; Australia 1,United Kingdom 20; Canada 15; Germany 12; France 8; Japan 7
+CHE,Switzerland,Europe,15,24,9,12,3,12,20.0,50.0,France 1; Italy 1; United States 1,Germany 4; France 1; Italy 1; Croatia 1; United Kingdom 1
+GBR,United Kingdom,Europe,93,95,2,67,26,28,27.96,29.47,United States 20; Canada 4; Switzerland 1; Australia 1,India 3; Germany 3; Australia 3; Russia 2; New Zealand 2
+DNK,Denmark,Europe,8,9,1,8,0,1,0.0,11.11,,United States 1
+SWE,Sweden,Europe,17,18,1,14,3,4,17.65,22.22,Germany 1; United Kingdom 1; United States 1,France 1; Hungary 1; Germany 1; Finland 1
+ARG,Argentina,South America,2,2,0,1,1,1,50.0,50.0,United Kingdom 1,France 1
+DEU,Germany,Europe,74,74,0,49,25,25,33.78,33.78,United States 12; Switzerland 4; United Kingdom 3; Canada 2,Poland 9; Austria 4; Netherlands 3; Russia 2; France 1
+ISR,Israel,Asia,5,5,0,3,2,2,40.0,40.0,United States 2,Hungary 1; Germany 1
+PRT,Portugal,Europe,1,1,0,1,0,0,0.0,0.0,,
+TUN,Tunisia,Africa,1,1,0,0,1,1,100.0,100.0,United States 1,France 1
+DZA,Algeria,Africa,1,0,-1,0,1,0,100.0,,France 1,
+AZE,Azerbaijan,Asia,1,0,-1,0,1,0,100.0,,Russia 1,
+BEL,Belgium,Europe,6,5,-1,4,2,1,33.33,20.0,United States 1; France 1,Russia 1
+BIH,Bosnia and Herzegovina,Europe,1,0,-1,0,1,0,100.0,,Switzerland 1,
+BRA,Brazil,South America,1,0,-1,0,1,0,100.0,,United Kingdom 1,
+HRV,Croatia,Europe,1,0,-1,0,1,0,100.0,,Switzerland 1,
+CYP,Cyprus,Asia,1,0,-1,0,1,0,100.0,,United Kingdom 1,
+IDN,Indonesia,Asia,1,0,-1,0,1,0,100.0,,Netherlands 1,
+IRL,Ireland,Europe,2,1,-1,1,1,0,50.0,0.0,United States 1,
+JOR,Jordan,Asia,1,0,-1,0,1,0,100.0,,United States 1,
+LVA,Latvia,Europe,1,0,-1,0,1,0,100.0,,Germany 1,
+LBN,Lebanon,Asia,1,0,-1,0,1,0,100.0,,United States 1,
+MEX,Mexico,North America,1,0,-1,0,1,0,100.0,,United States 1,
+MAR,Morocco,Africa,1,0,-1,0,1,0,100.0,,France 1,
+LCA,Saint Lucia,North America,1,0,-1,0,1,0,100.0,,United States 1,
+SVK,Slovakia,Europe,1,0,-1,0,1,0,100.0,,Germany 1,
+SVN,Slovenia,Europe,1,0,-1,0,1,0,100.0,,Austria 1,
+KOR,South Korea,Asia,1,0,-1,0,1,0,100.0,,United States 1,
+ESP,Spain,Europe,2,1,-1,1,1,0,50.0,0.0,United States 1,
+TWN,Taiwan,Asia,1,0,-1,0,1,0,100.0,,United States 1,
+VEN,Venezuela,South America,1,0,-1,0,1,0,100.0,,United States 1,
+BLR,Belarus,Europe,2,0,-2,0,2,0,100.0,,United States 1; Russia 1,
+EGY,Egypt,Africa,2,0,-2,0,2,0,100.0,,United States 1; United Kingdom 1,
+FIN,Finland,Europe,3,1,-2,1,2,0,66.67,0.0,United States 1; Sweden 1,
+FRA,France,Europe,42,40,-2,29,13,11,30.95,27.5,United States 8; Switzerland 1; Sweden 1; Tunisia 1,Luxembourg 2; Poland 2; Switzerland 1; Algeria 1; Germany 1
+LTU,Lithuania,Europe,2,0,-2,0,2,0,100.0,,United Kingdom 1; United States 1,
+LUX,Luxembourg,Europe,2,0,-2,0,2,0,100.0,,France 2,
+PAK,Pakistan,Asia,2,0,-2,0,2,0,100.0,,Italy 1; United States 1,
+ROU,Romania,Europe,2,0,-2,0,2,0,100.0,,United States 1; Germany 1,
+TUR,Turkey,Asia,2,0,-2,0,2,0,100.0,,United States 2,
+CZE,Czech Republic,Europe,4,1,-3,1,3,0,75.0,0.0,United States 2; Germany 1,
+NZL,New Zealand,Oceania,3,0,-3,0,3,0,100.0,,United Kingdom 2; United States 1,
+NOR,Norway,Europe,8,5,-3,5,3,0,37.5,0.0,United States 3,
+UKR,Ukraine,Europe,3,0,-3,0,3,0,100.0,,United States 2; France 1,
+AUS,Australia,Oceania,9,5,-4,3,6,2,66.67,40.0,United Kingdom 3; United States 2; Russia 1,United States 1; United Kingdom 1
+ZAF,South Africa,Africa,4,0,-4,0,4,0,100.0,,United States 4,
+IND,India,Asia,6,1,-5,1,5,0,83.33,0.0,United Kingdom 3; United States 2,
+ITA,Italy,Europe,13,7,-6,5,8,2,61.54,28.57,United States 5; United Kingdom 2; Switzerland 1,Pakistan 1; Switzerland 1
+CHN,China,Asia,8,1,-7,1,7,0,87.5,0.0,United States 6; United Kingdom 1,
+JPN,Japan,Asia,27,20,-7,20,7,0,25.93,0.0,United States 7,
+AUT,Austria,Europe,15,7,-8,5,10,2,66.67,28.57,United States 4; Germany 4; France 1; United Kingdom 1,Slovenia 1; Germany 1
+HUN,Hungary,Europe,10,2,-8,2,8,0,80.0,0.0,United States 4; Israel 1; United Kingdom 1; Germany 1,
+NLD,Netherlands,Europe,18,10,-8,9,9,1,50.0,10.0,United States 4; Germany 3; United Kingdom 1; Switzerland 1,Indonesia 1
+RUS,Russia,Europe,20,12,-8,9,11,3,55.0,25.0,United States 5; United Kingdom 2; Germany 2; Belgium 1,Australia 1; Azerbaijan 1; Belarus 1
+CAN,Canada,North America,19,10,-9,4,15,6,78.95,60.0,United States 15,United Kingdom 4; Germany 2
+POL,Poland,Europe,19,0,-19,0,19,0,100.0,,Germany 9; United States 6; France 2; United Kingdom 1,
